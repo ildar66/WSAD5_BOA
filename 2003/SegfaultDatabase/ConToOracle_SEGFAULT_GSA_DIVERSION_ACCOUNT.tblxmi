@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697047875" name="DIVERSION_ACCOUNT" primaryKey="SQLReference_1060697047875">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047875" name="AGENCY_BILL_NBR" allowNull="false" constraints="SQLConstraint_1060697047875 SQLConstraint_1060697047876">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047875" characterSet="800" length="7">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047876" name="DIVERSION_ACCT_NBR" allowNull="false" constraints="SQLConstraint_1060697047877 SQLConstraint_1060697047878">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047875" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047877" name="DESCRIPTION" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047876" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047878" name="MCCG_TABLE_NAME" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047877" characterSet="800" length="10">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047875" name="XPKDIVERSION_ACCOUNT" members="RDBColumn_1060697047875 RDBColumn_1060697047876" constraint="SQLConstraint_1060697047879"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697046438" name="FKDIVERSION_ACCOUNT_ACCOUNT" members="RDBColumn_1060697047876" constraint="SQLConstraint_1060697047880">
+    <target href="ConToOracle_SEGFAULT_GSA_ACCOUNT.tblxmi#SQLReference_1060697046391"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047391" name="MAY_DIVERT_TO" members="RDBColumn_1060697047875" constraint="SQLConstraint_1060697047881">
+    <target href="ConToOracle_SEGFAULT_GSA_BILLING_AGENCY.tblxmi#SQLReference_1060697046453"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697047879" name="XPKDIVERSION_ACCOUNT" type="PRIMARYKEY" primaryKey="SQLReference_1060697047875"/>
+  <constraints xmi:id="SQLConstraint_1060697047875" name="SYS_C006528" type="CHECK" members="RDBColumn_1060697047875">
+    <body>"AGENCY_BILL_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047877" name="SYS_C006529" type="CHECK" members="RDBColumn_1060697047876">
+    <body>"DIVERSION_ACCT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047876" name="SYS_C002779" type="CHECK" members="RDBColumn_1060697047875">
+    <body>"AGENCY_BILL_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047878" name="SYS_C002780" type="CHECK" members="RDBColumn_1060697047876">
+    <body>"DIVERSION_ACCT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047880" name="FKDIVERSION_ACCOUNT_ACCOUNT" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697046438"/>
+  <constraints xmi:id="SQLConstraint_1060697047881" name="MAY_DIVERT_TO" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047391"/>
+</RDBSchema:RDBTable>

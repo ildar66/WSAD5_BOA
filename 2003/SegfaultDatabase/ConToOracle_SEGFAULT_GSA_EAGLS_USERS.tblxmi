@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697047891" name="EAGLS_USERS" primaryKey="SQLReference_1060697047906">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047906" name="USER_ROLE_ID" allowNull="false" constraints="SQLConstraint_1060697047906 SQLConstraint_1060697047907">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047906" precision="12" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047907" name="USER_ROLE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047906" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047908" name="USERID" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047907" characterSet="800" length="12">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047909" name="HIERARCHY_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047907" precision="8" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047910" name="PROG_TYPE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047908" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047911" name="ACCOUNT_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047908" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047912" name="DEFAULT_ROLE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047909" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047913" name="DEFAULT_ATTRIBUTE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047910" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047914" name="STATUS" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047911" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047906" name="XPKEAGLS_USERS" members="RDBColumn_1060697047906" constraint="SQLConstraint_1060697047908"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697046438" name="R_135" members="RDBColumn_1060697047911" constraint="SQLConstraint_1060697047909">
+    <target href="ConToOracle_SEGFAULT_GSA_ACCOUNT.tblxmi#SQLReference_1060697046391"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047000" name="R_149" members="RDBColumn_1060697047909" constraint="SQLConstraint_1060697047910">
+    <target href="ConToOracle_SEGFAULT_GSA_AGENCY_HL.tblxmi#SQLReference_1060697046453"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047906" name="R_132" members="RDBColumn_1060697047908" constraint="SQLConstraint_1060697047911">
+    <target href="ConToOracle_SEGFAULT_GSA_USER_PROFILE.tblxmi#SQLReference_1060697047906"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047907" name="R_134" members="RDBColumn_1060697047907" constraint="SQLConstraint_1060697047912">
+    <target href="ConToOracle_SEGFAULT_GSA_VALID_ROLES.tblxmi#SQLReference_1060697047094"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697047908" name="XPKEAGLS_USERS" type="PRIMARYKEY" primaryKey="SQLReference_1060697047906"/>
+  <constraints xmi:id="SQLConstraint_1060697047906" name="SYS_C006541" type="CHECK" members="RDBColumn_1060697047906">
+    <body>"USER_ROLE_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047907" name="SYS_C002787" type="CHECK" members="RDBColumn_1060697047906">
+    <body>"USER_ROLE_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047909" name="R_135" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697046438"/>
+  <constraints xmi:id="SQLConstraint_1060697047910" name="R_149" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047000"/>
+  <constraints xmi:id="SQLConstraint_1060697047911" name="R_132" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047906"/>
+  <constraints xmi:id="SQLConstraint_1060697047912" name="R_134" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047907"/>
+</RDBSchema:RDBTable>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697044781" name="EAGLS_DEFAULTS">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697044781" name="INITIAL_PASSWORD" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697044781" characterSet="800" length="40">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697044782" name="RESET_PASSWORD" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697044782" characterSet="800" length="40">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+</RDBSchema:RDBTable>

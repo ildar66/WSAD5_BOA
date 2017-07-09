@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697046453" name="ACCOUNT_ACTIVATION" primaryKey="SQLReference_1060697046453">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046453" name="ACCOUNT_NBR" allowNull="false" constraints="SQLConstraint_1060697046453 SQLConstraint_1060697046454">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046453" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046454" name="TIMESTAMP" allowNull="false" constraints="SQLConstraint_1060697046455 SQLConstraint_1060697046456">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697046453" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046455" name="ACTIVATE_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697046454" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046456" name="DEACTIVATE_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697046455" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046457" name="REQUESTOR_USERID" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046453" characterSet="800" length="12">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697046453" name="XPKACCOUNT_ACTIVATION" members="RDBColumn_1060697046453 RDBColumn_1060697046454" constraint="SQLConstraint_1060697046457"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697046438" name="R_216" members="RDBColumn_1060697046453" constraint="SQLConstraint_1060697046458">
+    <target href="ConToOracle_SEGFAULT_GSA_ACCOUNT.tblxmi#SQLReference_1060697046391"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697046457" name="XPKACCOUNT_ACTIVATION" type="PRIMARYKEY" primaryKey="SQLReference_1060697046453"/>
+  <constraints xmi:id="SQLConstraint_1060697046453" name="SYS_C006171" type="CHECK" members="RDBColumn_1060697046453">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046455" name="SYS_C006172" type="CHECK" members="RDBColumn_1060697046454">
+    <body>"TIMESTAMP" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046454" name="SYS_C002647" type="CHECK" members="RDBColumn_1060697046453">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046456" name="SYS_C002648" type="CHECK" members="RDBColumn_1060697046454">
+    <body>"TIMESTAMP" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046458" name="R_216" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697046438"/>
+</RDBSchema:RDBTable>

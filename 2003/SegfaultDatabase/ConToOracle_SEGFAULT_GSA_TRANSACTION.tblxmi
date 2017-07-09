@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049625" name="TRANSACTION" primaryKey="SQLReference_1060697047359">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049641" name="ACCOUNT_NBR" allowNull="false" constraints="SQLConstraint_1060697049641 SQLConstraint_1060697049642">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049641" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049642" name="TRANS_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697049641" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049643" name="POSTING_DATE" allowNull="false" constraints="SQLConstraint_1060697049643 SQLConstraint_1060697049644">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697049642" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049644" name="TRANSACTION_ID" allowNull="false" constraints="SQLConstraint_1060697049645 SQLConstraint_1060697049646">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049642" precision="15" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049645" name="POSTING_TIME" allowNull="true" constraints="SQLConstraint_1060697049647 SQLConstraint_1060697049648">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049641" characterSet="800" length="7">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049646" name="MERCH_ACCEPTOR_ID" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049642" characterSet="800" length="15">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049647" name="JULIAN" allowNull="true" constraints="SQLConstraint_1060697049649 SQLConstraint_1060697049650">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049643" characterSet="800" length="4">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049648" name="STATEMENT_BEGIN" allowNull="true" constraints="SQLConstraint_1060697049651 SQLConstraint_1060697049652">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049644" characterSet="800" length="8">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049649" name="MCC_CODE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049643" precision="4" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049650" name="MERCH_DESCRIPTION" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049645" characterSet="800" length="25">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049651" name="MERCH_CITY" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049646" characterSet="800" length="13">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049652" name="MERCH_STATE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049647" characterSet="800" length="3">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049653" name="MERCH_ZIP" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049648" characterSet="800" length="13">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049654" name="MERCH_ICA_CODE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049649" characterSet="800" length="4">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049655" name="MERCH_TAX_ID" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049650" characterSet="800" length="15">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049656" name="MERCH_COUNTRY_CODE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049651" characterSet="800" length="3">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049657" name="SOURCE_CURR_CODE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049644" precision="3" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049658" name="BILL_CURR_CODE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049645" precision="3" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049659" name="SOURCE_AMT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049646" precision="18" scale="4">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049660" name="BILL_TRANS_AMT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049647" precision="18" scale="4">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049661" name="CONVERSION_RATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049648" precision="17" scale="9">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049662" name="DB_CR_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049652" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049663" name="MEMO_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049653" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049664" name="MOTO_IND" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049654" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049665" name="ELECT_COMMERCE_IND" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049655" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049666" name="REF_NBR" allowNull="true" constraints="SQLConstraint_1060697049653 SQLConstraint_1060697049654">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049656" characterSet="800" length="23">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049667" name="PURCHASE_ID" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049657" characterSet="800" length="25">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049668" name="PURCH_ID_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049658" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049669" name="TICKET_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049659" characterSet="800" length="15">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049670" name="INTERN_TRANS_CODE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049649" precision="4" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049671" name="TRANS_TYPE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049660" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049672" name="STATUS_1099" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049661" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049673" name="MINOR_STATUS_1057" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049662" characterSet="800" length="4">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049674" name="MERCHANT_DUNS" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049663" characterSet="800" length="15">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049675" name="NBR_ADDEN_RECS" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049650" precision="4" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049676" name="MASTER_ACCOUNT_CODE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049664" characterSet="800" length="64">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049677" name="STATUS" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049665" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049678" name="SALES_DRAFT_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049666" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049679" name="AAS_STATUS" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049667" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049680" name="ALLOC_STATUS" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049668" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049681" name="TCAT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049656" precision="4" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049682" name="CORP_ACCOUNT_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049657" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049683" name="DIVERSION_ACCOUNT_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049658" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049684" name="MERCH_DESCRIPTION_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049669" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049685" name="MERCHANT_ALC" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049670" characterSet="800" length="8">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049686" name="ORIGINAL_ACCOUNT_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049659" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049687" name="FORCE_POST_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049671" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049688" name="MATCH_DEBIT_CREDIT_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049672" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049689" name="TRANSFER_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049673" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049690" name="EAGLS_TRANSACTION_TYPE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049674" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049691" name="TRANSLATE_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049675" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049692" name="CHECKAGE_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049676" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049693" name="REVERSAL_IND" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049677" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049694" name="DISPUTE_TRACKING_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049660" precision="6" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049695" name="ACCOUNTING_CENTER_ID" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049661" precision="12" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049696" name="MERCH_LOCATION_PHONE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049678" characterSet="800" length="17">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049697" name="MERCH_LOCATION_ZIP" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049679" characterSet="800" length="11">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049698" name="MERCH_SERVICE_ID" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049680" characterSet="800" length="10">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049699" name="MERCH_STREET_ADDRESS" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049681" characterSet="800" length="25">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049700" name="MERCH_SOLE_PROPRIETORS_NAME" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049682" characterSet="800" length="25">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049701" name="LEGAL_CORP_NAME" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049683" characterSet="800" length="25">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049702" name="ORIG_HIERARCHY_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049662" precision="8" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049703" name="ORIG_AGENCY_BILL_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049684" characterSet="800" length="7">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049704" name="TRAN_CODE_QUALIFIER" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049685" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049705" name="CUST_REF_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049686" characterSet="800" length="25">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047359" name="XPKTRANSACTION" members="RDBColumn_1060697049641 RDBColumn_1060697049643 RDBColumn_1060697049644" constraint="SQLConstraint_1060697049656">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_CALLING_CARD.tblxmi#RDBReferenceByKey_1060697047359"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_CAR_RENTAL.tblxmi#RDBReferenceByKey_1060697047469"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_COST_ALLOCATION.tblxmi#RDBReferenceByKey_1060697047609"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_DBO_TRANSFER_TRANS_QUEUE.tblxmi#RDBReferenceByKey_1060697047703"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_DISPUTES.tblxmi#RDBReferenceByKey_1060697047781"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_FLEET_ADDENDUM_HEADER.tblxmi#RDBReferenceByKey_1060697048062"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_LODGING.tblxmi#RDBReferenceByKey_1060697048281"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_MATCH_DEBIT_CREDIT_ALLOC.tblxmi#RDBReferenceByKey_1060697048453"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_PURCHASE_HEADER.tblxmi#RDBReferenceByKey_1060697049031"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_TRANSACTION_SENT.tblxmi#RDBReferenceByKey_1060697049656"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_TRVL_HEADER_AREA.tblxmi#RDBReferenceByKey_1060697049656"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697049656" name="XPKTRANSACTION" type="PRIMARYKEY" primaryKey="SQLReference_1060697047359"/>
+  <constraints xmi:id="SQLConstraint_1060697049641" name="SYS_C006935" type="CHECK" members="RDBColumn_1060697049641">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049643" name="SYS_C006936" type="CHECK" members="RDBColumn_1060697049643">
+    <body>"POSTING_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049645" name="SYS_C006937" type="CHECK" members="RDBColumn_1060697049644">
+    <body>"TRANSACTION_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049647" name="SYS_C006938" type="CHECK" members="RDBColumn_1060697049645">
+    <body>"POSTING_TIME" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049649" name="SYS_C006939" type="CHECK" members="RDBColumn_1060697049647">
+    <body>"JULIAN" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049651" name="SYS_C006940" type="CHECK" members="RDBColumn_1060697049648">
+    <body>"STATEMENT_BEGIN" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049653" name="SYS_C006941" type="CHECK" members="RDBColumn_1060697049666">
+    <body>"REF_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049642" name="SYS_C002970" type="CHECK" members="RDBColumn_1060697049641">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049644" name="SYS_C002971" type="CHECK" members="RDBColumn_1060697049643">
+    <body>"POSTING_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049646" name="SYS_C002972" type="CHECK" members="RDBColumn_1060697049644">
+    <body>"TRANSACTION_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049648" name="SYS_C002973" type="CHECK" members="RDBColumn_1060697049645">
+    <body>"POSTING_TIME" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049650" name="SYS_C002974" type="CHECK" members="RDBColumn_1060697049647">
+    <body>"JULIAN" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049652" name="SYS_C002975" type="CHECK" members="RDBColumn_1060697049648">
+    <body>"STATEMENT_BEGIN" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049654" name="SYS_C002976" type="CHECK" members="RDBColumn_1060697049666">
+    <body>"REF_NBR" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697048188" name="INTERFACE_FILE_CODES" primaryKey="SQLReference_1060697048188">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048188" name="ASL_CODE" allowNull="false" constraints="SQLConstraint_1060697048188 SQLConstraint_1060697048189">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048188" characterSet="800" length="2">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048189" name="ERROR_TYPE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048189" characterSet="800" length="4">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048190" name="ERROR_DESCRIPTION" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048190" characterSet="800" length="100">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048191" name="SEVERITY" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048191" characterSet="800" length="3">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048192" name="ACTIONS" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048192" characterSet="800" length="100">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697048188" name="XPKINTERFACE_FILE_CODES" members="RDBColumn_1060697048188" constraint="SQLConstraint_1060697048190">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_INTERFACE_ASL_STATUS.tblxmi#RDBReferenceByKey_1060697048188"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697048190" name="XPKINTERFACE_FILE_CODES" type="PRIMARYKEY" primaryKey="SQLReference_1060697048188"/>
+  <constraints xmi:id="SQLConstraint_1060697048188" name="SYS_C006669" type="CHECK" members="RDBColumn_1060697048188">
+    <body>"ASL_CODE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048189" name="SYS_C002848" type="CHECK" members="RDBColumn_1060697048188">
+    <body>"ASL_CODE" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

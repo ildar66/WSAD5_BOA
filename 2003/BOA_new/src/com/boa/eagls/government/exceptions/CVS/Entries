@@ -1,0 +1,23 @@
+/AccessDeniedException.java/1.1/Thu Jun 26 09:31:33 2003//
+/DBException.java/1.1/Thu Jun 26 09:31:33 2003//
+/DataConnException.java/1.1/Thu Jun 26 09:31:33 2003//
+/EAGLSException.java/1.1/Thu Jun 26 09:31:33 2003//
+/Errors.java/1.1/Thu Jun 26 09:31:33 2003//
+/HierarchyNotValidException.java/1.1/Thu Jun 26 09:31:33 2003//
+/InvalidAccountException.java/1.1/Thu Jun 26 09:31:33 2003//
+/LargeResultSetException.java/1.1/Thu Jun 26 09:31:33 2003//
+/LoginFailedException.java/1.1/Thu Jun 26 09:31:33 2003//
+/MaxPasswordAttemptsReachedException.java/1.1/Thu Jun 26 09:31:33 2003//
+/Messages.java/1.2/Thu Jul  3 07:12:17 2003//
+/NBError.java/1.1/Thu Jun 26 09:31:33 2003//
+/NBException.java/1.1/Thu Jun 26 09:31:39 2003//
+/NBInformation.java/1.1/Thu Jun 26 09:31:39 2003//
+/NBRuntimeError.java/1.1/Thu Jun 26 09:31:39 2003//
+/NBWarning.java/1.1/Thu Jun 26 09:31:39 2003//
+/SearchCriteriaNotDefined.java/1.1/Thu Jun 26 09:31:40 2003//
+/UserAlreadyExistException.java/1.1/Thu Jun 26 09:31:40 2003//
+D/application////
+D/system////
+/NoDataFoundException.java/1.2/Tue Jul 22 06:07:22 2003//
+/InvalidAccountingCodeError.java/1.1/Wed Jul 23 07:44:42 2003//
+/SegmentError.java/1.1/Wed Jul 23 07:44:48 2003//

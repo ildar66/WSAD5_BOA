@@ -1,0 +1,267 @@
+
+<HTML>
+<HEAD>
+
+<TITLE>MCCG Controls SetUp: Verification</TITLE>
+
+<META NAME="Name" CONTENT="Authoriaation Controls - MCCG Controls Verification Screen">
+<META NAME="Description" CONTENT="MCCG Controls Verification for Review Process">
+<META NAME="Author" CONTENT="Todd Bernard">
+<META NAME="Created" CONTENT="07/22/1998">
+<META NAME="Revised" CONTENT="09/24/1998 Edited -BB">
+<SCRIPT LANGUAGE="JavaScript" SRC="/gsa/scripts/setstyle.js"></SCRIPT>
+
+</HEAD>
+
+<!---------------------------------------------------------------------------------->
+
+<BODY>
+
+<FORM NAME  ="frm_verifMccgControls"
+      ACTION="/cgi-bin/gx.cgi/GUIDGX-{6c687646-1766-11d2-92cc-0000f6aacd5a}"
+      METHOD="POST"
+      TARGET="content"
+
+<GX type=include id="/gsa/common/header_systemDefault.html">Insert System Default Header Here</GX>
+
+<!---------------------------------------------------------------------------------->
+
+<TABLE BORDER="0">
+    <TR>
+      <TD WIDTH="575" ALIGN="Center">
+        Please verify that the MCCG Controls for<BR>
+        <B><GX type=replace id=accountInfo.verifMccgName
+        value=theVerifMccgName>verifMccgName</GX></B><BR>
+        are correct.
+      </TD>
+    </TR>
+</TABLE>
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Account Information</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TH WIDTH="231" ALIGN="left" >
+        Account Name
+      </TH>
+      <TD WIDTH="352">
+        <GX type=replace id=accountInfo.accountName value=theAccountName>theAccountName</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >
+        Account Number
+      </TH>
+      <TD>
+        <GX type=replace id=accountInfo.accountNumber value=theAccountNumber>theAccountNumber</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >
+        Agency Name
+      </TH>
+      <TD>
+        <GX type=replace id=accountInfo.agencyName value=theAgencyName>theAgencyName</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >
+        Central Account ID
+      </TH>
+      <TD>
+        <GX type=replace id=accountInfo.centralId value=theCentralId>theCentralId</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >
+        MCCG Table Name
+      </TH>
+      <TD>
+        <GX type=replace id=accountInfo.mccgTableName value=theMccgTableName>theMccgTableName</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >
+        MCCG Action
+      </TH>
+      <TD>
+        <GX type=replace id=accountInfo.mccgAction value=theMccgAction>theMccgAction</GX>&nbsp;
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!--------------------------------------------------------------->
+
+<BR><IMG SRC="/gsa/images/line.gif" WIDTH="575"><BR><BR>
+
+<!--------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, Helvetica">MCCG Transaction Limit</B></FONT><BR>
+
+<TABLE BORDER="1">
+    <TR>
+      <TD WIDTH="213"><B>Single Purchase Limit</B></TD>
+      <TD WIDTH="352">
+        <GX type=replace id=accountTransLimit.singleLimit value=singleLimit>singleLimit</GX>&nbsp;
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!--- For code below...set up in table frmt broken by 4 segments as.. DAILY     CYCLK -->
+<!--- Each section contains row data spread across columns.           MONTHLY   OTHER -->
+
+<TABLE BORDER="1">
+    <TR
+      <TH>
+      </TH>
+      <TH COLSPAN="2" ALIGN="left" >
+        Daily
+      </TH>
+      <TH COLSPAN="2" ALIGN="left" >
+        Cycle
+      </TH>
+    </TR>
+    <TR>  <!The 1st and 3rd line reference "dailyTransLimit" and "cycleTransLimit">
+      <TD WIDTH="141"><B>Transaction Limit</B></TD>
+      <TD WIDTH="140" ALIGN="Right">
+        <GX type=replace id=accountTransLimit.dailyTransLimit
+      value=theDailyTransLimit>theDailyTransLimit</GX>&nbsp;
+      </TD>
+      <TD WIDTH="140"><B>Transaction Limit</B></TD>
+      <TD WIDTH="140" ALIGN="Right">
+        <GX type=replace id=accountTransLimit.cycleTransLimit
+      value=theCycleTransLimit>theCycleTransLimit</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>  <!The 1st and 3rd line reference "dailyAmountLimit" and "cycleAmountLimit">
+      <TD><B>Amount Limit</B></TD>
+      <TD ALIGN="Right">
+        <GX type=replace id=accountTransLimit.dailyAmountLimit
+      value=theDailyAmountLimit>theDailyAmountLimit</GX>&nbsp;
+      </TD>
+      <TD><B>Amount Limit</B></TD>
+      <TD ALIGN="Right">
+        <GX type=replace id=accountTransLimit.cycleAmountLimit
+      value=theCycleAmountLimit>theCycleAmountLimit</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR
+      <TH>
+      </TH>
+      <TH COLSPAN="2" ALIGN="left" >
+        Monthly
+      </TH>
+      <TH COLSPAN="2" ALIGN="left" >
+        Other
+      </TH>
+    </TR>
+    <TR>  <!The 1st and 3rd line reference "monthTransLimit" and "otherTransLimit">
+      <TD><B>Transaction Limit</B></TD>
+      <TD ALIGN="Right">
+        <GX type=replace id=accountTransLimit.monthTransLimit
+      value=theMonthTransLimit>theMonthTransLimit</GX>&nbsp;
+      </TD>
+      <TD><B>Transaction Limit</B></TD>
+      <TD ALIGN="Right">
+        <GX type=replace id=accountTransLimit.otherTransLimit
+      value=theOtherTransLimit>theOtherTransLimit</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>  <!The 1st and 3rd line reference "monthAmountLimit" and "otherAmountLimit">
+      <TD><B>Amount Limit</B></TD>
+      <TD ALIGN="Right">
+        <GX type=replace id=accountTransLimit.monthAmountLimit
+      value=theMonthAmountLimit>theMonthAmountLimit</GX>&nbsp;
+      </TD>
+      <TD><B>Amount Limit</B></TD>
+      <TD ALIGN="Right">
+        <GX type=replace id=accountTransLimit.otherAmountLimit
+      value=theOtherAmountLimit>theOtherAmountLimit</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>  <!The 3rd line references "otherTotalNumberDay">
+      <TD><BR></TD>
+      <TD><BR></TD>
+      <TD><B>Total No. of Days</B></TD>
+      <TD>
+        <GX type=replace id=accountTransLimit.otherTotalNumberDays
+      value=theOtherTotalNumberDays>theOtherTotalNumberDays</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>  <!The 3rd line references "otherRefreshDate">
+      <TD><BR></TD>
+      <TD><BR></TD>
+      <TD><B>Refresh Date</B></TD>
+      <TD>
+        <GX type=replace id=accountTransLimit.otherRefreshDate
+      value=theOtherRefreshDate>theOtherRefreshDate</GX>&nbsp;
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!--------------------------------------------------------------->
+
+<BR><IMG SRC="/gsa/images/line.gif" WIDTH="575"><BR><BR>
+
+<!--------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Vendor Information</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TD WIDTH="213"><B>Vendor Check</B></TD>
+      <TD WIDTH="352">
+        <GX type=replace id=vendorInfo.vendorCheck
+      value="theVendorCheck">theVendorCheck</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TD><B>Vendor Type</B></TD>
+      <TD>
+        <GX type=replace id=vendorInfo.vendorType
+      value="theVendorType">theVendorType</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TD><B>Vendor Action</B></TD>
+      <TD>
+        <GX type=replace id=vendorInfo.vendorAction
+      value="theVendorAction">theVendorAction</GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TD><B>Valid Preferred Tables</B></TD>
+      <TD>
+        <GX type=replace id=vendorInfo.validPreferredTables
+      value="theValidPreferredTables">theValidPreferredTables</GX>&nbsp;
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<GX type=include id="/gsa/setup/authorization_controls/hidden_authcontrol2.html"></GX>
+
+<!------------------------------------------------------------------------>
+
+<TABLE>
+    <TR>
+      <TD WIDTH="575" ALIGN="Center">
+        <INPUT TYPE="Submit" NAME="but_submitButton"
+               VALUE="&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;">&nbsp;&nbsp;
+
+        <INPUT TYPE="Button" NAME="but_cancelButton" VALUE="Cancel"
+               onclick="history.go(-1)">
+      </TD>
+    </TR>
+</TABLE>
+
+<!------------------------------------------------------------------------>
+
+<GX type=include id="/gsa/common/footer_systemDefault.html">Insert Footer Here</GX>
+
+</FORM>
+</BODY>
+</HTML>

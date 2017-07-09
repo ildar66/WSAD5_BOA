@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697047594" name="CITIES" primaryKey="SQLReference_1060697047594">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047594" name="ID_CITY" allowNull="false" constraints="SQLConstraint_1060697047594">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047594" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047595" name="NAME_CITY" allowNull="false" constraints="SQLConstraint_1060697047595">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047594" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047594" name="SYS_C007281" members="RDBColumn_1060697047594" constraint="SQLConstraint_1060697047596">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_FLIGHTS.tblxmi#RDBReferenceByKey_1060697047594"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_FLIGHTS.tblxmi#RDBReferenceByKey_1060697047595"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697047596" name="SYS_C007281" type="PRIMARYKEY" primaryKey="SQLReference_1060697047594"/>
+  <constraints xmi:id="SQLConstraint_1060697047594" name="SYS_C007279" type="CHECK" members="RDBColumn_1060697047594">
+    <body>"ID_CITY" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047595" name="SYS_C007280" type="CHECK" members="RDBColumn_1060697047595">
+    <body>"NAME_CITY" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

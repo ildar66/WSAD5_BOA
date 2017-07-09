@@ -1,0 +1,973 @@
+/**
+ * AccountDAO
+ */
+package com.boa.eagls.government.dao;
+
+import com.boa.eagls.government.controller.formbean.account.ViewAccountForm;
+import com.boa.eagls.government.dto.CentralOffice;
+import com.boa.eagls.government.dto.HierarchyDTO;
+import com.boa.eagls.government.dto.NameDescTable;
+import com.boa.eagls.government.dto.account.Account;
+import com.boa.eagls.government.dto.account.CentralAccount;
+import com.boa.eagls.government.dto.agency.AgencyCore;
+import com.boa.eagls.government.dto.hierarchy.BrowseHierarchyFields;
+import com.boa.eagls.government.dto.user.UserAccountDTO;
+import com.boa.eagls.government.exceptions.*;
+import com.boa.eagls.government.exceptions.system.EaglsDAOError;
+import com.boa.eagls.government.service.AccountService;
+import com.boa.eagls.government.service.Service;
+import com.boa.eagls.government.service.HierarchyBase;
+import com.boa.eagls.government.service.userprofile.UserAccountService;
+import com.boa.eagls.government.sql.constants.AccountConstants;
+import com.boa.eagls.government.util.*;
+import com.boa.eagls.government.constants.service.Role;
+import org.apache.log4j.Logger;
+
+import javax.servlet.http.HttpServletRequest;
+import java.sql.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ArrayList;
+
+/**
+ * A class that provide all database related function for Account management .
+ * @version 1.0
+ */
+public class AccountDAO extends DAOBase {
+
+	private static Logger logger = Logger.getLogger(AccountDAO.class);
+
+	public final static String EMPTY_STRING = " ";
+
+	public final static String VALIDATE_CENTRAL_ACCOUNT_ID =
+		"{call STANDARD_OBJECTS_2.VALIDATE_CENTRAL_ACCOUNT_ID(" + "?," +
+		//p_userid IN
+		"?," + // p_CentralAccountID IN
+	"?)}"; //result OUT
+
+	/**
+	 * Creates new AccountDAO
+	 * @param java.sql.Connection A connection object, which will be used to
+	 * execute database in AccountDAO
+	 * @exception $none
+	 * @pre $none
+	 * @post $none
+	 */
+	public AccountDAO(java.sql.Connection connection) {
+		setConnection(connection);
+	}
+
+	/**
+	 * Returns a CentralAcctCore obj given a central AcctID
+	 * @param   centralAcctID
+	 * @return  CentralAcctCore
+	 **/
+	public CentralAccount retrieveCentralAcctByCentralAcctID(
+		Connection conn,
+		int centralAcctID,
+		AgencyCore agency,
+		String userId,
+		String currentBaseRole,
+		HierarchyDTO[] currentHierarchy,
+		String lastName,
+		String firstName,
+		String socialSecurityNumber,
+		HierarchyDTO[] hier,
+		HierarchyDisplay hDisplay)
+		throws SQLException, EaglsDAOError {
+		//        transport.logDebug("retrieveCentralAcctByCentralAcctID", "entered method");
+
+		CallableStatement cs = null;
+		CentralAccount newCentralAcct = new ViewAccountForm();
+		try {
+			cs = conn.prepareCall(GET_CENTRAL_ID_INFO);
+			cs.setString(QUERY_iUserId, userId);
+			cs.setInt(QUERY_iCentralAccountId, centralAcctID);
+
+			cs.registerOutParameter(QUERY_oCentralAccountName, Types.VARCHAR);
+			cs.registerOutParameter(QUERY_oCentralAccountNumber, Types.VARCHAR);
+			cs.registerOutParameter(QUERY_oConvenienceChecks, Types.VARCHAR);
+			cs.registerOutParameter(QUERY_oTravelerChecks, Types.VARCHAR);
+			cs.registerOutParameter(QUERY_oBillingType, Types.VARCHAR);
+			cs.registerOutParameter(QUERY_oAtmAccess, Types.VARCHAR);
+			cs.registerOutParameter(QUERY_oDecrementingCard, Types.VARCHAR);
+			cs.registerOutParameter(QUERY_oProgramType, Types.VARCHAR);
+			cs.registerOutParameter(QUERY_oAccountingCenterID, Types.VARCHAR);
+			cs.registerOutParameter(QUERY_oResult, Types.VARCHAR);
+
+			cs.execute();
+
+			//        transport.logDebug("retrieveCentralAcctByCentralAcctID", "checkpoint #1");  // DEBUG
+			//            HierarchyDisplay hDisplay = generateHDisplay(currentBaseRole, currentHierarchy, agency);
+
+			newCentralAcct.setHdn_programNumber(hDisplay.getSegment(0));
+
+			newCentralAcct.setHdn_centralAccountID(centralAcctID);
+			newCentralAcct.setHdn_centralAccountName(
+				cs.getString(QUERY_oCentralAccountName));
+
+			if ((cs.getString(QUERY_oProgramType).equals("P"))) {
+				//                programType = CentralAccount.PURCHASE;
+				newCentralAcct.setHdn_programType("Purchase");
+			} else if ((cs.getString(QUERY_oProgramType).equals("T"))) {
+				//                programType = CentralAccount.TRAVEL;
+				newCentralAcct.setHdn_programType("Travel");
+			} else if ((cs.getString(QUERY_oProgramType).equals("F"))) {
+				newCentralAcct.setHdn_programType("Fleet");
+				//                programType = CentralAccount.FLEET;
+			} else if ((cs.getString(QUERY_oProgramType).equals("I"))) {
+				newCentralAcct.setHdn_programType("Integrated");
+				//                programType = CentralAccount.INTEGRATE;
+			} else if ((cs.getString(QUERY_oProgramType).equals("I"))) {
+				newCentralAcct.setHdn_programType("Interagency");
+				//                programType = CentralAccount.INTERAGENCY;
+			}
+
+			newCentralAcct.setHdn_centralAccountNumber(
+				cs.getString(QUERY_oCentralAccountNumber));
+			newCentralAcct.setHdn_travelersCheckFlag(
+				"T".equalsIgnoreCase(cs.getString(QUERY_oTravelerChecks))
+					? "Yes"
+					: "No");
+
+			short billingType = 0;
+			if ((cs.getString(QUERY_oBillingType).equals("C"))) {
+				billingType = Account.CENTRAL;
+			} else if ((cs.getString(QUERY_oBillingType).equals("I"))) {
+				billingType = Account.INDIVIDUAL;
+			}
+			newCentralAcct.setHdn_billingType(
+				billingType == Account.CENTRAL ? "Central" : "Individual");
+			newCentralAcct.setAccountingCenterID(
+				cs.getString(QUERY_oAccountingCenterID));
+
+			// Card Types
+			// todo implement card types
+			/*NameDescTable[] cardTypeList = agency.getCardTypes();
+			if (cardTypeList != null || cardTypeList.length > 0) {
+			    for (short i = 0; i < cardTypeList.length; i++) {
+			        cardTypes.rowAppend("Value=" + cardTypeList[i].getName() +
+			                ";Desc=" + cardTypeList[i].getDescription());
+			    }
+			} else {
+			    cardTypes.rowAppend("Value=DataMissing;Desc=No Data Found");
+			}
+			newCentralAcct.setCmb_cardType();*/
+			// Card Types end
+
+			newCentralAcct.setTxt_lastName(lastName); //from request
+			newCentralAcct.setTxt_firstName(firstName);
+			newCentralAcct.setTxt_socialSecurityNumber(socialSecurityNumber);
+
+			// Account Holder Information.
+			CentralOffice cOffice = null;
+			AccountService centralAcct = new AccountService();
+			if (Role.A_OPC.equalsIgnoreCase(currentBaseRole)) {
+				// AOPC doing setup send flag to method
+				cOffice =
+					centralAcct.retrieveCentralOffice(
+						agency.getAgencyID(),
+						Service.getCurrentShortHierarchy(hier),
+						false,
+						userId);
+			} else {
+				// behave as originally coded
+				cOffice =
+					centralAcct.retrieveCentralOffice(
+						agency.getAgencyID(),
+						Service.getCurrentShortHierarchy(hier),
+						userId);
+			}
+
+			newCentralAcct.setTxt_addressLine1(cOffice.getAddress1());
+			newCentralAcct.setTxt_addressLine2(cOffice.getAddress2());
+			newCentralAcct.setTxt_addressLine3(cOffice.getAddress3());
+			newCentralAcct.setTxt_addressLine4(cOffice.getAddress4());
+			newCentralAcct.setTxt_city(cOffice.getCity());
+			newCentralAcct.setTxt_state(cOffice.getStateOrProvince());
+			newCentralAcct.setTxt_country(cOffice.getCountry());
+			newCentralAcct.setTxt_zipCode(cOffice.getZip());
+			newCentralAcct.setTxt_businessPhone(cOffice.getBusinessPhone());
+			newCentralAcct.setTxt_emailAddress(cOffice.getEMail());
+
+			//todo implement Rank/Grade
+			//            String[] ranks = agency.getGradeAndStatuses();
+			//            TemplateDataBasic rank = new TemplateDataBasic("cmb_grade");
+			//            if (ranks != null) {
+			//                for (int i = 0; i < ranks.length; i++) {
+			//                    rank.rowAppend("optClick=" + ranks[i] + ";optVisible=" + ranks[i]);
+			//                }
+			//            } else {
+			//                rank.rowAppend("optClick=DataMissing;optVisible=No Data Found");
+			//            }
+			//            combined.groupAppend(rank);
+
+			// todo implement Employment Status
+			//            String[] emplStatuses = agency.getEmploymentStatuses();
+			//            TemplateDataBasic status = new TemplateDataBasic("cmb_status");
+			//            if (emplStatuses != null) {
+			//                for (int i = 0; i < emplStatuses.length; i++) {
+			//                    status.rowAppend("multiStatus=" + emplStatuses[i] + ";optSee=" + emplStatuses[i]);
+			//                }
+			//            } else {
+			//                status.rowAppend("multiStatus=DataMissing;optSee=No Data Found");
+			//            }
+			//            combined.groupAppend(status);
+
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new EaglsDAOError(e.getMessage());
+		}
+		return newCentralAcct;
+	}
+
+	public AgencyCore retrieveAgencyCoreByCentralAcctID(
+		Connection conn,
+		int centralAcctID,
+		String userId)
+		throws SQLException, EaglsDAOError {
+
+		//        transport.logDebug("retrieveAgencyCoreByCentralAcctID", "entered method");
+
+		if (centralAcctID <= 0) {
+			//            transport.logDebug("retrieveAgencyCoreByCentralAcctID", "centralAcctID unspecified");
+			throw new EaglsDAOError(
+				"APP_W0009:AccountDAA: centralAcctID unspecified" + ".");
+		}
+
+		AgencyCore newAgencyCore = new AgencyCore();
+		CallableStatement cs = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+
+		try {
+			cs = conn.prepareCall(GET_AGENCY_INFO);
+			int count = 1;
+			cs.setString(count++, userId); //1 - iUserId
+			cs.setString(count++, "" + centralAcctID);
+			//2 - "iCentralAccountId"
+
+			cs.registerOutParameter(count++, Types.VARCHAR);
+			//3 "oPerformCreditChecks"
+			for (short i = 0; i < 9; i++) {
+				cs.registerOutParameter(count++, Types.INTEGER);
+				// "oHL" + (new Short(i)).toString()
+			}
+			for (short i = 0; i < 9; i++) {
+				cs.registerOutParameter(count++, Types.VARCHAR);
+				// "oHL" + (new Short(i)).toString() + "Desc"
+			}
+			cs.registerOutParameter(count++, Types.VARCHAR); //22 "oAgencyName"
+			cs.registerOutParameter(count++, Types.INTEGER); //  oAgencyID
+			cs.registerOutParameter(count++, Types.VARCHAR);
+			//"oAccountingCenterID"
+			cs.registerOutParameter(count++, Types.VARCHAR); //"oFleetType"
+			cs.registerOutParameter(count++, Types.VARCHAR); //"oResult"
+
+			logger.debug("GET_AGENCY_INFO sql: " + GET_AGENCY_INFO);
+			cs.execute();
+			logger.debug("cs.getString(3): " + cs.getString(3));
+
+			newAgencyCore.setPerformCreditChecks(
+				stringToBoolean(cs.getString(3)));
+			//            newAgencyCore.setPerformCreditChecks(stringToBoolean(cs.getString(3)));
+
+			HierarchyDTO newHierarchy[] = new HierarchyDTO[9];
+			for (short i = 0; i < 9; i++) {
+				HierarchyDTO hLevel = new HierarchyDTO();
+				hLevel.setLevel(i);
+				hLevel.setNumber(cs.getInt(4 + i)); //":oHL" + i
+				String tmpDesc = cs.getString(13 + i); //":oHL" + i + "Desc"
+				if (tmpDesc == null || tmpDesc.equals("~")) {
+					hLevel.setDescription("");
+					hLevel.setAgencyName("");
+				} else {
+					hLevel.setDescription(tmpDesc);
+					hLevel.setAgencyName(tmpDesc);
+				}
+				newHierarchy[i] = hLevel;
+			}
+			newAgencyCore.setHierarchy(newHierarchy);
+
+			newAgencyCore.setAgencyName(cs.getString(22)); //"oAgencyName"
+			newAgencyCore.setAgencyID(cs.getInt(23)); //"oAgencyID"
+			newAgencyCore.setAccountingCenterID(cs.getString(24));
+			//"oAccountingCenterID"
+			//            transport.logDebug("retrieveAgencyCoreByCentralAcctID", "oPerformCreditChecks: " + outParams.getString(":oPerformCreditChecks"));
+
+			short fleetType = 0;
+			if ("M".equals(cs.getString(25))) { //"oFleetType"
+				fleetType = AgencyCore.MASTERCARD;
+			} else if ("V".equals(cs.getString(25))) { //"oFleetType"
+				fleetType = AgencyCore.VOYAGER;
+			} else {
+				fleetType = AgencyCore.NONE;
+			}
+			//            transport.logDebug("retrieveAgencyCoreByCentralAcctID", "FLEETTYPE1: " + fleetType);
+			newAgencyCore.setFleetType(fleetType);
+			//            transport.logDebug("retrieveAgencyCoreByCentralAcctID", "FLEETTYPE2: " + fleetType);
+			//            transport.logDebug("retrieveAgencyCoreByCentralAcctID", "checkpoint #1");  // DEBUG
+
+			// another part: Accounting Center IDs
+			st = conn.prepareStatement(SQL_ACCOUNTING_CENTER_IDS);
+			st.setInt(1, centralAcctID);
+			rs = st.executeQuery();
+
+			List aVector = new LinkedList();
+			while (rs.next()) {
+				aVector.add(rs.getString(1));
+			}
+			String accountingCenterIds[] = new String[aVector.size()];
+			aVector.toArray(accountingCenterIds);
+			newAgencyCore.setAccountingCenterIDs(accountingCenterIds);
+			closeAll(rs, st);
+			//            transport.logDebug("retrieveAgencyCoreByCentralAcctID", "checkpoint #2");  // DEBUG
+			st = conn.prepareStatement(SQL_SEARCH_CARD_TYPES);
+			st.setInt(1, centralAcctID);
+			rs = st.executeQuery();
+
+			List newNDTVector = new LinkedList();
+			while (rs.next()) {
+				NameDescTable aNDT = new NameDescTable();
+				aNDT.setName(rs.getString(1));
+				aNDT.setDescription(rs.getString(2));
+				newNDTVector.add(aNDT);
+			}
+			NameDescTable nameDescTable[] =
+				new NameDescTable[newNDTVector.size()];
+			newNDTVector.toArray(nameDescTable);
+			newAgencyCore.setCardTypes(nameDescTable);
+			closeAll(rs, st);
+			//            transport.logDebug("retrieveAgencyCoreByCentralAcctID", "checkpoint #3");  // DEBUG
+			// Employment Status
+			String employmentStatus[] =
+				retrieveEmploymentStatuses(conn, centralAcctID);
+			newAgencyCore.setEmploymentStatuses(employmentStatus);
+			//            transport.logDebug("retrieveAgencyCoreByCentralAcctID", "checkpoint #4");  // DEBUG
+
+			// Rank Grade
+			String rankGrade[] = retrieveRankGrades(conn, centralAcctID);
+			newAgencyCore.setGradeAndStatuses(rankGrade);
+			//            transport.logDebug("retrieveAgencyCoreByCentralAcctID", "end of method");  // DEBUG
+
+		} catch (SQLException e) {
+			logger.error(e.getMessage(), e);
+		} finally {
+			closeAll(null, st);
+			closeAll(rs, st);
+		}
+		return newAgencyCore;
+
+	}
+
+	/**
+	 * Retrieves Listing of Employment Statuses for the passed in central Acct ID
+	 *
+	 * @param   centralAcctId    identifies the central Acct ID
+	 * @return  String[]        List of Employment Statuses
+	 *
+	 **/
+	private String[] retrieveEmploymentStatuses(
+		Connection conn,
+		int centralAcctID)
+		throws SQLException {
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = conn.prepareStatement(SQL_SEARCH_EMPLOYMENT_STATUS);
+			st.setInt(1, centralAcctID);
+			rs = st.executeQuery();
+
+			List anEmpStatus = new LinkedList();
+			while (rs.next()) {
+				anEmpStatus.add(rs.getString(1));
+			}
+			String employeeStatus[] = new String[anEmpStatus.size()];
+			anEmpStatus.toArray(employeeStatus);
+			return employeeStatus;
+
+		} finally {
+			closeAll(rs, st);
+		}
+	}
+
+	/**
+	 * Retrieves Listing of Ranks and Grades for the passed in central Acct ID
+	 *
+	 * @param   centralAcctId    identifies the central Acct ID
+	 * @return  String[]        List of Ranks and Grades
+	 *
+	 **/
+	public String[] retrieveRankGrades(Connection conn, int centralAcctID)
+		throws SQLException {
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = conn.prepareStatement(SQL_SEARCH_RANK_GRADE);
+			st.setInt(1, centralAcctID);
+			rs = st.executeQuery();
+
+			List anRankGrade = new LinkedList();
+			while (rs.next()) {
+				anRankGrade.add(rs.getString(1));
+			}
+			String rankGrade[] = new String[anRankGrade.size()];
+			anRankGrade.toArray(rankGrade);
+			return rankGrade;
+		} finally {
+			closeAll(rs, st);
+		}
+	}
+
+	public NameDescTable[] retrieveVendorNames(
+		Connection conn,
+		String centralAcctID)
+		throws SQLException, EaglsDAOError {
+
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		NameDescTable[] ndtArray = null;
+		List aVector = new ArrayList();
+		try {
+			st = conn.prepareStatement(SQL_RETRIEVE_VENDOR_NAMES);
+			st.setString(1, centralAcctID);
+			rs = st.executeQuery();
+
+			if (!rs.next()) {
+				ndtArray = new NameDescTable[1];
+				ndtArray[0] = new NameDescTable("", "");
+			} else {
+				while (rs.next()) {
+					String str = rs.getString(1);
+					NameDescTable ndt = new NameDescTable(str, rs.getString(2));
+					aVector.add(ndt);
+				}
+			}
+			ndtArray = new NameDescTable[aVector.size()];
+			aVector.toArray(ndtArray);
+		} finally {
+			closeAll(rs, st);
+		}
+		return ndtArray;
+		/*  Why are we catching this?  No Data Found needs to be thrown
+		try{
+		    rs = this.callQuery(sqlStmt.toString(), inParams.toIValList());
+		}catch(NBException e){}
+		*/
+
+		/**RJ BUG#001543 Code added to Handle the NoDataFoundException
+		 As Vendor Tables being non-existant for the account is an
+		 acceptable condition.
+		 So Just return an empty VendorTable list when a NoDataFoundException
+		 is thrown. (08/11/1999)
+		 */
+	}
+	public NameDescTable[] retrieveMCCGTableNamesByCentralAcctID(
+		Connection conn,
+		String centralAcctID)
+		throws SQLException {
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		NameDescTable[] ndtArray = null;
+		List aVector = new ArrayList();
+		try {
+			st = conn.prepareStatement(SQL_RETRIEVE_MCCGTABLE_NAMES);
+			st.setString(1, centralAcctID);
+			rs = st.executeQuery(); 
+
+			while (rs.next()) {
+				String str = rs.getString(1);
+				NameDescTable ndt = new NameDescTable(str, rs.getString(2));
+				aVector.add(ndt);
+			}
+
+			ndtArray = new NameDescTable[aVector.size()];
+			aVector.toArray(ndtArray);
+		} finally {
+			closeAll(rs, st);
+		}
+		return ndtArray;
+
+	}
+
+	/**
+	  * Returns a boolean if the given central account number indicating whether is exists in EAGLS
+	  * @throws  com.nb.gsa.Exceptions.NBException and NoDataFoundException
+	  * @param   centralAcctID
+	  * @return  boolean     indicates whether it is exists in EAGLS
+	  * @see com.nb.gsa.Business.
+	  **/
+	public boolean validateCentralAcctID(
+		Connection conn,
+		int centralAcctID,
+		String userID)
+		throws SQLException {
+		CallableStatement cs = null;
+
+		try {
+			logger.debug("-------******  ENTERING validateCentralAcctID");
+			cs = conn.prepareCall(VALIDATE_CENTRAL_ACCOUNT_ID);
+			logger.debug("userID: " + userID);
+			cs.setString(1, userID);
+			logger.debug("centralAcctID: " + centralAcctID);
+			cs.setInt(2, centralAcctID);
+			cs.registerOutParameter(3, Types.VARCHAR);
+
+			cs.execute();
+
+			logger.debug(
+				"*********--------  EXITING validateCentralAcctID: "
+					+ cs.getString(3));
+			return "T".equals(cs.getString(3));
+		} finally {
+			cs.close();
+		}
+
+		//        IValListWrap inParams =   new IValListWrap();
+		//        inParams.set(":iUserId", super.getUserID());
+		//        inParams.set(":iCentralAccountId", centralAcctID);
+		//        inParams.set(":oResult", EMPTY_STRING);
+		//
+		//       IValListWrap outParams = new IValListWrap(this.callStoredProc(VALIDATE_CENTRAL_ACCOUNT_ID, inParams.toIValList()));
+	}
+
+	/**
+	 * Returns a true if the given central account number
+	 * indicating whether it exists in EAGLS or is in the hierarchy of
+	 * an A_OPC user (above or below)
+	 * @param conn
+	 * @param centralAcctID
+	 * @param userHierarchy
+	 * @return
+	 * @throws SQLException
+	 */
+	public boolean validateCentralAcctIDForSetup(
+		Connection conn,
+		int centralAcctID,
+		int[] userHierarchy)
+		throws SQLException {
+		int acctHierarchy[] = new int[HierarchyDisplay.NUMBER_OF_SEGMENTS];
+		int hierarchyNumber;
+
+		// get hierarchy for centralAcctID
+		StringBuffer sqlStmt = new StringBuffer();
+		sqlStmt.append(
+			"SELECT H.HIERARCHY_NBR, H.HL0, H.HL1, H.HL2, H.HL3, H.HL4, H.HL5,\n");
+		sqlStmt.append(" H.HL6, H.HL7, H.HL8\n");
+		sqlStmt.append(" FROM ACCOUNT A, AGENCY_HL H\n");
+		sqlStmt.append(" WHERE \n");
+		sqlStmt.append(" A.HIERARCHY_NBR = H.HIERARCHY_NBR\n");
+		sqlStmt.append(" AND A.AGENCY_BILL_NBR = '" + centralAcctID + "'");
+		sqlStmt.append(" AND A.ACCOUNT_TYPE = 'C'");
+
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			logger.debug("SQL validateCentralAcctIDForSetup: " + sqlStmt);
+			st = conn.prepareStatement(sqlStmt.toString());
+			rs = st.executeQuery();
+			hierarchyNumber = rs.getInt(1);
+			acctHierarchy[0] = rs.getInt(2);
+			acctHierarchy[1] = rs.getInt(3);
+			acctHierarchy[2] = rs.getInt(4);
+			acctHierarchy[3] = rs.getInt(5);
+			acctHierarchy[4] = rs.getInt(6);
+			acctHierarchy[5] = rs.getInt(7);
+			acctHierarchy[6] = rs.getInt(8);
+			acctHierarchy[7] = rs.getInt(9);
+			acctHierarchy[8] = rs.getInt(10);
+		} finally {
+			closeAll(rs, st);
+		}
+
+		return validateHierarchyForAopcSetup(acctHierarchy, userHierarchy);
+	}
+
+	private boolean validateHierarchyForAopcSetup(
+		int[] acctHierarchy,
+		int userHierarchy[]) {
+		if (userHierarchy == null) {
+			return false;
+		}
+		try {
+			HierarchyBase.sameHierarchyTree(userHierarchy, acctHierarchy);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * Creates a database entry for a new UserAccount object.  This
+	 * method should only be used by UserAccounts <code>save()</code> method.
+	 * @param   userAccount   a UserAccount object filled with new data
+	 * @return  void
+	 * @exception   NBException   individualaccount already assigned to user role
+	 * @pre $none
+	 * @post $none
+	 */
+	public void createUserAccount(UserAccountDTO userAccount)
+		throws NBException {
+		Dummy.notImplemented();
+	}
+
+	/**
+	 * Constructs a call to a database stored procedure that will delete
+	 * a given user individualaccount from the system. A valid user ID and role must
+	 * be supplied along with the individualaccount number to be deleted.  This does
+	 * not delete the individualaccount from the system, but just removes ownership of the individualaccount by the user.
+	 * @param	UserID	the user whos individualaccount number will be deleted
+	 * @param	RoleName	the role the deleted individualaccount number resides under
+	 * @param	AccountNumber	the user individualaccount to delete
+	 * @return    void
+	 * @pre $none
+	 * @post $none
+	 * @throws	NBException	stored procedure returns an error; stored procedures error message stored in exception
+	 */
+	public void deleteUserAccount(
+		String UserID,
+		String RoleName,
+		String AccountNumber)
+		throws NBException {
+		Dummy.notImplemented();
+	}
+
+	/**
+	 * Constructs a call to a database stored procedure that will save
+	 * a given user individualaccount from the system. A valid UserAccountDTO must be supplied to work this function properly.
+	 * @return    void
+	 * @param	UserAccountDTO	A userAccountDTO which contains the information about the individualaccount to be saved
+	 * @pre $none
+	 * @post $none
+	 * @throws	NBException	stored procedure returns an error; stored procedures error message stored in exception
+	 * @pre $none
+	 * @post $none
+	 */
+	public void saveUserAccount(UserAccountDTO userAccount)
+		throws NBException {
+		Dummy.notImplemented();
+	}
+
+	/**
+	 * Retrieves the type of a given individualaccount number.
+	 * @param	acctNbr	an individualaccount number.
+	 * @return    String  String containing the individualaccount Type
+	 * @return	the type of the individualaccount number specified by acctNbr; null if the individualaccount does not exist.
+	 * @pre $none
+	 * @post $none
+	 * @exception	NBError	error occurred while querying the database.
+	 */
+	public String getAccountType(String acctNbr) throws NBError {
+		Dummy.notImplemented();
+		return "";
+	}
+
+	/**
+	 * Constructs a call to a database stored procedure that will load
+	 * a given user individualaccount from the system. A valid user ID ,role , Account
+	 * Number and UserAccountDTO must be supplied to load the User Account.
+	 * @return  void
+	 * @param	userID	the user whos individualaccount number will be deleted
+	 * @param	roleName	the role under which this  individualaccount number resides
+	 * @param	anAccount	the user individualaccount to load
+	 * @param   userAccount     A UserAccountDTO which contains the information about the individualaccount which is required
+	 * to load the user individualaccount
+	 * @pre $none
+	 * @post $none
+	 * @throws	NBException	stored procedure returns an error; stored procedures error message stored in exception
+	 */
+	public void loadUserAccount(
+		String userID,
+		String roleName,
+		String anAccount,
+		UserAccountDTO userAccount)
+		throws NBError {
+		Dummy.notImplemented();
+	}
+
+	/**
+	 * @param userID
+	 * @param HL1
+	 * @return
+	 * @throws NBError
+	 * @pre $none
+	 * @post $none
+	 */
+	public boolean validateHL1(String userID, String HL1) throws NBError {
+		Dummy.notImplemented();
+		return false;
+	}
+
+	/**
+	 * @param Account
+	 * @param userID
+	 * @return
+	 * @throws NBError
+	 * @pre $none
+	 * @post $none
+	 */
+	public boolean validateAcctHL1(String Account, String userID)
+		throws NBError {
+		Dummy.notImplemented();
+		return false;
+	}
+
+	/**
+	 * Constructs a call to a database stored procedure that will load individualaccount type
+	 * of given individualaccount number from the system. A valid individualaccount number
+	 * and User ID must be supplied to validate the individualaccount number.
+	 * @param acctNumber String containing the individualaccount number which will validate
+	 * @param sessionUserID String containing the UserID of the currently login User
+	 * @return A short variable containing individualaccount type
+	 * @throws NBException
+	 * @throws NBError
+	 * @throws NoDataFoundException
+	 * @throws EAGLSException
+	 * @throws DataConnException
+	 * @pre $none
+	 * @post $none
+	 */
+	public short validateAccountNumber(String acctNumber, String sessionUserID)
+		throws
+			NBException,
+			NBError,
+			NoDataFoundException,
+			EAGLSException,
+			DataConnException {
+		logger.debug(
+			"Entering  in method  validateAccountNumber(String acctNumber, String sessionUserID) in AccountDAO");
+		logger.debug("Param name=\"acctNumber\" , value = " + acctNumber);
+		logger.debug("Param name=\"sessionUserID\" , value = " + sessionUserID);
+		if (acctNumber == null
+			|| sessionUserID == null
+			|| sessionUserID == ""
+			|| acctNumber == "") {
+			throw new NBError("Account number or Session UserID is NULL in method validateAccountNumber");
+		}
+
+		// Getting the userId
+		String userId = AccountConstants.EMPTY_STRING;
+
+		//        try {
+		if (sessionUserID != null) {
+			userId = sessionUserID;
+		}
+		KeyValueList kvl = new KeyValueList();
+
+		kvl.add("iUserId", userId, SQLConstants.INPUT_PARAMETER);
+		kvl.add("iAccountNumber", acctNumber, SQLConstants.INPUT_PARAMETER);
+		kvl.add(
+			"oAccountType",
+			AccountConstants.EMPTY_STRING,
+			SQLConstants.OUTPUT_PARAMETER,
+			new String());
+		kvl.add("oResult", "", SQLConstants.OUTPUT_PARAMETER, new String());
+		HashMap outParams =
+			callStoredProcedure(AccountConstants.VALIDATE_ACCOUNT, kvl);
+
+		short acctType = 0;
+
+		if (outParams.get("oAccountType") != null) {
+			if ((outParams
+				.get("oAccountType")
+				.toString()
+				.trim()
+				.equals("C"))) {
+				acctType = Constants.CENTRAL;
+			} else if (
+				(outParams
+					.get("oAccountType")
+					.toString()
+					.trim()
+					.equals("D"))) {
+				acctType = Constants.DIVERSION_ACCT;
+			} else if (
+				(outParams
+					.get("oAccountType")
+					.toString()
+					.trim()
+					.equals("I"))) {
+				acctType = Constants.INDIVIDUAL;
+			} else if (
+				(outParams
+					.get("oAccountType")
+					.toString()
+					.trim()
+					.equals("T"))) {
+				acctType = Constants.MASTERCARD_VEHICLE;
+			}
+			logger.debug(
+				"Return value of method validateAccountNumber in AccountDAO = "
+					+ acctType);
+		} else {
+			throw new NBError("Invalid individualaccount number entered.");
+		}
+		return acctType;
+	}
+
+	/**
+	 * Constructs a call to a database stored procedure that will load Hierarchy Agency Names
+	 * of given hierarchy Number from the system. A valid Hierarchy Number must be supplied to get Hierarchy Agency Names
+	 * @param hierarchyNumber
+	 * @return HierarchyDisplay
+	 * @throws NBException
+	 * @throws NBError
+	 * @throws Exception
+	 * @pre $none
+	 * @post $none
+	 */
+	public HierarchyDisplay getHierarchyAgencyNames(int hierarchyNumber)
+		throws NBException, NBError, Exception {
+		logger.debug("Entering getHierarchyAgencyNames method in AccountDAO");
+		logger.debug(
+			"Param name=\"hierarchyNumber\" , value = " + hierarchyNumber);
+		KeyValueList kvl = new KeyValueList();
+		kvl.add("ihierno", "" + hierarchyNumber, SQLConstants.INPUT_PARAMETER);
+		for (short i = 0; i < 9; i++) {
+			kvl.add(
+				"oHL" + i,
+				"0",
+				SQLConstants.OUTPUT_PARAMETER,
+				new String());
+		}
+		for (short i = 0; i < 9; i++) {
+			kvl.add(
+				"oHL" + i + "AgencyName",
+				"",
+				SQLConstants.OUTPUT_PARAMETER,
+				new String());
+		}
+		kvl.add("oResult", " ", SQLConstants.OUTPUT_PARAMETER, new String());
+		logger.debug(
+			"Going to call stored procedure "
+				+ AccountConstants.SP_GET_HIERARCHY_AGENCY_NAME
+				+ " in getHierarchyAgencyNames method in AccountDAO received ");
+		java.util.HashMap outParams =
+			callStoredProcedure(
+				AccountConstants.SP_GET_HIERARCHY_AGENCY_NAME,
+				kvl);
+
+		logger.debug(
+			"After calling stored procedure "
+				+ AccountConstants.SP_GET_HIERARCHY_AGENCY_NAME
+				+ " in getHierarchyAgencyNames method in AccountDAO , HashMAP return = "
+				+ outParams);
+
+		HierarchyDTO newHierarchy[] = new HierarchyDTO[9];
+
+		for (short i = 0; i < 9; i++) {
+			HierarchyDTO hLevel = new HierarchyDTO();
+
+			hLevel.setLevel(i);
+			hLevel.setNumber(
+				Integer.parseInt((String) outParams.get("oHL" + i)));
+			String tmpAgencyName =
+				(String) outParams.get("oHL" + i + "AgencyName");
+			hLevel.setAgencyName(tmpAgencyName);
+			newHierarchy[i] = hLevel;
+		}
+		HierarchyDisplay hierDisplay = new HierarchyDisplay(newHierarchy);
+		logger.debug(
+			"Exiting getHierarchyAgencyNames method in AccountDAO , return value = "
+				+ hierDisplay);
+		return hierDisplay;
+	}
+
+		public final static String GET_AGENCY_INFO =
+			"{call STANDARD_OBJECTS_2.GET_AGENCY_INFO(" + "?," + //iUserId
+		"?," + // iCentralAccountId
+		"?," + // oPerformCreditChecks 3
+		"?," + // 4 oHL0
+		"?," + // 5 oHL1
+		"?," + // 6 oHL2
+		"?," + // 7 oHL3
+		"?," + // 8 oHL4
+		"?," + // 9 oHL5
+		"?," + // 10 oHL6
+		"?," + // 11 oHL7
+		"?," + // 12 oHL8
+		"?," + // 13 oHL0Desc
+		"?," + // 14 oHL1Desc
+		"?," + // 15 oHL2Desc
+		"?," + // 16 oHL3Desc
+		"?," + // 17 oHL4Desc
+		"?," + // 18 oHL5Desc
+		"?," + // 19 oHL6Desc
+		"?," + // 20 oHL7Desc
+		"?," + // 21 oHL8Desc
+		"?," + // 22 oAgencyName
+		"?," + // 23 oAgencyID
+		"?," + // 24 oAccountingCenterID
+		"?," + // 25 oFleetType
+	"?)}"; // 26 oResult
+
+	public final static String SQL_ACCOUNTING_CENTER_IDS =
+		"SELECT ACCOUNTING_CENTER_ID\n"
+			+ "FROM BILLING_AGENCY\n"
+			+ "WHERE AGENCY_BILL_NBR = ?\n";
+
+		public final static String SQL_SEARCH_CARD_TYPES =
+			"SELECT c.CMID, c.DESCRIPTION "
+				+ "FROM CARD_DESIGN c, ACCOUNT a "
+				+ "WHERE a.ACCOUNT_TYPE = 'C' "
+	+ //MM--MODIFIED AS PER REQUETS FROM PERFORMANCE TEAM
+	"AND a.AGENCY_BILL_NBR = ? " + "AND a.HIERARCHY_NBR = c.HIERARCHY_NBR(+) ";
+
+	public final static String SQL_SEARCH_EMPLOYMENT_STATUS =
+		"SELECT /*+ RULE */ e.STATUS, e.DESCRIPTION"
+			+ " FROM EMPLOYMENT_STATUS e "
+			+ " WHERE E.HIERARCHY_NBR = (SELECT A.HIERARCHY_NBR \n "
+			+ " FROM ACCOUNT a \n "
+			+ " WHERE a.ACCOUNT_TYPE = 'C' "
+			+ " AND a.AGENCY_BILL_NBR = ?)";
+	//:iCentralAccountId
+
+	//Added order by - VK
+		public final static String SQL_SEARCH_RANK_GRADE =
+			" SELECT r.RANK_GRADE "
+				+ " FROM RANK_GRADE r "
+				+ " WHERE r.HIERARCHY_NBR = (SELECT A.HIERARCHY_NBR \n "
+				+ " FROM ACCOUNT A \n "
+				+ " WHERE A.ACCOUNT_TYPE = 'C' \n "
+				+ " AND A.AGENCY_BILL_NBR = ?) \n "
+	+ //:iCentralAccountId
+	" ORDER BY r.RANK_GRADE ";
+
+		public final static String GET_CENTRAL_ID_INFO =
+			"{call STANDARD_OBJECTS_2.GET_CENTRAL_ID_INFO(" + "?," + //iUserId
+		"?," + // iCentralAccountId
+		"?," + //oCentralAccountName
+		"?," + // oCentralAccountNumber
+		"?," + //oConvenienceChecks
+		"?," + //oBillingType
+		"?," + //oTravelerChecks
+		"?," + //oAtmAccess
+		"?," + //oDecrementingCard
+		"?," + // oProgramType
+		"?," + //oAccountingCenterID
+	"?)}"; // oResult
+
+	private static int QUERY_iUserId = 1;
+	private static int QUERY_iCentralAccountId = 2;
+	private static int QUERY_oCentralAccountName = 3;
+	private static int QUERY_oCentralAccountNumber = 4;
+	private static int QUERY_oConvenienceChecks = 5;
+	private static int QUERY_oBillingType = 6;
+	private static int QUERY_oTravelerChecks = 7;
+	private static int QUERY_oAtmAccess = 8;
+	private static int QUERY_oDecrementingCard = 9;
+	private static int QUERY_oProgramType = 10;
+	private static int QUERY_oAccountingCenterID = 11;
+	private static int QUERY_oResult = 12;
+
+	public static final String SQL_RETRIEVE_VENDOR_NAMES =
+		"\nSELECT /*+ RULE */ preferred_vendor_table_name, vendor_description\n"
+			+ " FROM preferred_vendor\n"
+			+ " WHERE agency_bill_nbr = ?\n";//:iCentralAcctID
+	
+	public static final String SQL_RETRIEVE_MCCGTABLE_NAMES =
+		"SELECT /*+ RULE */ mccg_table_name, mccg_description\n"
+			+ " FROM mccg\n"
+			+ " WHERE agency_bill_nbr = ?\n";//:iCentralAcctID
+}

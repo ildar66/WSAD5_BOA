@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697048438" name="MCCG" primaryKey="SQLReference_1060697048438">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048438" name="MCCG_TABLE_NAME" allowNull="false" constraints="SQLConstraint_1060697048438 SQLConstraint_1060697048439">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048438" characterSet="800" length="10">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048439" name="AGENCY_BILL_NBR" allowNull="false" constraints="SQLConstraint_1060697048440 SQLConstraint_1060697048441">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048439" characterSet="800" length="7">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048440" name="MCCG_DESCRIPTION" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048440" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048441" name="MASTER_ACCOUNT_CODE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048441" characterSet="800" length="64">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697048438" name="XPKMCCG" members="RDBColumn_1060697048438 RDBColumn_1060697048439" constraint="SQLConstraint_1060697048442"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047391" name="R_144" members="RDBColumn_1060697048439" constraint="SQLConstraint_1060697048443">
+    <target href="ConToOracle_SEGFAULT_GSA_BILLING_AGENCY.tblxmi#SQLReference_1060697046453"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697048442" name="XPKMCCG" type="PRIMARYKEY" primaryKey="SQLReference_1060697048438"/>
+  <constraints xmi:id="SQLConstraint_1060697048438" name="SYS_C006707" type="CHECK" members="RDBColumn_1060697048438">
+    <body>"MCCG_TABLE_NAME" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048440" name="SYS_C006708" type="CHECK" members="RDBColumn_1060697048439">
+    <body>"AGENCY_BILL_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048439" name="SYS_C002860" type="CHECK" members="RDBColumn_1060697048438">
+    <body>"MCCG_TABLE_NAME" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048441" name="SYS_C002861" type="CHECK" members="RDBColumn_1060697048439">
+    <body>"AGENCY_BILL_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048443" name="R_144" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047391"/>
+</RDBSchema:RDBTable>

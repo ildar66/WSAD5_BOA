@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049156" name="SHIPPING_AUTH_CONTACT_LOG">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049156" name="ACCOUNT_NBR" allowNull="true" constraints="SQLConstraint_1060697049156 SQLConstraint_1060697049157">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049156" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049157" name="POSTING_DATE" allowNull="true" constraints="SQLConstraint_1060697049158 SQLConstraint_1060697049159">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697049156" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049172" name="TRANSACTION_ID" allowNull="true" constraints="SQLConstraint_1060697049172 SQLConstraint_1060697049173">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049172" precision="15" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049173" name="SEQ_NBR" allowNull="true" constraints="SQLConstraint_1060697049174 SQLConstraint_1060697049175">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049173" precision="3" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049174" name="TRAN_SEQ" allowNull="true" constraints="SQLConstraint_1060697049176 SQLConstraint_1060697049177">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049174" precision="27" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049175" name="DML_TYPE" allowNull="true" constraints="SQLConstraint_1060697049178 SQLConstraint_1060697049179">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049172" characterSet="800" length="2">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <constraints xmi:id="SQLConstraint_1060697049156" name="SYS_C006856" type="CHECK" members="RDBColumn_1060697049156">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049158" name="SYS_C006857" type="CHECK" members="RDBColumn_1060697049157">
+    <body>"POSTING_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049172" name="SYS_C006858" type="CHECK" members="RDBColumn_1060697049172">
+    <body>"TRANSACTION_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049174" name="SYS_C006859" type="CHECK" members="RDBColumn_1060697049173">
+    <body>"SEQ_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049176" name="SYS_C006860" type="CHECK" members="RDBColumn_1060697049174">
+    <body>"TRAN_SEQ" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049178" name="SYS_C006861" type="CHECK" members="RDBColumn_1060697049175">
+    <body>"DML_TYPE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049157" name="SYS_C002931" type="CHECK" members="RDBColumn_1060697049156">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049159" name="SYS_C002932" type="CHECK" members="RDBColumn_1060697049157">
+    <body>"POSTING_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049173" name="SYS_C002933" type="CHECK" members="RDBColumn_1060697049172">
+    <body>"TRANSACTION_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049175" name="SYS_C002934" type="CHECK" members="RDBColumn_1060697049173">
+    <body>"SEQ_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049177" name="SYS_C002935" type="CHECK" members="RDBColumn_1060697049174">
+    <body>"TRAN_SEQ" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049179" name="SYS_C002936" type="CHECK" members="RDBColumn_1060697049175">
+    <body>"DML_TYPE" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

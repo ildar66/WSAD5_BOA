@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049812" name="TRANSFER_ACCOUNT_QUEUE" primaryKey="SQLReference_1060697049812">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049812" name="REQUEST_ID" allowNull="false" constraints="SQLConstraint_1060697049812 SQLConstraint_1060697049813">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049812" precision="15" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049813" name="ACCOUNT_NBR" allowNull="true" constraints="SQLConstraint_1060697049814 SQLConstraint_1060697049815">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049813" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049814" name="POSTING_DATE" allowNull="true" constraints="SQLConstraint_1060697049816 SQLConstraint_1060697049817">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697049812" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049815" name="SENDING_AOPC_USERID" allowNull="true" constraints="SQLConstraint_1060697049818 SQLConstraint_1060697049819">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049812" characterSet="800" length="12">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049816" name="SENDING_AOPC_PHONE_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049813" characterSet="800" length="17">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049817" name="RECEIVING_AOPC_USERID" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049814" characterSet="800" length="12">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049818" name="GCSU_USERID" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049815" characterSet="800" length="12">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049819" name="OLD_HIERARCHY_NBR" allowNull="true" constraints="SQLConstraint_1060697049820 SQLConstraint_1060697049821">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049814" precision="8" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049820" name="NEW_HIERARCHY_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049815" precision="8" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049821" name="OLD_AGENCY_BILL_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049816" characterSet="800" length="7">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049822" name="NEW_AGENCY_BILL_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049817" characterSet="800" length="7">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049823" name="PENDING_UNTIL_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697049813" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049824" name="STATUS" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049818" characterSet="800" length="2">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049825" name="LAST_STATUS_DATE" allowNull="true" constraints="SQLConstraint_1060697049822 SQLConstraint_1060697049823">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697049814" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049826" name="DEACTIVATE_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697049815" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049827" name="REACTIVATE_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697049816" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049828" name="MCC_OPT_SET_ID" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049819" characterSet="800" length="5">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697049812" name="XPKTRANSFER_ACCOUNT_QUEUE" members="RDBColumn_1060697049812" constraint="SQLConstraint_1060697049824"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697046453" name="FK02_ACCOUNT_TRANSFER_ACCOUNT" members="RDBColumn_1060697049813" constraint="SQLConstraint_1060697049825">
+    <target href="ConToOracle_SEGFAULT_GSA_ACCOUNT.tblxmi#SQLReference_1060697046391"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047391" name="FK02_BILLING_AGENCY_TRANSFER" members="RDBColumn_1060697049821" constraint="SQLConstraint_1060697049826">
+    <target href="ConToOracle_SEGFAULT_GSA_BILLING_AGENCY.tblxmi#SQLReference_1060697046453"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047392" name="FK03_BILLING_AGENCY_TRANSFER" members="RDBColumn_1060697049822" constraint="SQLConstraint_1060697049827">
+    <target href="ConToOracle_SEGFAULT_GSA_BILLING_AGENCY.tblxmi#SQLReference_1060697046453"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697048375" name="FK01_MCC_CONTROL_ID_TRANSFER" members="RDBColumn_1060697049828" constraint="SQLConstraint_1060697049828">
+    <target href="ConToOracle_SEGFAULT_GSA_MCC_CONTROL_ID.tblxmi#SQLReference_1060697046453"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697049824" name="XPKTRANSFER_ACCOUNT_QUEUE" type="PRIMARYKEY" primaryKey="SQLReference_1060697049812"/>
+  <constraints xmi:id="SQLConstraint_1060697049812" name="SYS_C006991" type="CHECK" members="RDBColumn_1060697049812">
+    <body>"REQUEST_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049814" name="SYS_C006992" type="CHECK" members="RDBColumn_1060697049813">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049816" name="SYS_C006993" type="CHECK" members="RDBColumn_1060697049814">
+    <body>"POSTING_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049818" name="SYS_C006994" type="CHECK" members="RDBColumn_1060697049815">
+    <body>"SENDING_AOPC_USERID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049820" name="SYS_C006995" type="CHECK" members="RDBColumn_1060697049819">
+    <body>"OLD_HIERARCHY_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049822" name="SYS_C006996" type="CHECK" members="RDBColumn_1060697049825">
+    <body>"LAST_STATUS_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049813" name="SYS_C002986" type="CHECK" members="RDBColumn_1060697049812">
+    <body>"REQUEST_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049815" name="SYS_C002987" type="CHECK" members="RDBColumn_1060697049813">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049817" name="SYS_C002988" type="CHECK" members="RDBColumn_1060697049814">
+    <body>"POSTING_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049819" name="SYS_C002989" type="CHECK" members="RDBColumn_1060697049815">
+    <body>"SENDING_AOPC_USERID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049821" name="SYS_C002990" type="CHECK" members="RDBColumn_1060697049819">
+    <body>"OLD_HIERARCHY_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049823" name="SYS_C002991" type="CHECK" members="RDBColumn_1060697049825">
+    <body>"LAST_STATUS_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049825" name="FK02_ACCOUNT_TRANSFER_ACCOUNT" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697046453"/>
+  <constraints xmi:id="SQLConstraint_1060697049826" name="FK02_BILLING_AGENCY_TRANSFER" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047391"/>
+  <constraints xmi:id="SQLConstraint_1060697049827" name="FK03_BILLING_AGENCY_TRANSFER" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047392"/>
+  <constraints xmi:id="SQLConstraint_1060697049828" name="FK01_MCC_CONTROL_ID_TRANSFER" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697048375"/>
+</RDBSchema:RDBTable>

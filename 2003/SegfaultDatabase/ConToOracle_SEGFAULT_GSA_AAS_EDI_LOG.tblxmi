@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697046250" name="AAS_EDI_LOG" primaryKey="SQLReference_1060697046250">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046250" name="LOG_ID" allowNull="false" constraints="SQLConstraint_1060697046250">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046250" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046251" name="ACCOUNT_NBR" allowNull="false" constraints="SQLConstraint_1060697046251">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046251" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046252" name="LOG_DESCR" allowNull="false" constraints="SQLConstraint_1060697046252">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046250" characterSet="800" length="1024">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046253" name="LOG_DATE" allowNull="false" constraints="SQLConstraint_1060697046253">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697046250" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046254" name="AGENCY_BILL_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046251" characterSet="800" length="7">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046255" name="STMT_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697046251" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046256" name="ACCT_STMT_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046252" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697046250" name="XPK_AAS_EDI_LOG" members="RDBColumn_1060697046250" constraint="SQLConstraint_1060697046254"/>
+  <constraints xmi:id="SQLConstraint_1060697046254" name="XPK_AAS_EDI_LOG" type="PRIMARYKEY" primaryKey="SQLReference_1060697046250"/>
+  <constraints xmi:id="SQLConstraint_1060697046250" name="SYS_C006137" type="CHECK" members="RDBColumn_1060697046250">
+    <body>"LOG_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046251" name="SYS_C006138" type="CHECK" members="RDBColumn_1060697046251">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046252" name="SYS_C006139" type="CHECK" members="RDBColumn_1060697046252">
+    <body>"LOG_DESCR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046253" name="SYS_C006140" type="CHECK" members="RDBColumn_1060697046253">
+    <body>"LOG_DATE" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

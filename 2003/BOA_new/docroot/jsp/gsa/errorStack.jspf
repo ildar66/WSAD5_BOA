@@ -1,0 +1,24 @@
+<center>
+Critical application error occurs<br>
+Please notify administrators about steps your performed.
+</center>
+<% logger.error("!!! Exception on WEB-layer "+exception.getMessage(), exception);
+    trace(exception);
+%>
+</PRE>
+<%!private void trace (Throwable exception){
+    if(exception instanceof ServletException){
+        Throwable ex = ((ServletException)exception).getRootCause();
+        logger.error("RootCause ServletException:"+ex.getMessage(), ex);
+        trace(ex);
+      }else if(exception instanceof NamingException){
+        Throwable ex = ((NamingException)exception).getRootCause();
+        logger.error("RootCause NamingException:"+ex.getMessage(), ex);
+        trace(ex);
+      }else if(exception instanceof PageListException){
+        Throwable ex = ((PageListException)exception).getRootCause();
+        logger.error("RootCause PageListException:"+ex.getMessage(), ex);
+        trace(ex);
+      }
+}
+%>

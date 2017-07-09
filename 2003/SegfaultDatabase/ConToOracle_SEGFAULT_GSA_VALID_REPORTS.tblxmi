@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049969" name="VALID_REPORTS" primaryKey="SQLReference_1060697047094">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049969" name="REPORT_ID" allowNull="false" constraints="SQLConstraint_1060697049969 SQLConstraint_1060697049970">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049969" characterSet="800" length="10">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049970" name="REPORT_NAME" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049970" characterSet="800" length="50">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047094" name="XPKVALID_REPORTS" members="RDBColumn_1060697049969" constraint="SQLConstraint_1060697049971">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_AGENCY_REPORTS.tblxmi#RDBReferenceByKey_1060697047094"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697049971" name="XPKVALID_REPORTS" type="PRIMARYKEY" primaryKey="SQLReference_1060697047094"/>
+  <constraints xmi:id="SQLConstraint_1060697049969" name="SYS_C007112" type="CHECK" members="RDBColumn_1060697049969">
+    <body>"REPORT_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049970" name="SYS_C003051" type="CHECK" members="RDBColumn_1060697049969">
+    <body>"REPORT_ID" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

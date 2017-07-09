@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Created-By: Ant 1.5, VDICompany, Moscow, BOA team, June 2003.
+

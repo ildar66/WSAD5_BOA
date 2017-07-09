@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697050047" name="VEHICLE_DRIVER" primaryKey="SQLReference_1060697050047">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050047" name="AGENCY_BILL_NBR" allowNull="false" constraints="SQLConstraint_1060697050047 SQLConstraint_1060697050048">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697050047" characterSet="800" length="7">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050048" name="VEHICLE_NBR" allowNull="false" constraints="SQLConstraint_1060697050049 SQLConstraint_1060697050050">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697050047" precision="6" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050049" name="DRIVER_NBR" allowNull="false" constraints="SQLConstraint_1060697050051 SQLConstraint_1060697050052">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697050048" precision="6" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050050" name="DEACTIVATE_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697050047" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697050047" name="XPKVEHICLE_DRIVER" members="RDBColumn_1060697050047 RDBColumn_1060697050048 RDBColumn_1060697050049" constraint="SQLConstraint_1060697050053"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047828" name="FK01_DRIVER_VEHICLE_DRIVER" members="RDBColumn_1060697050047 RDBColumn_1060697050049" constraint="SQLConstraint_1060697050054">
+    <target href="ConToOracle_SEGFAULT_GSA_DRIVERS.tblxmi#SQLReference_1060697047812"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697050016" name="FK01_VEHICLE_VEHICLE_DRIVER" members="RDBColumn_1060697050047 RDBColumn_1060697050048" constraint="SQLConstraint_1060697050055">
+    <target href="ConToOracle_SEGFAULT_GSA_VEHICLES.tblxmi#SQLReference_1060697050000"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697050053" name="XPKVEHICLE_DRIVER" type="PRIMARYKEY" primaryKey="SQLReference_1060697050047"/>
+  <constraints xmi:id="SQLConstraint_1060697050047" name="SYS_C007138" type="CHECK" members="RDBColumn_1060697050047">
+    <body>"AGENCY_BILL_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050049" name="SYS_C007139" type="CHECK" members="RDBColumn_1060697050048">
+    <body>"VEHICLE_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050051" name="SYS_C007140" type="CHECK" members="RDBColumn_1060697050049">
+    <body>"DRIVER_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050048" name="SYS_C003067" type="CHECK" members="RDBColumn_1060697050047">
+    <body>"AGENCY_BILL_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050050" name="SYS_C003068" type="CHECK" members="RDBColumn_1060697050048">
+    <body>"VEHICLE_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050052" name="SYS_C003069" type="CHECK" members="RDBColumn_1060697050049">
+    <body>"DRIVER_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050054" name="FK01_DRIVER_VEHICLE_DRIVER" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047828"/>
+  <constraints xmi:id="SQLConstraint_1060697050055" name="FK01_VEHICLE_VEHICLE_DRIVER" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697050016"/>
+</RDBSchema:RDBTable>

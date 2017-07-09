@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697048453" name="MATCH_DEBIT_CREDIT_ALLOC" primaryKey="SQLReference_1060697048453">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048453" name="CREDIT_ACCOUNT_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048453" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048454" name="DB_ALLOC_ID" allowNull="false" constraints="SQLConstraint_1060697048453 SQLConstraint_1060697048454">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048454" precision="12" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048455" name="CREDIT_POSTING_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697048453" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048456" name="CREDIT_POSTING_ID" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048455" precision="15" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048457" name="MATCH_DATE" allowNull="false" constraints="SQLConstraint_1060697048455 SQLConstraint_1060697048456">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697048454" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048458" name="DEBIT_POSTING_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697048455" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048459" name="DEBIT_POSTING_ID" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048456" precision="15" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048460" name="DEBIT_ACCOUNT_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048457" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697048453" name="XPKMATCH_DEBIT_CREDIT_ALLOC" members="RDBColumn_1060697048454 RDBColumn_1060697048457" constraint="SQLConstraint_1060697048457"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697048453" name="FK11_TRANSACTION" members="RDBColumn_1060697048453 RDBColumn_1060697048458 RDBColumn_1060697048459" constraint="SQLConstraint_1060697048458">
+    <target href="ConToOracle_SEGFAULT_GSA_TRANSACTION.tblxmi#SQLReference_1060697047359"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697048457" name="XPKMATCH_DEBIT_CREDIT_ALLOC" type="PRIMARYKEY" primaryKey="SQLReference_1060697048453"/>
+  <constraints xmi:id="SQLConstraint_1060697048453" name="SYS_C006699" type="CHECK" members="RDBColumn_1060697048454">
+    <body>"DB_ALLOC_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048455" name="SYS_C006700" type="CHECK" members="RDBColumn_1060697048457">
+    <body>"MATCH_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048454" name="SYS_C002855" type="CHECK" members="RDBColumn_1060697048454">
+    <body>"DB_ALLOC_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048456" name="SYS_C002856" type="CHECK" members="RDBColumn_1060697048457">
+    <body>"MATCH_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048458" name="FK11_TRANSACTION" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697048453"/>
+</RDBSchema:RDBTable>

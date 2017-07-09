@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697048391" name="MC_FLEET_PRODUCTS" primaryKey="SQLReference_1060697048391">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048391" name="PRODUCT_CODE" allowNull="false" constraints="SQLConstraint_1060697048406 SQLConstraint_1060697048407">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048406" characterSet="800" length="3">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048406" name="PRODUCT_DESCRIPTION" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048407" characterSet="800" length="50">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697048391" name="XPKMC_FLEET_PRODUCTS" members="RDBColumn_1060697048391" constraint="SQLConstraint_1060697048408">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_VEHICLE_ACCOUNT.tblxmi#RDBReferenceByKey_1060697048406"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697048408" name="XPKMC_FLEET_PRODUCTS" type="PRIMARYKEY" primaryKey="SQLReference_1060697048391"/>
+  <constraints xmi:id="SQLConstraint_1060697048406" name="SYS_C006727" type="CHECK" members="RDBColumn_1060697048391">
+    <body>"PRODUCT_CODE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048407" name="SYS_C002870" type="CHECK" members="RDBColumn_1060697048391">
+    <body>"PRODUCT_CODE" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

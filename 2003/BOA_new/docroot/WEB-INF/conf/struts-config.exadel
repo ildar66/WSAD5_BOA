@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS ENTITY="StrutsProcess">
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="foundPointsOfContacts"
+  NAME="forward0"
+  PATH="/jsp/gsa/inquiry/point_of_contact/current_points_of_contacts.jsp"
+  SHAPE="30,648,179,27" TARGET="page0" TITLE="foundPointsOfContacts" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="systemWarning"
+  NAME="forward1" PATH="/jsp/gsa/common/warning_systemDefault.jsp"
+  SHAPE="20,36,181,27" TARGET="page1" TITLE="systemWarning" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="sessionExpired"
+  NAME="forward2" PATH="/jsp/gsa/common/warning_sessionUnavailable.jsp"
+  SHAPE="20,136,185,27" TARGET="page2" TITLE="sessionExpired" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="AddUserProfileEnd"
+  NAME="forward3"
+  PATH="/jsp/gsa/setup/user_profile/confirm_userProfile.jsp"
+  SHAPE="918,2587,164,27" TARGET="page3" TITLE="AddUserProfileEnd" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="logon/prompt"
+  NAME="forward5" PATH="/jsp/gsa/systemLogon.jsp" SHAPE="19,1272,146,27"
+  TARGET="page5" TITLE="logon/prompt" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="error" NAME="forward6"
+  PATH="/jsp/gsa/eaglserror.jsp" SHAPE="38,776,117,27" TARGET="page6"
+  TITLE="error" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="pointOfContact"
+  NAME="forward7"
+  PATH="/jsp/gsa/inquiry/point_of_contact/point_of_contact.jsp"
+  SHAPE="34,480,159,27" TARGET="page7" TITLE="pointOfContact" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="AccountSetupSearch"
+  NAME="forward8" PATH="/jsp/gsa/setup/account/search_account.jsp"
+  SHAPE="118,3431,194,27" TARGET="page8" TITLE="AccountSetupSearch" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="AddUserProfile"
+  LINK_SHAPE="42,-65,137" NAME="forward9"
+  PATH="/jsp/gsa/setup/user_profile/setup_userProfile.jsp"
+  SHAPE="67,1962,158,27" TARGET="page9" TITLE="AddUserProfile" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem"
+  ID="CentralAccountMaintenanceSearch" NAME="forward10"
+  PATH="/jsp/gsa/maintenance/centralaccount/search.jsp"
+  SHAPE="19,237,256,27" TARGET="page10"
+  TITLE="CentralAccountMaintenanceSearch" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#addHierarchyPT"
+  NAME="action0" PATH="/addHierarchyPT" SHAPE="1405,2260,178,72"
+  TITLE="MyHierarchyForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="addRoleInfo"
+   NAME="forward0" PATH="/addRoleInfo.do" SHAPE="98,-109,570"
+   TARGET="action12" TITLE="addRoleInfo" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="addHierarchy" NAME="forward2" PATH="/userProfileRolesAction.do"
+   SHAPE="76,1,156" TARGET="action46" TITLE="addHierarchy" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward3"
+   PATH="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"
+   SHAPE="62,96,854" TARGET="page11" TITLE="success" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#accountInquiry"
+  NAME="action1" PATH="/accountInquiry" SHAPE="2505,4178,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#queuedRequest"
+  NAME="action2" PATH="/queuedRequest" SHAPE="2685,4187,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#agencyInquiry"
+  NAME="action3" PATH="/agencyInquiry" SHAPE="2865,4178,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#travelersChecks"
+  NAME="action4" PATH="/travelersChecks" SHAPE="3045,4187,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#transferAcctSearch"
+  NAME="action5" PATH="/transferAcctSearch" SHAPE="3225,4178,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#costAllocationAll"
+  NAME="action6" PATH="/costAllocationAll" SHAPE="3405,4187,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#updatePointOfContact"
+  NAME="action7" PATH="/updatePointOfContact" SHAPE="555,556,110,30"
+  TITLE="pointOfContactForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#convenienceChecks"
+  NAME="action8" PATH="/convenienceChecks" SHAPE="2505,4278,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#individualStatement"
+  NAME="action9" PATH="/individualStatement" SHAPE="2685,4287,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#vehicleMaintenance"
+  NAME="action10" PATH="/vehicleMaintenance" SHAPE="2865,4278,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#addUserProfile"
+  NAME="action11" PATH="/addUserProfile" SHAPE="650,1934,193,100"
+  TITLE="UserProfileForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="UserProfileAddHierarchy" NAME="forward4"
+   PATH="/jsp/gsa/setup/user_profile/setup_addHierarchy.jsp"
+   SHAPE="127,-202,1233" TARGET="page15" TITLE="UserProfileAddHierarchy" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="UserProfileAddAccountNumber" NAME="forward1"
+   PATH="/jsp/gsa/setup/user_profile/setup_addAccountNumber.jsp"
+   SHAPE="254,-105,432" TARGET="page12"
+   TITLE="UserProfileAddAccountNumber" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="UserProfileAddHierarchyPT" NAME="forward3"
+   PATH="/jsp/gsa/setup/user_profile/setup_addHierarchyNPT.jsp"
+   SHAPE="230,203,95" TARGET="page14" TITLE="UserProfileAddHierarchyPT" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="UserProfileConfirmation" NAME="forward0"
+   PATH="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"
+   SHAPE="122,408,1534" TARGET="page11" TITLE="UserProfileConfirmation" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="UserProfileAddRole" NAME="forward2"
+   PATH="/jsp/gsa/setup/user_profile/setup_addRole.jsp"
+   SHAPE="64,463,142" TARGET="page13" TITLE="UserProfileAddRole" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#addRoleInfo"
+  NAME="action12" PATH="/addRoleInfo" SHAPE="2267,2169,161,44"
+  TITLE="MyHierarchyForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward1"
+   PATH="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"
+   SHAPE="12,215,59" TARGET="page11" TITLE="success" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#createUserProfile"
+  NAME="action13" PATH="/createUserProfile" SHAPE="87,2105,139,86"
+  TITLE="theForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="newUser"
+   NAME="forward0"
+   PATH="/jsp/gsa/setup/user_profile/setup_userProfile.jsp"
+   SHAPE="85,-225,93" TARGET="page9" TITLE="newUser" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="largeResult"
+   NAME="forward1" PATH="/jsp/gsa/common/warning_largeResultsSet.jsp"
+   TARGET="page16" TITLE="largeResult" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="noResult"
+   NAME="forward3" PATH="/jsp/gsa/common/results_noResultsFound.jsp"
+   TARGET="page17" TITLE="noResult" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward4"
+   PATH="/jsp/gsa/setup/user_profile/show_search_result.jsp"
+   SHAPE="52,336,205" TARGET="page18" TITLE="success" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#viewPointOfContact"
+  NAME="action14" PATH="/viewPointOfContact" SHAPE="3045,4287,110,30"
+  TITLE="pointOfContactForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#centralAccountSetup"
+  NAME="action15" PATH="/centralAccountSetup" SHAPE="3225,4278,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#bulkActivation"
+  NAME="action16" PATH="/bulkActivation" SHAPE="3405,4287,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#agencyInvoice"
+  NAME="action17" PATH="/agencyInvoice" SHAPE="2505,4378,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#creditLimitMaintenance"
+  NAME="action18" PATH="/creditLimitMaintenance"
+  SHAPE="2685,4387,110,30" TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#searchPointsOfContact"
+  NAME="action19" PATH="/searchPointsOfContact" SHAPE="2865,4378,110,30" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#modifyUserProfile"
+  NAME="action20" PATH="/modifyUserProfile" SHAPE="3045,4387,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#browseHierarchy"
+  NAME="action21" PATH="/browseHierarchy" SHAPE="927,317,238,72"
+  TITLE="LogonForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="browse_hierarchy_max_level_reached" NAME="forward1"
+   PATH="/jsp/gsa/setup/user_profile/browse_hierarchy_max_level_reached.jsp"
+   TARGET="page20" TITLE="browse_hierarchy_max_level_reached" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="this"
+   NAME="forward0"
+   PATH="/jsp/gsa/setup/user_profile/browse_hierarchyLevels.jsp"
+   TARGET="page19" TITLE="this" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="browse_hierarchyLevels" NAME="forward3"
+   PATH="/jsp/gsa/setup/user_profile/browse_hierarchyLevels.jsp"
+   SHAPE="35,22,56" TARGET="page19" TITLE="browse_hierarchyLevels" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem"
+  ID="#accountingcentermaintenance" NAME="action22"
+  PATH="/accountingcentermaintenance" SHAPE="3225,4378,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#hierarchy"
+  NAME="action23" PATH="/hierarchy" SHAPE="1711,2736,192,86"
+  TITLE="MyHierarchyForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="addHierarchy" NAME="forward3" PATH="/userProfileRolesAction.do"
+   SHAPE="49,-269,-193,-192,56" TARGET="action46" TITLE="addHierarchy" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="addRoleInfo"
+   NAME="forward1" PATH="/addRoleInfo.do" SHAPE="297,-599,51"
+   TARGET="action12" TITLE="addRoleInfo" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward4"
+   PATH="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"
+   SHAPE="372,-380,224" TARGET="page11" TITLE="success" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="AddRoleInfoAction" NAME="forward0" PATH="/addRoleInfoAction.do"
+   TARGET="action38" TITLE="AddRoleInfoAction" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#Search" NAME="action24"
+  PATH="/Search" SHAPE="113,3137,110,100" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="createUser"
+   NAME="forward2" PATH="/jsp/gsa/setup/user_profile/profile_search.jsp"
+   SHAPE="76,-335,853" TARGET="page22" TITLE="createUser" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="notAvailable" NAME="forward0" PATH="/jsp/gsa/notAvailable.jsp"
+   TARGET="page21" TITLE="notAvailable" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward3" PATH="/jsp/gsa/common/dynSearch.jsp" TARGET="page23"
+   TITLE="success" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="foundPointsOfContacts" NAME="forward4"
+   PATH="/jsp/gsa/inquiry/centralaccount/inquiry_central_account_search.jsp"
+   TARGET="page34" TITLE="foundPointsOfContacts" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="TransactionData/SearchIndividualStatement" NAME="forward5"
+   PATH="/jsp/gsa/transactiondata/searchindividualstatement.jsp"
+   TARGET="page35" TITLE="TransactionData/SearchIndividualStatement" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#agencyMaintenance"
+  NAME="action25" PATH="/agencyMaintenance" SHAPE="3405,4387,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#confirm" NAME="action26"
+  PATH="/confirm" SHAPE="1006,2691,110,58" TITLE="formBean" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward2"
+   PATH="/jsp/gsa/setup/user_profile/confirm_userProfile.jsp"
+   TARGET="page3" TITLE="success" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="backToSearch" NAME="forward1"
+   PATH="/jsp/gsa/setup/user_profile/profile_search.jsp" TARGET="page22"
+   TITLE="backToSearch" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem"
+  ID="#setup#individualAccount#search" NAME="action27"
+  PATH="/setup/individualAccount/search" SHAPE="145,3582,110,44"
+  SUBTYPE="forward" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="action27"
+   PATH="/jsp/gsa/setup/account/search_account.jsp" TARGET="page8"
+   TITLE="forward" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#error" NAME="action28"
+  PATH="/error" SHAPE="281,922,110,44" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="error"
+   NAME="forward0" PATH="/jsp/gsa/eaglserror.jsp" TARGET="page6"
+   TITLE="error" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#finalPage"
+  NAME="action29" PATH="/finalPage" SHAPE="663,2634,110,72"
+  TITLE="formBean" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="addRole"
+   NAME="forward0" PATH="/jsp/gsa/setup/user_profile/setup_addRole.jsp"
+   SHAPE="88,-181,188" TARGET="page13" TITLE="addRole" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="finished"
+   NAME="forward3" PATH="/confirm.do" TARGET="action26" TITLE="finished" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="backToSearch" NAME="forward2"
+   PATH="/jsp/gsa/setup/user_profile/profile_search.jsp"
+   SHAPE="87,140,292" TARGET="page22" TITLE="backToSearch" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#DynMenuSelect"
+  NAME="action30" PATH="/DynMenuSelect" SHAPE="283,1023,110,58" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="failure"
+   NAME="forward0" PATH="/jsp/gsa/eaglserror.jsp" TARGET="page6"
+   TITLE="failure" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward1" PATH="/jsp/gsa/menu.jsp" TARGET="page24"
+   TITLE="success" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem"
+  ID="#centralAccountMaintenance" NAME="action31"
+  PATH="/centralAccountMaintenance" SHAPE="2505,4478,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#accountRenewal"
+  NAME="action32" PATH="/accountRenewal" SHAPE="2685,4487,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#newsletters"
+  NAME="action33" PATH="/newsletters" SHAPE="2865,4478,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#logon" NAME="action34"
+  PATH="/logon" SHAPE="495,1371,197,100" TITLE="LogonForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="changePasswordWarning" NAME="forward0" PATH="/jsp/gsa/frames.jsp"
+   SHAPE="6,-126,181" TARGET="page25" TITLE="changePasswordWarning" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="changePassword" NAME="forward3" PATH="/jsp/gsa/frames.jsp"
+   SHAPE="33,-140,154" TARGET="page25" TITLE="changePassword" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward4" PATH="/jsp/gsa/frames.jsp" SHAPE="54,-154,133"
+   TARGET="page25" TITLE="success" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="failure"
+   NAME="forward1" PATH="/jsp/gsa/LogonAccessDenied.jsp" TARGET="page26"
+   TITLE="failure" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="maxPasswordFailedCount" NAME="forward2"
+   PATH="/jsp/gsa/passwordAttempt_failed.jsp" SHAPE="83,23,114"
+   TARGET="page27" TITLE="maxPasswordFailedCount" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#invoiceStatus"
+  NAME="action35" PATH="/invoiceStatus" SHAPE="3045,4487,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#centralAcctInquiry"
+  NAME="action36" PATH="/centralAcctInquiry" SHAPE="3225,4478,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#browseRoles"
+  NAME="action37" PATH="/browseRoles" SHAPE="929,45,229,44"
+  TITLE="LogonForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="browse_roles" NAME="forward0"
+   PATH="/jsp/gsa/setup/user_profile/browse_userRoles.jsp"
+   TARGET="page28" TITLE="browse_roles" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#addRoleInfoAction"
+  NAME="action38" PATH="/addRoleInfoAction" SHAPE="2062,2893,167,44"
+  TITLE="MyHierarchyForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward1"
+   PATH="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"
+   SHAPE="108,-509,162" TARGET="page11" TITLE="success" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#requestCard"
+  NAME="action39" PATH="/requestCard" SHAPE="3405,4487,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#vehicleAccountInquiry"
+  NAME="action40" PATH="/vehicleAccountInquiry" SHAPE="2505,4578,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem"
+  ID="#setup#individualAccount#searchAccount" NAME="action41"
+  PATH="/setup/individualAccount/searchAccount" SHAPE="741,3408,228,72"
+  TITLE="searchAccountForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="setup/individualAccount/found_existing" NAME="forward0"
+   PATH="/jsp/gsa/setup/account/found_existing.jsp" TARGET="page29"
+   TITLE="setup/individualAccount/found_existing" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="setup/individualAccount/not_found" NAME="forward1"
+   PATH="/jsp/gsa/setup/account/not_found.jsp" TARGET="page4"
+   TITLE="setup/individualAccount/not_found" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="setup/individualAccount/found_new" NAME="forward2"
+   PATH="/jsp/gsa/setup/account/new_account.jsp" TARGET="page30"
+   TITLE="setup/individualAccount/found_new" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#agencySetup"
+  NAME="action42" PATH="/agencySetup" SHAPE="2685,4587,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#acctMaint"
+  NAME="action43" PATH="/acctMaint" SHAPE="2865,4578,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#searchCentralAccount"
+  NAME="action44" PATH="/searchCentralAccount" SHAPE="3045,4587,110,30"
+  TITLE="searchCentralAccountForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#addAccount"
+  NAME="action45" PATH="/addAccount" SHAPE="1655,1914,215,72"
+  TITLE="MyHierarchyForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward3"
+   PATH="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"
+   SHAPE="600,470,29" TARGET="page11" TITLE="success" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="addRoleInfo"
+   NAME="forward0" PATH="/addRoleInfo.do" SHAPE="342,223,39"
+   TARGET="action12" TITLE="addRoleInfo" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="addHierarchy" NAME="forward2" PATH="/userProfileRolesAction.do"
+   SHAPE="25,234,-137,99,57" TARGET="action46" TITLE="addHierarchy" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#userProfileRolesAction"
+  NAME="action46" PATH="/userProfileRolesAction"
+  SHAPE="1831,2293,245,100" TITLE="MyHierarchyForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="addHierarchyPT" NAME="forward0"
+   PATH="/jsp/gsa/setup/user_profile/setup_addHierarchyNPT.jsp"
+   SHAPE="29,-201,-988,73,51" TARGET="page14" TITLE="addHierarchyPT" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="addAccountNumber" NAME="forward2"
+   PATH="/jsp/gsa/setup/user_profile/setup_addAccountNumber.jsp"
+   SHAPE="55,-236,-712,-228,110" TARGET="page12"
+   TITLE="addAccountNumber" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="addHierarchy" NAME="forward4"
+   PATH="/jsp/gsa/setup/user_profile/setup_addHierarchy.jsp"
+   SHAPE="83,-589,44" TARGET="page15" TITLE="addHierarchy" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="addRoleInfoAction" NAME="forward1" PATH="/addRoleInfo.do"
+   SHAPE="103,-184,72" TARGET="action12" TITLE="addRoleInfoAction" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward5"
+   PATH="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"
+   SHAPE="231,35,192" TARGET="page11" TITLE="success" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#profileSearch"
+  NAME="action47" PATH="/profileSearch" SHAPE="1366,2750,181,44"
+  TITLE="ProfileSearchForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" ID="success"
+   NAME="forward1"
+   PATH="/jsp/gsa/setup/user_profile/show_search_result.jsp"
+   SHAPE="24,155,-1109,-422,21" TARGET="page18" TITLE="success" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#accountStatus"
+  NAME="action48" PATH="/accountStatus" SHAPE="3225,4578,110,30"
+  TITLE="theForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#Logoff" NAME="action49"
+  PATH="/Logoff" SHAPE="917,643,110,72" TITLE="LogoffForm" TYPE="action">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="SessionNotAvailable" NAME="forward0"
+   PATH="/jsp/gsa/session_unavailable.jsp" TARGET="page31"
+   TITLE="SessionNotAvailable" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="ConfirmLogoff" NAME="forward1" PATH="/jsp/gsa/confirm_logoff.jsp"
+   TARGET="page32" TITLE="ConfirmLogoff" TYPE="forward"/>
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput"
+   ID="VerifyLogoff" NAME="forward2" PATH="/jsp/gsa/verif_logoff.jsp"
+   SHAPE="47,19,31" TARGET="page33" TITLE="VerifyLogoff" TYPE="forward"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page0"
+  PATH="/jsp/gsa/inquiry/point_of_contact/current_points_of_contacts.jsp"
+  SHAPE="372,679,55,30" SUBTYPE="jsp"
+  TITLE="current_points_of_contacts.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page1"
+  PATH="/jsp/gsa/common/warning_systemDefault.jsp" SHAPE="299,54,55,30"
+  SUBTYPE="jsp" TITLE="warning_systemDefault.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page2"
+  PATH="/jsp/gsa/common/warning_sessionUnavailable.jsp"
+  SHAPE="304,153,55,30" SUBTYPE="jsp"
+  TITLE="warning_sessionUnavailable.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page3"
+  PATH="/jsp/gsa/setup/user_profile/confirm_userProfile.jsp"
+  SHAPE="1276,2660,55,30" SUBTYPE="jsp" TITLE="confirm_userProfile.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page4"
+  PATH="/jsp/gsa/setup/account/not_found.jsp" SHAPE="1134,3502,55,30"
+  SUBTYPE="jsp" TITLE="not_found.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page5"
+  PATH="/jsp/gsa/systemLogon.jsp" SHAPE="327,1296,55,49" SUBTYPE="jsp"
+  TITLE="systemLogon.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/logon.do" SUBTYPE="confirmed" TARGET="action34"
+   TITLE="/logon.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page6"
+  PATH="/jsp/gsa/eaglserror.jsp" SHAPE="565,851,55,30" SUBTYPE="jsp"
+  TITLE="eaglserror.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page7"
+  PATH="/jsp/gsa/inquiry/point_of_contact/point_of_contact.jsp"
+  SHAPE="357,519,55,49" SUBTYPE="jsp" TITLE="point_of_contact.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/updatePointOfContact.do" SUBTYPE="confirmed" TARGET="action7"
+   TITLE="/updatePointOfContact.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page8"
+  PATH="/jsp/gsa/setup/account/search_account.jsp"
+  SHAPE="458,3507,55,49" SUBTYPE="jsp" TITLE="search_account.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/setup/individualAccount/searchAccount.do" SHAPE="107,-111,105"
+   SUBTYPE="confirmed" TARGET="action41"
+   TITLE="/setup/individualAccount/searchAccount.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page9"
+  PATH="/jsp/gsa/setup/user_profile/setup_userProfile.jsp"
+  SHAPE="420,1898,55,49" SUBTYPE="jsp" TITLE="setup_userProfile.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/addUserProfile.do" SUBTYPE="confirmed" TARGET="action11"
+   TITLE="/addUserProfile.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page10"
+  PATH="/jsp/gsa/maintenance/centralaccount/search.jsp"
+  SHAPE="420,256,55,30" SUBTYPE="jsp" TITLE="search.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page11"
+  PATH="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"
+  SHAPE="2515,2402,55,49" SUBTYPE="jsp" TITLE="verif_userProfile.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/finalPage.do" SHAPE="20,149,-1979,71,36" SUBTYPE="confirmed"
+   TARGET="action29" TITLE="/finalPage.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page12"
+  PATH="/jsp/gsa/setup/user_profile/setup_addAccountNumber.jsp"
+  SHAPE="1545,1861,55,49" SUBTYPE="jsp"
+  TITLE="setup_addAccountNumber.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/addAccount.do" SUBTYPE="confirmed" TARGET="action45"
+   TITLE="/addAccount.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page13"
+  PATH="/jsp/gsa/setup/user_profile/setup_addRole.jsp"
+  SHAPE="1065,2471,55,49" SUBTYPE="jsp" TITLE="setup_addRole.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/userProfileRolesAction.do" SHAPE="597,-190,98"
+   SUBTYPE="confirmed" TARGET="action46"
+   TITLE="/userProfileRolesAction.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page14"
+  PATH="/jsp/gsa/setup/user_profile/setup_addHierarchyNPT.jsp"
+  SHAPE="1184,2183,55,49" SUBTYPE="jsp"
+  TITLE="setup_addHierarchyNPT.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/addHierarchyPT.do" SUBTYPE="confirmed" TARGET="action0"
+   TITLE="/addHierarchyPT.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page15"
+  PATH="/jsp/gsa/setup/user_profile/setup_addHierarchy.jsp"
+  SHAPE="2219,1750,55,49" SUBTYPE="jsp" TITLE="setup_addHierarchy.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/hierarchy.do" SHAPE="388,1237,-1037,-263,70"
+   SUBTYPE="confirmed" TARGET="action23" TITLE="/hierarchy.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page16"
+  PATH="/jsp/gsa/common/warning_largeResultsSet.jsp"
+  SHAPE="428,2099,55,30" SUBTYPE="jsp"
+  TITLE="warning_largeResultsSet.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page17"
+  PATH="/jsp/gsa/common/results_noResultsFound.jsp"
+  SHAPE="439,2221,55,30" SUBTYPE="jsp"
+  TITLE="results_noResultsFound.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page18"
+  PATH="/jsp/gsa/setup/user_profile/show_search_result.jsp"
+  SHAPE="499,2501,55,30" SUBTYPE="jsp" TITLE="show_search_result.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page19"
+  PATH="/jsp/gsa/setup/user_profile/browse_hierarchyLevels.jsp"
+  SHAPE="1272,385,55,30" SUBTYPE="jsp"
+  TITLE="browse_hierarchyLevels.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page20"
+  PATH="/jsp/gsa/setup/user_profile/browse_hierarchy_max_level_reached.jsp"
+  SHAPE="1262,300,55,30" SUBTYPE="jsp"
+  TITLE="browse_hierarchy_max_level_reached.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page21"
+  PATH="/jsp/gsa/notAvailable.jsp" SHAPE="464,3062,55,30" SUBTYPE="jsp"
+  TITLE="notAvailable.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page22"
+  PATH="/jsp/gsa/setup/user_profile/profile_search.jsp"
+  SHAPE="1168,2820,55,49" SUBTYPE="jsp" TITLE="profile_search.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/profileSearch.do" SUBTYPE="confirmed" TARGET="action47"
+   TITLE="/profileSearch.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page23"
+  PATH="/jsp/gsa/common/dynSearch.jsp" SHAPE="467,3122,55,30"
+  SUBTYPE="jsp" TITLE="dynSearch.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page24"
+  PATH="/jsp/gsa/menu.jsp" SHAPE="578,1086,55,30" SUBTYPE="jsp"
+  TITLE="menu.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page25"
+  PATH="/jsp/gsa/frames.jsp" SHAPE="895,1263,55,30" SUBTYPE="jsp"
+  TITLE="frames.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page26"
+  PATH="/jsp/gsa/LogonAccessDenied.jsp" SHAPE="898,1361,55,30"
+  SUBTYPE="jsp" TITLE="LogonAccessDenied.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page27"
+  PATH="/jsp/gsa/passwordAttempt_failed.jsp" SHAPE="905,1468,55,30"
+  SUBTYPE="jsp" TITLE="passwordAttempt_failed.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page28"
+  PATH="/jsp/gsa/setup/user_profile/browse_userRoles.jsp"
+  SHAPE="1248,82,55,30" SUBTYPE="jsp" TITLE="browse_userRoles.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page29"
+  PATH="/jsp/gsa/setup/account/found_existing.jsp"
+  SHAPE="1044,3331,55,30" SUBTYPE="jsp" TITLE="found_existing.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page30"
+  PATH="/jsp/gsa/setup/account/new_account.jsp" SHAPE="986,3652,55,49"
+  SUBTYPE="jsp" TITLE="new_account.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/setup/individualAccount/searchAccount.do"
+   SHAPE="41,76,-383,-332,26" SUBTYPE="confirmed" TARGET="action41"
+   TITLE="/setup/individualAccount/searchAccount.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page31"
+  PATH="/jsp/gsa/session_unavailable.jsp" SHAPE="1137,592,55,30"
+  SUBTYPE="jsp" TITLE="session_unavailable.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page32"
+  PATH="/jsp/gsa/confirm_logoff.jsp" SHAPE="1251,661,55,30"
+  SUBTYPE="jsp" TITLE="confirm_logoff.jsp" TYPE="page"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page33"
+  PATH="/jsp/gsa/verif_logoff.jsp" SHAPE="1121,708,55,49" SUBTYPE="jsp"
+  TITLE="verif_logoff.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/Logoff.do" SHAPE="55,65,-356,-142,26" SUBTYPE="confirmed"
+   TARGET="action49" TITLE="/Logoff.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem"
+  ID="individualAccount/accountDetails" NAME="forward11"
+  PATH="/setup/individualAccount/accountDetails.do"
+  SHAPE="25,353,257,27" TARGET="action50"
+  TITLE="individualAccount/accountDetails" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem"
+  ID="#setup#individualAccount#accountDetails" NAME="action50"
+  PATH="/setup/individualAccount/accountDetails" SHAPE="404,375,110,30"
+  TITLE="viewAccountForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem"
+  ID="#TransactionData#IndividualStatement#SearchIndividualStatementAction"
+  NAME="action51"
+  PATH="/TransactionData/IndividualStatement/SearchIndividualStatementAction"
+  SHAPE="20,4880,0,0" TITLE="TransactionData/IndividualStatementForm" TYPE="action"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page34"
+  PATH="/jsp/gsa/inquiry/centralaccount/inquiry_central_account_search.jsp"
+  SHAPE="473,3185,55,49" SUBTYPE="jsp"
+  TITLE="inquiry_central_account_search.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/foundPointsOfContacts.do" SUBTYPE="confirmed"
+   TARGET="action52" TITLE="/foundPointsOfContacts.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" NAME="page35"
+  PATH="/jsp/gsa/transactiondata/searchindividualstatement.jsp"
+  SHAPE="341,3337,55,49" SUBTYPE="jsp"
+  TITLE="searchindividualstatement.jsp" TYPE="page">
+  <PROCESS-ITEM-OUTPUT ENTITY="StrutsProcessItemOutput" NAME="link0"
+   PATH="/setup/individualAccount/searchAccount.do" SUBTYPE="confirmed"
+   TARGET="action41" TITLE="/setup/individualAccount/searchAccount.do" TYPE="link"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem"
+  ID="setup/individualAccount/found_new" NAME="forward12"
+  PATH="/jsp/gsa/setup/account/new_account.jsp" SHAPE="514,3844,252,27"
+  TARGET="page30" TITLE="setup/individualAccount/found_new" TYPE="forward"/>
+ <PROCESS-ITEM ENTITY="StrutsProcessItem" ID="#foundPointsOfContacts"
+  NAME="action52" PATH="/foundPointsOfContacts" SHAPE="653,3185,0,0"
+  SUBTYPE="unknown" TYPE="action"/>
+</PROCESS>

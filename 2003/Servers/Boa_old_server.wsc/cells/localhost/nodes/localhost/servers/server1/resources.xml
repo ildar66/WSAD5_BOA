@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:resources.jdbc="http://www.ibm.com/websphere/appserver/schemas/5.0/resources.jdbc.xmi" xmlns:resources.jms="http://www.ibm.com/websphere/appserver/schemas/5.0/resources.jms.xmi" xmlns:resources.j2c="http://www.ibm.com/websphere/appserver/schemas/5.0/resources.j2c.xmi" xmlns:resources="http://www.ibm.com/websphere/appserver/schemas/5.0/resources.xmi" xmlns:resources.mail="http://www.ibm.com/websphere/appserver/schemas/5.0/resources.mail.xmi" xmlns:resources.url="http://www.ibm.com/websphere/appserver/schemas/5.0/resources.url.xmi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <xmi:Documentation>
+    <contact>{Your Contact Info}</contact>
+  </xmi:Documentation>
+  <resources.jdbc:JDBCProvider xmi:id="JDBCProvider_1" name="Cloudscape JDBC Driver" description="Cloudscape JDBC Provider" implementationClassName="com.ibm.db2j.jdbc.DB2jConnectionPoolDataSource"/>
+  <resources.jms:JMSProvider xmi:id="builtin_jmsprovider" name="WebSphere JMS Provider" description="Built-in WebSphere JMS Provider" externalInitialContextFactory="" externalProviderURL=""/>
+  <resources.jms:JMSProvider xmi:id="builtin_mqprovider" name="WebSphere MQ JMS Provider" description="WebSphere MQ JMS Provider" externalInitialContextFactory="" externalProviderURL="">
+    <classpath>${MQJMS_LIB_ROOT}</classpath>
+    <nativepath>${MQJMS_LIB_ROOT}</nativepath>
+  </resources.jms:JMSProvider>
+  <resources.j2c:J2CResourceAdapter xmi:id="builtin_rra" name="WebSphere Relational Resource Adapter" description="Built-in Relational Resource Adapter for Container Managed Persistence" archivePath="${WAS_LIBS_DIR}/rsadapter.rar">
+    <propertySet xmi:id="J2EEResourcePropertySet_8">
+      <resourceProperties xmi:id="J2EEResourceProperty_31" name="TransactionResourceRegistration" type="java.lang.String" value="dynamic" description="Type of transaction resource registration (enlistment).  Valid values are either &#34;static&#34; (immediate) or &#34;dynamic&#34; (deferred)."/>
+      <resourceProperties xmi:id="J2EEResourceProperty_32" name="InactiveConnectionSupport" type="java.lang.Boolean" value="true" description="Specify whether connection handles support implicit reactivation. (Smart Handle support). Value may be &#34;true&#34; or &#34;false&#34;."/>
+    </propertySet>
+  </resources.j2c:J2CResourceAdapter>
+  <resources.mail:MailProvider xmi:id="builtin_mailprovider" name="Built-in Mail Provider" description="The built-in mail provider">
+    <protocolProviders xmi:id="builtin_smtp" protocol="smtp" classname="com.sun.mail.smtp.SMTPTransport" type="TRANSPORT"/>
+    <protocolProviders xmi:id="builtin_pop3" protocol="pop3" classname="com.sun.mail.pop3.POP3Store" type="STORE"/>
+    <protocolProviders xmi:id="builtin_imap" protocol="imap" classname="com.sun.mail.imap.IMAPStore" type="STORE"/>
+  </resources.mail:MailProvider>
+  <resources.jdbc:JDBCProvider xmi:id="JDBCProvider_2" name="Default DB2 JDBC Provider" description="DB2 JDBC Provider" implementationClassName="COM.ibm.db2.jdbc.DB2ConnectionPoolDataSource">
+    <classpath>${DB2_JDBC_DRIVER_PATH}/db2java.zip</classpath>
+  </resources.jdbc:JDBCProvider>
+  <resources.url:URLProvider xmi:id="URLProvider_1" name="Default URL Provider" streamHandlerClassName="unused" protocol="unused"/>
+  <resources.jdbc:JDBCProvider xmi:id="JDBCProvider_3" name="segfault" description="Oracle JDBC Thin Driver" implementationClassName="oracle.jdbc.pool.OracleConnectionPoolDataSource">
+    <classpath>${ORACLE_JDBC_DRIVER_PATH}/classes12.zip</classpath>
+    <classpath>C:\WSAD5_workspaces\WSAD5_BOA\BOA_old\lib\classes12.jar</classpath>
+    <factories xmi:type="resources.jdbc:DataSource" xmi:id="DataSource_1" name="segfault" jndiName="jdbc/boa" description="New JDBC Datasource" category="" authDataAlias="segfault" statementCacheSize="10" datasourceHelperClassname="com.ibm.websphere.rsadapter.OracleDataStoreHelper" relationalResourceAdapter="builtin_rra">
+      <propertySet xmi:id="J2EEResourcePropertySet_2">
+        <resourceProperties xmi:id="J2EEResourceProperty_3" name="databaseName" type="java.lang.String" value="segfault" description="The database name. For example, enter sample to make your Data Source point to sample.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_4" name="URL" type="java.lang.String" value="jdbc:oracle:thin:@segfault:1521:segfault" description="This is a required property. The URL indicating the database from which the Data Source will obtain connections, such as 'jdbc:oracle:thin:@localhost:1521:sample'." required="true"/>
+        <resourceProperties xmi:id="J2EEResourceProperty_5" name="driverType" type="java.lang.String" value="thin" description="The type of the driver. The possible values are: thin, oci8.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_6" name="serverName" type="java.lang.String" value="" description="The name of the server">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_7" name="portNumber" type="java.lang.Integer" value="1521" description="The TCP/IP port number where the jdbc driver resides.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_8" name="networkProtocol" type="java.lang.String" value="" description="Whether to use TCP/IP or IPC or any other protocol.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_9" name="dataSourceName" type="java.lang.String" value="" description="The name of the Data Source.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_10" name="TNSEntryName" type="java.lang.String" value="" description="The entry name which is used for the Oracle OCI driver.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_11" name="loginTimeout" type="java.lang.Integer" value="" description="The maximum time to attempt to connect a database. If this value is non-zero, attempt to connect to the database will timeout when this specified value is reached.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_12" name="description" type="java.lang.String" value="" description="The description of this datasource.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_13" name="enableMultithreadedAccessDetection" type="java.lang.Boolean" value="false" description="Indicates whether or not to detect multithreaded access to a Connection and its corresponding Statements, ResultSets, and MetaDatas.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_27" name="DB" type="java.lang.String" value="gsap" description="">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_28" name="DSN" type="java.lang.String" value="jdbc:oracle:thin:@segfault:1521:segfault" description="">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_29" name="PSWD" type="java.lang.String" value="pigs" description="">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_30" name="USER" type="java.lang.String" value="gsa" description="">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+      </propertySet>
+      <connectionPool xmi:id="ConnectionPool_1" connectionTimeout="1800" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool"/>
+      <mapping xmi:id="MappingModule_2" mappingConfigAlias="DefaultPrincipalMapping" authDataAlias="segfault"/>
+    </factories>
+    <factories xmi:type="resources.jdbc:DataSource" xmi:id="DataSource_2" name="bofa" jndiName="jdbc/bofa" description="New JDBC Datasource" category="" authDataAlias="segfault" statementCacheSize="10" datasourceHelperClassname="com.ibm.websphere.rsadapter.OracleDataStoreHelper" relationalResourceAdapter="builtin_rra">
+      <propertySet xmi:id="J2EEResourcePropertySet_4">
+        <resourceProperties xmi:id="J2EEResourceProperty_16" name="databaseName" type="java.lang.String" value="segfault" description="The database name. For example, enter sample to make your Data Source point to sample.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_17" name="URL" type="java.lang.String" value="jdbc:oracle:thin:@segfault:1521:segfault" description="This is a required property. The URL indicating the database from which the Data Source will obtain connections, such as 'jdbc:oracle:thin:@localhost:1521:sample'." required="true"/>
+        <resourceProperties xmi:id="J2EEResourceProperty_18" name="driverType" type="java.lang.String" value="thin" description="The type of the driver. The possible values are: thin, oci8.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_19" name="serverName" type="java.lang.String" value="" description="The name of the server">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_20" name="portNumber" type="java.lang.Integer" value="1521" description="The TCP/IP port number where the jdbc driver resides.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_21" name="networkProtocol" type="java.lang.String" value="" description="Whether to use TCP/IP or IPC or any other protocol.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_22" name="dataSourceName" type="java.lang.String" value="" description="The name of the Data Source.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_23" name="TNSEntryName" type="java.lang.String" value="" description="The entry name which is used for the Oracle OCI driver.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_24" name="loginTimeout" type="java.lang.Integer" value="" description="The maximum time to attempt to connect a database. If this value is non-zero, attempt to connect to the database will timeout when this specified value is reached.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_25" name="description" type="java.lang.String" value="" description="The description of this datasource.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_26" name="enableMultithreadedAccessDetection" type="java.lang.Boolean" value="false" description="Indicates whether or not to detect multithreaded access to a Connection and its corresponding Statements, ResultSets, and MetaDatas.">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_1" name="DSN" type="java.lang.String" value="jdbc:oracle:thin:@segfault:1521:segfault" description="">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_2" name="USER" type="java.lang.String" value="gsa" description="">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_14" name="PSWD" type="java.lang.String" value="pigs" description="">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+        <resourceProperties xmi:id="J2EEResourceProperty_15" name="DB" type="java.lang.String" value="gsap" description="">
+          <required xsi:nil="true"/>
+        </resourceProperties>
+      </propertySet>
+      <connectionPool xmi:id="ConnectionPool_2" connectionTimeout="1800" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool"/>
+      <mapping xmi:id="MappingModule_4" mappingConfigAlias="DefaultPrincipalMapping" authDataAlias="segfault"/>
+    </factories>
+  </resources.jdbc:JDBCProvider>
+</xmi:XMI>

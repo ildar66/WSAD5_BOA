@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>application</param-name>
+      <param-value>ApplicationResources</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/conf/struts-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <init-param>
+      <param-name>detail</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <init-param>
+      <param-name>validate</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet>
+  	<servlet-name>setup_authControl</servlet-name>
+  	<display-name>setup_authControl</display-name>
+  	<jsp-file>/jsp/gsa/authorization_controls/setup_authControl.jsp</jsp-file>
+  </servlet>
+  <servlet>
+  	<servlet-name>setup_accountControls</servlet-name>
+  	<display-name>setup_accountControls</display-name>
+  	<jsp-file>/jsp/gsa/authorization_controls/setup_accountControls.jsp</jsp-file>
+  </servlet>
+  <servlet>
+  	<servlet-name>setup_mccgControl</servlet-name>
+  	<display-name>setup_mccgControl</display-name>
+  	<jsp-file>/jsp/gsa/authorization_controls/setup_mccgControl.jsp</jsp-file>
+  </servlet>
+  <servlet>
+  	<servlet-name>verif_authControlsAcct</servlet-name>
+  	<display-name>verif_authControlsAcct</display-name>
+  	<jsp-file>/jsp/gsa/authorization_controls/verif_authControlsAcct.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>setup_authControl</servlet-name>
+  	<url-pattern>/setup_authControl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>setup_accountControls</servlet-name>
+  	<url-pattern>/setup_accountControls</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>setup_mccgControl</servlet-name>
+  	<url-pattern>/setup_mccgControl</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>verif_authControlsAcct</servlet-name>
+  	<url-pattern>/verif_authControlsAcct</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+  	<welcome-file>jsp/gsa/index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <resource-ref>
+    <description>Data Source</description>
+    <res-ref-name>jdbc/boa</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+
+</web-app>

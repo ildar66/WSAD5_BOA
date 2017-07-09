@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697048406" name="MICROSOFTDTPROPERTIES" primaryKey="SQLReference_1060697048406">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048406" name="ID" allowNull="false" constraints="SQLConstraint_1060697048406">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048406" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048407" name="OBJECTID" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048407" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048408" name="PROPERTY" allowNull="false" constraints="SQLConstraint_1060697048407">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048406" characterSet="800" length="64">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048409" name="VALUE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048407" characterSet="800" length="255">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048410" name="LVALUE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLBinaryLargeObject" xmi:id="SQLBinaryLargeObject_1060697048406" length="0">
+      <originatingType xmi:type="RDBSchema:SQLBinaryLargeObject" href="ORACLE_V9_Primitives.xmi#SQLBinaryLargeObject_4"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048411" name="VERSION" allowNull="false" constraints="SQLConstraint_1060697048408">
+    <defaultValue>(0)	</defaultValue>
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048408" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697048406" name="MICROSOFT_PK_DTPROPERTIES" members="RDBColumn_1060697048406 RDBColumn_1060697048408" constraint="SQLConstraint_1060697048409"/>
+  <constraints xmi:id="SQLConstraint_1060697048409" name="MICROSOFT_PK_DTPROPERTIES" type="PRIMARYKEY" primaryKey="SQLReference_1060697048406"/>
+  <constraints xmi:id="SQLConstraint_1060697048406" name="MICROSOFT_NN_ID" type="CHECK" members="RDBColumn_1060697048406">
+    <body>"ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048407" name="MICROSOFT_NN_PROPERTY" type="CHECK" members="RDBColumn_1060697048408">
+    <body>"PROPERTY" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048408" name="MICROSOFT_NN_VERSION" type="CHECK" members="RDBColumn_1060697048411">
+    <body>"VERSION" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

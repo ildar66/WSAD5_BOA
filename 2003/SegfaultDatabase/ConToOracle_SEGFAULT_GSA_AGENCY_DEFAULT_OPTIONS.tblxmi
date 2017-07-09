@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697047016" name="AGENCY_DEFAULT_OPTIONS" primaryKey="SQLReference_1060697047016">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047016" name="AGENCY_BILL_NBR" allowNull="false" constraints="SQLConstraint_1060697047016 SQLConstraint_1060697047017">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047016" characterSet="800" length="7">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047017" name="MCC_OPT_SET_ID" allowNull="false" constraints="SQLConstraint_1060697047018 SQLConstraint_1060697047019">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047017" characterSet="800" length="5">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047018" name="PRIORITY" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047016" precision="4" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047016" name="XPKAGENCY_DEFAULT_OPTIONS" members="RDBColumn_1060697047016 RDBColumn_1060697047017" constraint="SQLConstraint_1060697047020"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047016" name="FK04_BILLING_AGENCY_DEFAULT" members="RDBColumn_1060697047016" constraint="SQLConstraint_1060697047021">
+    <target href="ConToOracle_SEGFAULT_GSA_BILLING_AGENCY.tblxmi#SQLReference_1060697046453"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047017" name="FK02_MCC_CONTROL_ID_DEFAULT" members="RDBColumn_1060697047017" constraint="SQLConstraint_1060697047022">
+    <target href="ConToOracle_SEGFAULT_GSA_MCC_CONTROL_ID.tblxmi#SQLReference_1060697046453"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697047020" name="XPKAGENCY_DEFAULT_OPTIONS" type="PRIMARYKEY" primaryKey="SQLReference_1060697047016"/>
+  <constraints xmi:id="SQLConstraint_1060697047016" name="SYS_C006318" type="CHECK" members="RDBColumn_1060697047016">
+    <body>"AGENCY_BILL_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047018" name="SYS_C006319" type="CHECK" members="RDBColumn_1060697047017">
+    <body>"MCC_OPT_SET_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047017" name="SYS_C002688" type="CHECK" members="RDBColumn_1060697047016">
+    <body>"AGENCY_BILL_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047019" name="SYS_C002689" type="CHECK" members="RDBColumn_1060697047017">
+    <body>"MCC_OPT_SET_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047021" name="FK04_BILLING_AGENCY_DEFAULT" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047016"/>
+  <constraints xmi:id="SQLConstraint_1060697047022" name="FK02_MCC_CONTROL_ID_DEFAULT" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047017"/>
+</RDBSchema:RDBTable>

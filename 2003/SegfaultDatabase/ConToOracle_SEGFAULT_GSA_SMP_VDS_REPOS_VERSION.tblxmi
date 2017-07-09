@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049188" name="SMP_VDS_REPOS_VERSION" primaryKey="SQLReference_1060697049188">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049188" name="APP_NAME" allowNull="false">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049188" characterSet="800" length="512">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049189" name="VERSION" allowNull="false" constraints="SQLConstraint_1060697049188">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049188" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049190" name="UPD_IN_PROGRESS" allowNull="false" constraints="SQLConstraint_1060697049189">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049189" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049191" name="STANDALONE" allowNull="true">
+    <defaultValue>1 </defaultValue>
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049203" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697049188" name="SYS_C007240" members="RDBColumn_1060697049188" constraint="SQLConstraint_1060697049203"/>
+  <constraints xmi:id="SQLConstraint_1060697049203" name="SYS_C007240" type="PRIMARYKEY" primaryKey="SQLReference_1060697049188"/>
+  <constraints xmi:id="SQLConstraint_1060697049188" name="SYS_C007238" type="CHECK" members="RDBColumn_1060697049189">
+    <body>"VERSION" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049189" name="SYS_C007239" type="CHECK" members="RDBColumn_1060697049190">
+    <body>"UPD_IN_PROGRESS" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

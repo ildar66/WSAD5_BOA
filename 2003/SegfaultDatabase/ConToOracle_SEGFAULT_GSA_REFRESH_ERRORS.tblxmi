@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049094" name="REFRESH_ERRORS">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049094" name="ERROR_DATE" allowNull="true" constraints="SQLConstraint_1060697049094 SQLConstraint_1060697049095">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697049094" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049095" name="TABLE_NAME" allowNull="true" constraints="SQLConstraint_1060697049096 SQLConstraint_1060697049097">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049094" characterSet="800" length="30">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049096" name="TRAN_SEQ" allowNull="true" constraints="SQLConstraint_1060697049098 SQLConstraint_1060697049099">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049094" precision="15" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049097" name="ERROR_CODE" allowNull="true" constraints="SQLConstraint_1060697049100 SQLConstraint_1060697049101">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049095" characterSet="800" length="27">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049098" name="ERROR_MSG" allowNull="true" constraints="SQLConstraint_1060697049102 SQLConstraint_1060697049103">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049096" characterSet="800" length="500">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <constraints xmi:id="SQLConstraint_1060697049096" name="SYS_C004474" type="CHECK" members="RDBColumn_1060697049095">
+    <body>TABLE_NAME IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049094" name="SYS_C006832" type="CHECK" members="RDBColumn_1060697049094">
+    <body>"ERROR_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049097" name="SYS_C006833" type="CHECK" members="RDBColumn_1060697049095">
+    <body>"TABLE_NAME" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049098" name="SYS_C006834" type="CHECK" members="RDBColumn_1060697049096">
+    <body>"TRAN_SEQ" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049100" name="SYS_C006835" type="CHECK" members="RDBColumn_1060697049097">
+    <body>"ERROR_CODE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049102" name="SYS_C006836" type="CHECK" members="RDBColumn_1060697049098">
+    <body>"ERROR_MSG" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049095" name="SYS_C004473" type="CHECK" members="RDBColumn_1060697049094">
+    <body>ERROR_DATE IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049099" name="SYS_C004475" type="CHECK" members="RDBColumn_1060697049096">
+    <body>TRAN_SEQ IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049101" name="SYS_C004476" type="CHECK" members="RDBColumn_1060697049097">
+    <body>ERROR_CODE IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049103" name="SYS_C004477" type="CHECK" members="RDBColumn_1060697049098">
+    <body>ERROR_MSG IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

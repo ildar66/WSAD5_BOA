@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697046781" name="ACCOUNT_STATUS" primaryKey="SQLReference_1060697046781">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046781" name="ACCOUNT_NBR" allowNull="false" constraints="SQLConstraint_1060697046781 SQLConstraint_1060697046782">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046781" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046782" name="TSYS_STATUS_CODE" allowNull="false" constraints="SQLConstraint_1060697046783 SQLConstraint_1060697046784">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046781" characterSet="800" length="2">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046783" name="REASON_CODE" allowNull="true" constraints="SQLConstraint_1060697046785 SQLConstraint_1060697046786">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046782" characterSet="800" length="2">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046784" name="STATUS_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697046781" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046785" name="PRIORITY" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046782" precision="3" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697046781" name="SYS_C006216" members="RDBColumn_1060697046781 RDBColumn_1060697046782" constraint="SQLConstraint_1060697046787"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697046438" name="R_203" members="RDBColumn_1060697046781" constraint="SQLConstraint_1060697046788">
+    <target href="ConToOracle_SEGFAULT_GSA_ACCOUNT.tblxmi#SQLReference_1060697046391"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697046781" name="R_204" members="RDBColumn_1060697046782 RDBColumn_1060697046783" constraint="SQLConstraint_1060697046789">
+    <target href="ConToOracle_SEGFAULT_GSA_REASON_CODE.tblxmi#SQLReference_1060697046781"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697046787" name="SYS_C006216" type="PRIMARYKEY" primaryKey="SQLReference_1060697046781"/>
+  <constraints xmi:id="SQLConstraint_1060697046781" name="SYS_C006212" type="CHECK" members="RDBColumn_1060697046781">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046783" name="SYS_C006213" type="CHECK" members="RDBColumn_1060697046782">
+    <body>"TSYS_STATUS_CODE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046785" name="SYS_C006214" type="CHECK" members="RDBColumn_1060697046783">
+    <body>"REASON_CODE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046782" name="SYS_C002665" type="CHECK" members="RDBColumn_1060697046781">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046784" name="SYS_C002666" type="CHECK" members="RDBColumn_1060697046782">
+    <body>"TSYS_STATUS_CODE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046786" name="SYS_C002667" type="CHECK" members="RDBColumn_1060697046783">
+    <body>"REASON_CODE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046788" name="R_203" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697046438"/>
+  <constraints xmi:id="SQLConstraint_1060697046789" name="R_204" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697046781"/>
+</RDBSchema:RDBTable>

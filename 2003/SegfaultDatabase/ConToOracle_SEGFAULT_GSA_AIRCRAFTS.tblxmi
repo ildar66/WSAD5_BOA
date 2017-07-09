@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697047062" name="AIRCRAFTS" primaryKey="SQLReference_1060697047062">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047062" name="ID_AIRCRAFT" allowNull="false" constraints="SQLConstraint_1060697047062">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047062" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047063" name="ID_COMPANY" allowNull="false" constraints="SQLConstraint_1060697047063">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047063" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047064" name="MODEL" allowNull="false" constraints="SQLConstraint_1060697047064">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047062" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047065" name="COUNT_1_CLASS" allowNull="false" constraints="SQLConstraint_1060697047065">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047064" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047078" name="COUNT_2_CLASS" allowNull="false" constraints="SQLConstraint_1060697047078">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047078" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047062" name="SYS_C007290" members="RDBColumn_1060697047062" constraint="SQLConstraint_1060697047079">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_FLIGHTS.tblxmi#RDBReferenceByKey_1060697047078"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047078" name="SYS_C007291" onDelete="CASCADE" members="RDBColumn_1060697047063" constraint="SQLConstraint_1060697047080">
+    <target href="ConToOracle_SEGFAULT_GSA_COMPANIES.tblxmi#SQLReference_1060697047078"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697047079" name="SYS_C007290" type="PRIMARYKEY" primaryKey="SQLReference_1060697047062"/>
+  <constraints xmi:id="SQLConstraint_1060697047062" name="SYS_C007285" type="CHECK" members="RDBColumn_1060697047062">
+    <body>"ID_AIRCRAFT" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047063" name="SYS_C007286" type="CHECK" members="RDBColumn_1060697047063">
+    <body>"ID_COMPANY" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047064" name="SYS_C007287" type="CHECK" members="RDBColumn_1060697047064">
+    <body>"MODEL" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047065" name="SYS_C007288" type="CHECK" members="RDBColumn_1060697047065">
+    <body>"COUNT_1_CLASS" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047078" name="SYS_C007289" type="CHECK" members="RDBColumn_1060697047078">
+    <body>"COUNT_2_CLASS" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047080" name="SYS_C007291" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047078"/>
+</RDBSchema:RDBTable>

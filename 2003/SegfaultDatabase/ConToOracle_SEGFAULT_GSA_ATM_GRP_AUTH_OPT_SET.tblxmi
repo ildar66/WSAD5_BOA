@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697047156" name="ATM_GRP_AUTH_OPT_SET" primaryKey="SQLReference_1060697047156">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047156" name="GRP_AUTH_OPT_SET" allowNull="false" constraints="SQLConstraint_1060697047156 SQLConstraint_1060697047157">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047156" characterSet="800" length="25">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047156" name="XPKATM_GRP_AUTH_OPT_SET" members="RDBColumn_1060697047156" constraint="SQLConstraint_1060697047158"/>
+  <constraints xmi:id="SQLConstraint_1060697047158" name="XPKATM_GRP_AUTH_OPT_SET" type="PRIMARYKEY" primaryKey="SQLReference_1060697047156"/>
+  <constraints xmi:id="SQLConstraint_1060697047156" name="SYS_C006386" type="CHECK" members="RDBColumn_1060697047156">
+    <body>"GRP_AUTH_OPT_SET" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047157" name="SYS_C002718" type="CHECK" members="RDBColumn_1060697047156">
+    <body>"GRP_AUTH_OPT_SET" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

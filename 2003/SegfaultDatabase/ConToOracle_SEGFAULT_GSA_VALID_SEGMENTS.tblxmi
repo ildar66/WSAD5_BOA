@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697050062" name="VALID_SEGMENTS" primaryKey="SQLReference_1060697050062">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050062" name="SEGMENT_NAME" allowNull="false" constraints="SQLConstraint_1060697050062 SQLConstraint_1060697050063">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697050062" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050063" name="ACCOUNTING_CENTER_ID" allowNull="false" constraints="SQLConstraint_1060697050064 SQLConstraint_1060697050065">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697050062" precision="12" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050064" name="SEGMENT_VALUE" allowNull="false" constraints="SQLConstraint_1060697050066 SQLConstraint_1060697050067">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697050063" characterSet="800" length="64">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050065" name="DESCRIPTION" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697050064" characterSet="800" length="40">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050066" name="ACTIVE" allowNull="true" constraints="SQLConstraint_1060697050068">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697050065" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697050062" name="XPKVALID_SEGMENTS" members="RDBColumn_1060697050062 RDBColumn_1060697050063 RDBColumn_1060697050064" constraint="SQLConstraint_1060697050069"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697046344" name="R_167" members="RDBColumn_1060697050062 RDBColumn_1060697050063" constraint="SQLConstraint_1060697050070">
+    <target href="ConToOracle_SEGFAULT_GSA_ACCOUNTING_SEGMENT.tblxmi#SQLReference_1060697046344"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697050069" name="XPKVALID_SEGMENTS" type="PRIMARYKEY" primaryKey="SQLReference_1060697050062"/>
+  <constraints xmi:id="SQLConstraint_1060697050062" name="SYS_C007122" type="CHECK" members="RDBColumn_1060697050062">
+    <body>"SEGMENT_NAME" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050064" name="SYS_C007123" type="CHECK" members="RDBColumn_1060697050063">
+    <body>"ACCOUNTING_CENTER_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050066" name="SYS_C007124" type="CHECK" members="RDBColumn_1060697050064">
+    <body>"SEGMENT_VALUE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050068" name="CHECK1_VALID_SEGMENTS" type="CHECK" members="RDBColumn_1060697050066">
+    <body>ACTIVE IN ('Y', 'N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050063" name="SYS_C004273" type="CHECK" members="RDBColumn_1060697050062">
+    <body>"SEGMENT_NAME" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050065" name="SYS_C004274" type="CHECK" members="RDBColumn_1060697050063">
+    <body>"ACCOUNTING_CENTER_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050067" name="SYS_C004275" type="CHECK" members="RDBColumn_1060697050064">
+    <body>"SEGMENT_VALUE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050070" name="R_167" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697046344"/>
+</RDBSchema:RDBTable>

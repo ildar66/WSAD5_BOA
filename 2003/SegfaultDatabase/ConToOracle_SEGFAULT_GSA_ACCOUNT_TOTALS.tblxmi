@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697046812" name="ACCOUNT_TOTALS" primaryKey="SQLReference_1060697046828">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046828" name="ACCOUNT_NBR" allowNull="false" constraints="SQLConstraint_1060697046828 SQLConstraint_1060697046829">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046828" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046829" name="POSTING_DATE" allowNull="true" constraints="SQLConstraint_1060697046830 SQLConstraint_1060697046831">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697046828" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046830" name="STATEMENT_POSTED_FLAG" allowNull="true" constraints="SQLConstraint_1060697046832 SQLConstraint_1060697046833 SQLConstraint_1060697046834 SQLConstraint_1060697046835 SQLConstraint_1060697046836 SQLConstraint_1060697046837 SQLConstraint_1060697046838 SQLConstraint_1060697046839 SQLConstraint_1060697046840 SQLConstraint_1060697046841 SQLConstraint_1060697046842 SQLConstraint_1060697046843 SQLConstraint_1060697046844 SQLConstraint_1060697046845 SQLConstraint_1060697046846 SQLConstraint_1060697046847 SQLConstraint_1060697046848 SQLConstraint_1060697046849 SQLConstraint_1060697046850 SQLConstraint_1060697046851 SQLConstraint_1060697046852 SQLConstraint_1060697046853 SQLConstraint_1060697046854 SQLConstraint_1060697046855 SQLConstraint_1060697046856 SQLConstraint_1060697046857 SQLConstraint_1060697046858 SQLConstraint_1060697046859 SQLConstraint_1060697046860 SQLConstraint_1060697046861 SQLConstraint_1060697046862 SQLConstraint_1060697046863 SQLConstraint_1060697046864 SQLConstraint_1060697046865 SQLConstraint_1060697046866 SQLConstraint_1060697046867 SQLConstraint_1060697046868 SQLConstraint_1060697046869 SQLConstraint_1060697046870 SQLConstraint_1060697046871 SQLConstraint_1060697046872 SQLConstraint_1060697046873 SQLConstraint_1060697046874 SQLConstraint_1060697046875 SQLConstraint_1060697046876 SQLConstraint_1060697046877 SQLConstraint_1060697046878 SQLConstraint_1060697046879 SQLConstraint_1060697046880 SQLConstraint_1060697046881 SQLConstraint_1060697046882 SQLConstraint_1060697046883 SQLConstraint_1060697046884 SQLConstraint_1060697046885 SQLConstraint_1060697046886 SQLConstraint_1060697046887">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046828" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046831" name="TOTAL_PAYMENT_AMT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046829" precision="18" scale="4">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046832" name="TOTAL_NBR_PAYMENT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046830" precision="7" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046833" name="TOTAL_TRAVEL_AMT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046831" precision="18" scale="4">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046834" name="TOTAL_NBR_TRAVEL" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046832" precision="7" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046835" name="TOTAL_FLEET_AMT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046833" precision="18" scale="4">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046836" name="TOTAL_NBR_FLEET" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046834" precision="7" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046837" name="TOTAL_PURCHASE_AMT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046835" precision="18" scale="4">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046838" name="TOTAL_NBR_PURCHASE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046836" precision="7" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046839" name="TOTAL_CONV_CHK_AMT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046837" precision="18" scale="4">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046840" name="TOTAL_NBR_CONV_CHK" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046838" precision="7" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046841" name="TOTAL_TRAVELERS_CHK_AMT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046839" precision="18" scale="4">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046842" name="TOTAL_NBR_TRAVELERS_CHK" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046840" precision="7" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046843" name="TOTAL_CASH_ADV_AMT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046841" precision="18" scale="4">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046844" name="TOTAL_NBR_CASH_ADV" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046842" precision="7" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046845" name="TOTAL_ADDITIONAL_AMT" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046843" precision="18" scale="4">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046846" name="TOTAL_NBR_ADDITIONAL" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046844" precision="7" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697046828" name="XPKACCOUNT_TOTALS" members="RDBColumn_1060697046828" constraint="SQLConstraint_1060697046888"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697046438" name="SYS_C003477" members="RDBColumn_1060697046828" constraint="SQLConstraint_1060697046889">
+    <target href="ConToOracle_SEGFAULT_GSA_ACCOUNT.tblxmi#SQLReference_1060697046391"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697046888" name="XPKACCOUNT_TOTALS" type="PRIMARYKEY" primaryKey="SQLReference_1060697046828"/>
+  <constraints xmi:id="SQLConstraint_1060697046828" name="SYS_C006227" type="CHECK" members="RDBColumn_1060697046828">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046830" name="SYS_C006228" type="CHECK" members="RDBColumn_1060697046829">
+    <body>"POSTING_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046832" name="SYS_C006229" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046833" name="SYS_C006230" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046834" name="SYS_C006231" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046835" name="SYS_C006232" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046836" name="SYS_C006233" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046837" name="SYS_C006234" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046838" name="SYS_C006235" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046839" name="SYS_C006236" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046840" name="SYS_C006238" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046841" name="SYS_C006239" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046842" name="SYS_C006240" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046843" name="SYS_C006241" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046844" name="SYS_C006242" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046845" name="SYS_C006243" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046846" name="SYS_C006244" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046847" name="SYS_C006245" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046848" name="SYS_C006246" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046849" name="SYS_C006247" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046850" name="SYS_C006248" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046851" name="SYS_C006249" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046852" name="SYS_C006250" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046853" name="SYS_C006251" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046854" name="SYS_C006252" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046855" name="SYS_C006253" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046829" name="SYS_C002672" type="CHECK" members="RDBColumn_1060697046828">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046831" name="SYS_C002673" type="CHECK" members="RDBColumn_1060697046829">
+    <body>"POSTING_DATE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046856" name="SYS_C002674" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046857" name="SYS_C002675" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046858" name="SYS_C002676" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046859" name="SYS_C002677" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046860" name="SYS_C003751" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046861" name="SYS_C003752" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046862" name="SYS_C003753" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046863" name="SYS_C003754" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046864" name="SYS_C006264" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046865" name="SYS_C006265" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046866" name="SYS_C006266" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046867" name="SYS_C006267" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046868" name="SYS_C006268" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046869" name="SYS_C006269" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046870" name="SYS_C006270" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046871" name="SYS_C006271" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046872" name="SYS_C006272" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046873" name="SYS_C006273" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046874" name="SYS_C006274" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046875" name="SYS_C006275" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046876" name="SYS_C006276" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046877" name="SYS_C006277" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046878" name="SYS_C006278" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046879" name="SYS_C006279" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046880" name="SYS_C006280" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046881" name="SYS_C006281" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046882" name="SYS_C006282" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046883" name="SYS_C006283" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046884" name="SYS_C006284" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046885" name="SYS_C006285" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046886" name="SYS_C006286" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046887" name="SYS_C006287" type="CHECK" members="RDBColumn_1060697046830">
+    <body>STATEMENT_POSTED_FLAG IN ('Y','N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046889" name="SYS_C003477" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697046438"/>
+</RDBSchema:RDBTable>

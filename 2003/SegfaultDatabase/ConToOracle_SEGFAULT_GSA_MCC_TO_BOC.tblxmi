@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697048391" name="MCC_TO_BOC" primaryKey="SQLReference_1060697048391">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048391" name="DIVERSION_ACCOUNT_NBR" allowNull="false" constraints="SQLConstraint_1060697048391">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048391" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048392" name="MCC" allowNull="false" constraints="SQLConstraint_1060697048392">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048392" precision="4" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048393" name="BOC" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048391" characterSet="800" length="4">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697048391" name="XPKMCC_TO_BOC2" members="RDBColumn_1060697048391 RDBColumn_1060697048392" constraint="SQLConstraint_1060697048393"/>
+  <constraints xmi:id="SQLConstraint_1060697048393" name="XPKMCC_TO_BOC2" type="PRIMARYKEY" primaryKey="SQLReference_1060697048391"/>
+  <constraints xmi:id="SQLConstraint_1060697048391" name="SYS_C006723" type="CHECK" members="RDBColumn_1060697048391">
+    <body>"DIVERSION_ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048392" name="SYS_C006724" type="CHECK" members="RDBColumn_1060697048392">
+    <body>"MCC" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

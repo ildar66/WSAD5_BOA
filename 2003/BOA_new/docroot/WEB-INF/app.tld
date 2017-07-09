@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE taglib
+
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+
+  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+  <tlibversion>1.0</tlibversion>
+
+  <jspversion>1.1</jspversion>
+
+  <shortname>Application Tag Library</shortname>
+
+  <uri>http://jakarta.apache.org/taglibs/struts-example-1.0</uri>
+
+  <info>
+
+    This tag library contains functionality specific to the Struts
+
+    Example Application.
+
+  </info>
+
+  <tag>
+    <name>pagedList</name>
+    <tagclass>com.boa.eagls.government.taglib.pagedList.PagedListTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <attribute>
+      <name>howMany</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+
+  <tag>
+    <name>pagedListBody</name>
+    <tagclass>com.boa.eagls.government.taglib.pagedList.PagedListBodyTag</tagclass>
+    <teiclass>com.boa.eagls.government.taglib.pagedList.PagedListBodyTei</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <attribute>
+      <name>collection</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>name</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>property</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>pagedListHeader</name>
+    <tagclass>com.boa.eagls.government.taglib.pagedList.PagedListHeaderTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+  </tag>
+
+  <tag>
+    <name>pagedListBar</name>
+    <tagclass>com.boa.eagls.government.taglib.pagedList.PagedListBarTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+  </tag>
+
+  <tag>
+    <name>previousButton</name>
+    <tagclass>com.boa.eagls.government.taglib.pagedList.PreviousButtonTag</tagclass>
+    <bodycontent>empty</bodycontent>
+  </tag>
+
+  <tag>
+    <name>nextButton</name>
+    <tagclass>com.boa.eagls.government.taglib.pagedList.NextButtonTag</tagclass>
+    <bodycontent>empty</bodycontent>
+  </tag>
+
+  <tag>
+    <name>nextOption</name>
+    <tagclass>com.boa.eagls.government.taglib.pagedList.NextOptionTag</tagclass>
+    <bodycontent>empty</bodycontent>
+
+	<attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>previousOption</name>
+    <tagclass>com.boa.eagls.government.taglib.pagedList.PreviousOptionTag</tagclass>
+    <bodycontent>empty</bodycontent>
+
+	<attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+
+
+
+  <tag>
+
+    <name>checkLogon</name>
+
+    <tagclass>com.boa.eagls.government.taglib.CheckLogonTag</tagclass>
+
+    <bodycontent>empty</bodycontent>
+
+    <info>
+
+      Validate that there is a currently logged on user, by checking for
+
+      the existence of a session-scope bean under the specified name.
+
+      If there is no such bean, forward control to the specified page,
+
+      which will typically be a logon form.
+
+
+
+      name - Name of the session-scope bean to check for [user]
+
+
+
+      page - Context-relative path to the logon page [/logon.jsp]
+
+    </info>
+
+    <attribute>
+
+      <name>name</name>
+
+      <required>false</required>
+
+      <rtexprvalue>true</rtexprvalue>
+
+    </attribute>
+
+    <attribute>
+
+      <name>page</name>
+
+      <required>false</required>
+
+      <rtexprvalue>true</rtexprvalue>
+
+    </attribute>
+
+  </tag>
+
+  <tag>
+
+    <name>checkRights</name>
+
+    <tagclass>com.boa.eagls.government.taglib.CheckRightsTag</tagclass>
+
+    <bodycontent>empty</bodycontent>
+
+    <info>
+      Validate if currently logged on user has rights to view the source jsp
+      or has rights to perform this function
+      functionName - function name which user wants to perform
+      page - Context-relative path to next page
+
+    </info>
+
+    <attribute>
+
+      <name>functionName</name>
+
+      <required>true</required>
+
+      <rtexprvalue>true</rtexprvalue>
+
+    </attribute>
+
+    <attribute>
+
+      <name>page</name>
+
+      <required>false</required>
+
+      <rtexprvalue>true</rtexprvalue>
+
+    </attribute>
+
+  </tag>
+
+</taglib>
+

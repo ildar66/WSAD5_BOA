@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697046953" name="AGENCY_ACCOUNTING_CENTER" primaryKey="SQLReference_1060697046344">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046953" name="ACCOUNTING_CENTER_ID" allowNull="false" constraints="SQLConstraint_1060697046953 SQLConstraint_1060697046954">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046953" precision="12" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046954" name="AAS_FEED_FORMAT" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046953" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046955" name="AAS_FEED_FREQUENCY" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046954" precision="3" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046956" name="HIERARCHY_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046955" precision="8" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046957" name="RULES_SEQ_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697046956" precision="3" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046958" name="ACCOUNTING_CENTER_NAME" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046954" characterSet="800" length="30">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046959" name="REALLOCATION_FLAG" allowNull="true" constraints="SQLConstraint_1060697046955">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046955" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046960" name="DB_CR_INDICATOR" allowNull="true" constraints="SQLConstraint_1060697046956">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046956" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697046961" name="COMMENT_FLAG" allowNull="true" constraints="SQLConstraint_1060697046957">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697046957" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697046344" name="XPKAGENCY_ACCOUNTING_CENTER" members="RDBColumn_1060697046953" constraint="SQLConstraint_1060697046958">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_ACCOUNT.tblxmi#RDBReferenceByKey_1060697046453"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_ACCOUNTING_SEGMENT.tblxmi#RDBReferenceByKey_1060697046344"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_BILLING_AGENCY.tblxmi#RDBReferenceByKey_1060697046953"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_CENTRAL_OFFICE.tblxmi#RDBReferenceByKey_1060697046953"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_MCC.tblxmi#RDBReferenceByKey_1060697046953"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_SEGMENTED_COMMENTS.tblxmi#RDBReferenceByKey_1060697046953"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697046958" name="XPKAGENCY_ACCOUNTING_CENTER" type="PRIMARYKEY" primaryKey="SQLReference_1060697046344"/>
+  <constraints xmi:id="SQLConstraint_1060697046953" name="SYS_C006312" type="CHECK" members="RDBColumn_1060697046953">
+    <body>"ACCOUNTING_CENTER_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046955" name="CHECK1_AG_ACC_CEN" type="CHECK" members="RDBColumn_1060697046959">
+    <body>REALLOCATION_FLAG IN ('Y', 'N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046956" name="CHECK2_AG_ACC_CEN" type="CHECK" members="RDBColumn_1060697046960">
+    <body>DB_CR_INDICATOR IN ('Y', 'N')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046957" name="CHECK3_AG_ACC_CEN" type="CHECK" members="RDBColumn_1060697046961">
+    <body>COMMENT_FLAG IN ('S', 'F')</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697046954" name="SYS_C002683" type="CHECK" members="RDBColumn_1060697046953">
+    <body>"ACCOUNTING_CENTER_ID" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

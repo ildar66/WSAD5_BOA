@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697047094" name="AGENCY_REPORTS" primaryKey="SQLReference_1060697047094">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047094" name="HIERARCHY_NBR" allowNull="false" constraints="SQLConstraint_1060697047094 SQLConstraint_1060697047095">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047094" precision="8" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047095" name="REPORT_ID" allowNull="false" constraints="SQLConstraint_1060697047096 SQLConstraint_1060697047097">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047094" characterSet="800" length="10">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047094" name="XPKAGENCY_REPORTS" members="RDBColumn_1060697047094 RDBColumn_1060697047095" constraint="SQLConstraint_1060697047098"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047000" name="R_212" members="RDBColumn_1060697047094" constraint="SQLConstraint_1060697047099">
+    <target href="ConToOracle_SEGFAULT_GSA_AGENCY_HL.tblxmi#SQLReference_1060697046453"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047094" name="R_213" members="RDBColumn_1060697047095" constraint="SQLConstraint_1060697047100">
+    <target href="ConToOracle_SEGFAULT_GSA_VALID_REPORTS.tblxmi#SQLReference_1060697047094"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697047098" name="XPKAGENCY_REPORTS" type="PRIMARYKEY" primaryKey="SQLReference_1060697047094"/>
+  <constraints xmi:id="SQLConstraint_1060697047094" name="SYS_C006360" type="CHECK" members="RDBColumn_1060697047094">
+    <body>"HIERARCHY_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047096" name="SYS_C006361" type="CHECK" members="RDBColumn_1060697047095">
+    <body>"REPORT_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047095" name="SYS_C002708" type="CHECK" members="RDBColumn_1060697047094">
+    <body>"HIERARCHY_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047097" name="SYS_C002709" type="CHECK" members="RDBColumn_1060697047095">
+    <body>"REPORT_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047099" name="R_212" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047000"/>
+  <constraints xmi:id="SQLConstraint_1060697047100" name="R_213" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047094"/>
+</RDBSchema:RDBTable>

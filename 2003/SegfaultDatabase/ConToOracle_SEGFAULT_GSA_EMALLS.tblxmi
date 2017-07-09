@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697047906" name="EMALLS" primaryKey="SQLReference_1060697047906">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047906" name="ACCOUNT_NBR" allowNull="false" constraints="SQLConstraint_1060697047906 SQLConstraint_1060697047907">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047906" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047907" name="URL" allowNull="false" constraints="SQLConstraint_1060697047908 SQLConstraint_1060697047909">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047906" characterSet="800" length="60">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047908" name="DESCRIPTION" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047907" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047906" name="XPKEMALLS" members="RDBColumn_1060697047906 RDBColumn_1060697047907" constraint="SQLConstraint_1060697047910"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697046438" name="SPECIFIES" members="RDBColumn_1060697047906" constraint="SQLConstraint_1060697047911">
+    <target href="ConToOracle_SEGFAULT_GSA_ACCOUNT.tblxmi#SQLReference_1060697046391"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697047910" name="XPKEMALLS" type="PRIMARYKEY" primaryKey="SQLReference_1060697047906"/>
+  <constraints xmi:id="SQLConstraint_1060697047906" name="SYS_C006544" type="CHECK" members="RDBColumn_1060697047906">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047908" name="SYS_C006545" type="CHECK" members="RDBColumn_1060697047907">
+    <body>"URL" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047907" name="SYS_C002789" type="CHECK" members="RDBColumn_1060697047906">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047909" name="SYS_C002790" type="CHECK" members="RDBColumn_1060697047907">
+    <body>"URL" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047911" name="SPECIFIES" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697046438"/>
+</RDBSchema:RDBTable>

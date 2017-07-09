@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049984" name="VALID_ROLES" primaryKey="SQLReference_1060697047094">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049984" name="USER_ROLE" allowNull="false" constraints="SQLConstraint_1060697049984 SQLConstraint_1060697049985">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049984" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049985" name="ACCESS_FLAG" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049985" characterSet="800" length="1">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049986" name="DESCRIPTION" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049986" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049987" name="BASE_ROLE" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049987" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047094" name="XPKVALID_ROLES" members="RDBColumn_1060697049984" constraint="SQLConstraint_1060697049986">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_AGENCY_ROLE_REPORTS.tblxmi#RDBReferenceByKey_1060697047094"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_EAGLS_USERS.tblxmi#RDBReferenceByKey_1060697047907"/>
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_VALID_ROLE_FUNCTIONS.tblxmi#RDBReferenceByKey_1060697049984"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697049986" name="XPKVALID_ROLES" type="PRIMARYKEY" primaryKey="SQLReference_1060697047094"/>
+  <constraints xmi:id="SQLConstraint_1060697049984" name="SYS_C007115" type="CHECK" members="RDBColumn_1060697049984">
+    <body>"USER_ROLE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049985" name="SYS_C003053" type="CHECK" members="RDBColumn_1060697049984">
+    <body>"USER_ROLE" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

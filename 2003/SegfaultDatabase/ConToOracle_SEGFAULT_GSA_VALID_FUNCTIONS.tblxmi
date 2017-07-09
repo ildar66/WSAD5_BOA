@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049969" name="VALID_FUNCTIONS" primaryKey="SQLReference_1060697049969">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049969" name="FUNCTION_GROUP" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049969" characterSet="800" length="40">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049970" name="USER_ROLE_FUNCT" allowNull="false" constraints="SQLConstraint_1060697049969 SQLConstraint_1060697049970">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049970" characterSet="800" length="40">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049971" name="URL" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049971" characterSet="800" length="120">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697049969" name="XPKVALID_FUNCTIONS" members="RDBColumn_1060697049970" constraint="SQLConstraint_1060697049971">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_VALID_ROLE_FUNCTIONS.tblxmi#RDBReferenceByKey_1060697049969"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697049971" name="XPKVALID_FUNCTIONS" type="PRIMARYKEY" primaryKey="SQLReference_1060697049969"/>
+  <constraints xmi:id="SQLConstraint_1060697049969" name="SYS_C007109" type="CHECK" members="RDBColumn_1060697049970">
+    <body>"USER_ROLE_FUNCT" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049970" name="SYS_C003049" type="CHECK" members="RDBColumn_1060697049970">
+    <body>"USER_ROLE_FUNCT" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

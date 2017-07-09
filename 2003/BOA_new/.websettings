@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<websettings version="500">
+    <project-type>J2EE</project-type>
+    <context-root>BOA_new</context-root>
+    <jsp-level>JSP 1.2</jsp-level>
+    <features>
+        <feature>
+            <feature-id>com.ibm.etools.struts.wizards.project.feature</feature-id>
+        </feature>
+        <feature>
+            <feature-id>WebProjectCSSFileFeature</feature-id>
+        </feature>
+    </features>
+    <webcontent>docroot</webcontent>
+</websettings>

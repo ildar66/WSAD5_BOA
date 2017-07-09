@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBConnection xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBConnection_1060697050109" name="ConToOracle" userid="gsa" password="encoded:AAADAgQFBAUICQ4LDAUODwAREgM0NTY3WFlaWxwdHh8=" url="jdbc:oracle:thin:@segfault:1521:SEGFAULT" host="segfault" driver="oracle.jdbc.OracleDriver" otherDriver="oracle.jdbc.OracleDriver" classLocation="C:\oracleBase\v2\classes12.jar" dbName="SEGFAULT">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <filter xmi:id="RDBConnectionFilter_1060697050125" languageType="15">
+    <filterElement xmi:id="FilterElement_1060697050125" enabled="true" target="SCHEMA" text="SYS%" predicate="NOT_LIKE" operator="AND"/>
+    <filterElement xmi:id="FilterElement_1060697050126" enabled="true" target="SCHEMA" text="gsa" predicate="LIKE" operator="AND"/>
+  </filter>
+  <jdbcDriver href="ORACLE_V9_Domain.xmi#JDBCDriver_2"/>
+</RDBSchema:RDBConnection>

@@ -1,0 +1,421 @@
+
+<HTML>
+<HEAD>
+
+<TITLE>Account Controls Setup</TITLE>
+
+<META NAME="Name" CONTENT="Account/Authorization Controls Setup">
+<META NAME="Description" CONTENT="Setup for Account Controls from Auth Controls Setup">
+<META NAME="Author" CONTENT="Todd Bernard">
+<META NAME="Created" CONTENT="07/22/1998">
+<META NAME="Revised" CONTENT="09/24/1998 Edited -BB">
+<SCRIPT LANGUAGE="JavaScript" SRC="/gsa/scripts/setstyle.js"></SCRIPT>
+
+</HEAD>
+
+<SCRIPT LANGUAGE="Javascript">
+<!-- Start hiding from other browsers
+
+function initialize(theForm)
+    {
+     parent.logo.setFocus(theForm,theForm.acct_singleLimit,(parent.logo.Status_Text_SinglePurchaseLimit));
+    }
+
+function formTest(theForm)
+
+    {
+     var errormessage = parent.logo.ErrMsg_Header;
+
+     if ((theForm.acct_singleLimit.value != "") &&
+         (parent.logo.checkCurrency(theForm.acct_singleLimit.value) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_SinglePurchaseLimit;
+         }
+
+     if ((theForm.acct_dailyTransLimit != "") &&
+         (parent.logo.checkNumeric(theForm,theForm.acct_dailyTransLimit) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_DailyTransactionLimit;
+         }
+
+     if ((theForm.acct_dailyAmountLimit.value != "") &&
+         (parent.logo.checkCurrency(theForm.acct_dailyAmountLimit.value) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_DailyAmountLimit;
+         }
+
+     if ((theForm.acct_cycleTransLimit != "") &&
+         (parent.logo.checkNumeric(theForm,theForm.acct_cycleTransLimit) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_CycleTransactionLimit;
+         }
+
+     if ((theForm.acct_cycleAmountLimit.value != "") &&
+         (parent.logo.checkCurrency(theForm.acct_cycleAmountLimit.value) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_CycleAmountLimit;
+         }
+
+     if ((theForm.acct_monthTransLimit != "") &&
+         (parent.logo.checkNumeric(theForm,theForm.acct_monthTransLimit) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_MonthTransactionLimit;
+         }
+
+     if ((theForm.acct_monthAmountLimit.value != "") &&
+         (parent.logo.checkCurrency(theForm.acct_monthAmountLimit.value) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_MonthAmountLimit;
+         }
+
+     if ((theForm.acct_otherTransLimit != "") &&
+         (parent.logo.checkNumeric(theForm,theForm.acct_otherTransLimit) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_OtherTransactionLimit;
+         }
+
+     if ((theForm.acct_otherAmountLimit.value != "") &&
+         (parent.logo.checkCurrency(theForm.acct_otherAmountLimit.value) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_OtherAmountLimit;
+         }
+
+     if ((theForm.acct_otherTotalNumberDays != "") &&
+         (parent.logo.checkNumeric(theForm,theForm.acct_otherTotalNumberDays) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_OtherTotalNumberDays;
+         }
+
+     if ((theForm.acct_otherRefreshDate.value != "") &&
+         (parent.logo.checkDate(theForm,theForm.acct_otherRefreshDate) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_Date;
+         }
+
+     if (errormessage != parent.logo.ErrMsg_Header)
+         {
+          alert(errormessage);
+          return false;
+         }
+     else
+     return true;
+    }
+
+// Stop hiding -->
+</SCRIPT>
+
+<!---------------------------------------------------------------------------------->
+
+<BODY onLoad="initialize(document.frm_setupAccountControls);">
+
+<FORM NAME="frm_setupAccountControls"
+      ACTION="/cgi-bin/gx.cgi/GUIDGX-{95F59754-2237-11D2-92CE-0000F6AACD5A}"
+      METHOD="POST"
+      TARGET="content"
+      onSubmit="return formTest(document.frm_setupAccountControls);">
+
+
+<TABLE WIDTH="575">
+    <TR>
+      <!--TD ALIGN="Right"><IMG SRC="/gsa/images/eagle_logo.gif" WIDTH="82" HEIGHT="80"></TD-->
+      <TD ALIGN="Center">
+        <H2 class="titleText" >
+          Account Controls Setup<BR>
+          
+        </H2>
+      </TD>
+    </TR>
+</TABLE>
+
+<INPUT TYPE="HIDDEN" NAME="txt_screenTitle1" value="Account Controls Setup">
+
+<IMG SRC="/gsa/images/line.gif" WIDTH="575" HEIGHT="6">
+<BR>
+<BR>
+
+<!---------------------------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Account Information</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TH WIDTH="213" ALIGN="left" >
+        Account Name
+      </TH>
+      <TD WIDTH="352">
+        John Murphy&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >Account Number</TH>
+      <TD>
+        300012765&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >Agency Name</TH>
+      <TD>
+        EAGLS TEST AGENCY 25&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >
+        Central Account ID
+      </TH>
+      <TD>
+        9025359&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >Credit Limit</TD>
+      <TD>
+        $100,000.00&nbsp;
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!---------------------------------------------------------------------------------->
+
+<IMG SRC="/gsa/images/line.gif" WIDTH="575"><BR><BR>
+
+<!---------------------------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Account Transaction Limit</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TD WIDTH="213">Single Purchase Limit</TD>
+      <TD WIDTH="352" ALIGN="Right">
+        <INPUT TYPE="text" NAME="acct_singleLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_SinglePurchaseLimit);">
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!--- For code below...set up in table frmt broken by 4 segments as.. DAILY     CYCLK -->
+<!--- Each section contains row data spread across columns.           MONTHLY   OTHER -->
+
+<TABLE BORDER="1">
+    <TR>
+      <TH COLSPAN="2" ALIGN="left" >Daily</TH>
+      <TH COLSPAN="2" ALIGN="left" >Cycle</TH>
+    </TR>
+    <TR>
+      <TD WIDTH="141">Transaction Limit</TD>
+      <TD WIDTH="140">
+        <INPUT TYPE="text" NAME="acct_dailyTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_DailyTransLimit);">
+      </TD>
+      <TD WIDTH="140">Transaction Limit</TD>
+      <TD WIDTH="140">
+        <INPUT TYPE="text" NAME="acct_cycleTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_CycleTransLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_dailyAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_DailyAmountLimit);">
+      </TD>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_cycleAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_CycleAmountLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TH COLSPAN="2" ALIGN="left" >
+        Monthly
+      </TH>
+      <TH COLSPAN="2" ALIGN="left" >
+        Other
+      </TH>
+    </TR>
+    <TR>
+      <TD>Transaction Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_monthTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_MonthTransLimit);">
+      </TD>
+      <TD>Transaction Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_otherTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherTransLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_monthAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_MonthAmountLimit);">
+      </TD>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_otherAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherAmountLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TD><BR></TD>
+      <TD><BR></TD>
+      <TD>Total No. of Days</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_otherTotalNumberDays" SIZE="4" MAXLENGTH="3"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherTotalNumberDays);">
+      </TD>
+    </TR>
+    <TR>
+      <TD><BR></TD>
+      <TD><BR></TD>
+      <TD>Refresh Date</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_otherRefreshDate" SIZE="11" MAXLENGTH="10"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherRefreshDate);"><BR>(MM/DD/YYYY)
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!---------------------------------------------------------------------------------->
+
+<IMG SRC="/gsa/images/line.gif" WIDTH="575"><BR><BR>
+
+<!---------------------------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Foreign Currency Information</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TD WIDTH="213">Foreign Currency Restriction Set</TD>
+      <TD WIDTH="352">
+        <SELECT NAME="acct_foreignCurrRestrictSet" SIZE="1">
+          <OPTION value="Yes">Yes</OPTION>
+          <OPTION value="No">No</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Foreign Type</TD>
+      <TD>
+        <SELECT NAME="acct_foreignType" SIZE="1">
+          <OPTION value="Include">Include</OPTION>
+          <OPTION value="Exclude">Exclude</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Foreign Action</TD>
+      <TD>
+        <SELECT NAME="acct_foreignAction" SIZE="1">
+          <OPTION value="Accept">Accept</OPTION>
+          <OPTION value="Refer">Refer</OPTION>
+          <OPTION value="Decline">Decline</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!---------------------------------------------------------------------------------->
+
+<IMG SRC="/gsa/images/line.gif" WIDTH="575"><BR><BR>
+
+<!---------------------------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Vendor Information</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TD WIDTH="213">Vendor Check</TD>
+      <TD WIDTH="352">
+        <SELECT NAME="acct_vendorCheck" SIZE="1">
+          <OPTION value="Yes">Yes</OPTION>
+          <OPTION value="No">No</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Vendor Type</TD>
+      <TD>
+        <SELECT NAME="acct_vendorType" SIZE="1">
+          <OPTION value="Include">Include</OPTION>
+          <OPTION value="Exclude">Exclude</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Vendor Action</TD>
+      <TD>
+        <SELECT NAME="acct_vendorAction" SIZE="1">
+          <OPTION value="Accept">Accept</OPTION>
+          <OPTION value="Refer">Refer</OPTION>
+          <OPTION SELECTED value="Decline">Decline</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Valid Preferred Tables</TD>
+      <TD>
+        <SELECT NAME="acct_validPreferredTables" SIZE="1">
+          
+          
+            
+              
+                <OPTION VALUE="" ></OPTION>
+              
+            
+          
+        
+        </SELECT>
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!------------------------------------------------------------------------------------>
+<INPUT TYPE="Hidden" NAME="mccgControl" value="">
+<INPUT TYPE="Hidden" NAME="auth_accountNumber" value="300012765">
+<INPUT TYPE="Hidden" NAME="auth_accountName" value="John Murphy">
+<INPUT TYPE="Hidden" NAME="auth_agencyName" value="EAGLS TEST AGENCY 25">
+<INPUT TYPE="Hidden" NAME="auth_centralId" value="9025359">
+<INPUT TYPE="Hidden" NAME="auth_creditLimit" value="100000.0">
+<INPUT TYPE="Hidden" NAME="auth_guid" value="{F60CEA50-1B7C-11D2-96DD-204C4F4F5020}">
+
+
+<TABLE>
+    <TR>
+      <TD WIDTH="575" ALIGN="Center">
+        <INPUT TYPE="Submit" NAME="but_submitButton" VALUE="Submit">&nbsp;&nbsp;
+
+        <INPUT TYPE="Submit" NAME="but_submitButton" VALUE="Add MCCG Controls">&nbsp;&nbsp;
+
+        <INPUT TYPE="Reset" NAME="but_resetButton" VALUE="Clear">&nbsp;&nbsp;
+
+        <INPUT TYPE="Button" NAME="but_cancelButton" VALUE="Cancel"
+               onClick="history.go(-1)">
+      </TD>
+    </TR>
+</TABLE>
+
+<!------------------------------------------------------------------------------------>
+
+
+<BR><IMG SRC="/gsa/images/line.gif" WIDTH="575" HEIGHT="6">
+
+<TABLE>
+    <TR>
+      <TD WIDTH="575" ALIGN="Center">
+         <H6 class="copyright">
+           Copyright © 1999 Bank of America, NA (USA). All rights reserved.
+         </H6>
+      </TD>
+    </TR>
+</TABLE>
+
+
+</FORM>
+</BODY>
+</HTML>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-diagram PUBLIC "-//IBM//DTD Web Diagram 1.0//EN"
+                             "">
+<web-diagram>
+    <nodes>
+        <node id="n0"
+            path="/jsp/gsa/authorization_controls/setup_accountControls.jsp" type="page">
+            <location x="505" y="48"/>
+        </node>
+        <node id="n1"
+            path="/jsp/gsa/authorization_controls/setup_authControl.jsp" type="page">
+            <location x="-6" y="191"/>
+        </node>
+        <node id="n2"
+            path="/jsp/tmp/ildar/AccountSetupConfirmation.html" type="page">
+            <location x="-19" y="15"/>
+        </node>
+        <node id="n3" path="/authAccountControlsSetup" type="action">
+            <location x="315" y="55"/>
+        </node>
+        <node id="n4" path="frm_setupAccountControls" scope="session" type="form-bean">
+            <location x="446" y="117"/>
+        </node>
+        <node beanId="frm_setupAccountControls" id="n5"
+            path="com.boa.eagls.government.controller.formbean.authorizationcontrols.Frm_setupAccountControls"
+            scope="session" type="bean">
+            <location x="644" y="49"/>
+        </node>
+        <node id="n6" path="/decideAuthorizeControlSetup" type="action">
+            <location x="157" y="185"/>
+        </node>
+        <node id="n7" path="/decideAccountControlsSetup" type="action">
+            <location x="597" y="160"/>
+        </node>
+        <node id="n8" path="/authorizationControlSetup" type="action">
+            <location x="168" y="16"/>
+        </node>
+        <node id="n9" path="frm_authControls" scope="session" type="form-bean">
+            <location x="-4" y="86"/>
+        </node>
+        <node id="n10" path="/authControlMCCControlSetup" type="action">
+            <location x="320" y="235"/>
+        </node>
+        <node id="n11" path="frm_setupMccgControls" scope="session" type="form-bean">
+            <location x="430" y="293"/>
+        </node>
+        <node id="n12"
+            path="/jsp/gsa/authorization_controls/setup_mccgControl.jsp" type="page">
+            <location x="516" y="228"/>
+        </node>
+        <node beanId="frm_setupMccgControls" id="n13"
+            path="com.boa.eagls.government.controller.formbean.authorizationcontrols.Frm_setupMccgControls"
+            scope="session" type="bean">
+            <location x="668" y="216"/>
+        </node>
+        <node id="n14" path="/authControlVerifyAssignedAccountLimits" type="action">
+            <location x="163" y="284"/>
+        </node>
+        <node id="n15"
+            path="/jsp/gsa/authorization_controls/verif_authControlsAcct.jsp" type="page">
+            <location x="0" y="362"/>
+        </node>
+        <node id="n16"
+            path="/authControlSendConfirmationForAssignedAccountLimits" type="action">
+            <location x="167" y="383"/>
+        </node>
+        <node id="n17"
+            path="/jsp/gsa/authorization_controls/confirm_authControl.jsp" type="page">
+            <location x="362" y="388"/>
+        </node>
+        <node id="n18" path="/decideMCCControlsSetup" type="action">
+            <location x="598" y="342"/>
+        </node>
+        <node id="n19" path="frm_verifAcctControls" scope="session" type="form-bean">
+            <location x="3" y="279"/>
+        </node>
+        <node beanId="frm_verifAcctControls" id="n20"
+            path="com.boa.eagls.government.controller.formbean.authorizationcontrols.Frm_verifAcctControls"
+            scope="session" type="bean">
+            <location x="-3" y="434"/>
+        </node>
+        <node id="n21" path="frm_confirmAuthControls" scope="request" type="form-bean">
+            <location x="168" y="447"/>
+        </node>
+        <node beanId="frm_confirmAuthControls" id="n22"
+            path="com.boa.eagls.government.controller.formbean.authorizationcontrols.Frm_confirmAuthControls"
+            scope="request" type="bean">
+            <location x="411" y="452"/>
+        </node>
+    </nodes>
+    <wires>
+        <wire identifier="Bean Data Flow" source="n15" target="n20"/>
+        <wire identifier="success" source="n3" target="n0"/>
+        <wire identifier="submit" source="n18" target="n8"/>
+        <wire identifier="add_MCCG_Controls" source="n6" target="n10"/>
+        <wire identifier="Web Page Link" source="n2" target="n8"/>
+        <wire identifier="Bean Data Flow" source="n12" target="n13"/>
+        <wire identifier="Web Page Link" source="n15" target="n16"/>
+        <wire identifier="Web Page Link" source="n12" target="n18"/>
+        <wire amFbConn="true" identifier="Bean Data Flow" source="n7" target="n4"/>
+        <wire identifier="add_Account_Controls" source="n6" target="n3"/>
+        <wire amFbConn="true" identifier="Bean Data Flow" source="n8" target="n9"/>
+        <wire identifier="Web Page Link" source="n0" target="n7"/>
+        <wire identifier="add_MCCG_Controls" source="n18" target="n10">
+            <bendpoints>
+                <bendpoint weight="0.5">
+                    <dimension height="9" width="-278"/>
+                    <dimension height="116" width="-1"/>
+                </bendpoint>
+            </bendpoints>
+        </wire>
+        <wire amFbConn="true" identifier="Bean Data Flow" source="n18" target="n11"/>
+        <wire identifier="success" source="n10" target="n12"/>
+        <wire amFbConn="true" identifier="Bean Data Flow" source="n16" target="n21"/>
+        <wire amFbConn="true" identifier="Bean Data Flow" source="n10" target="n11"/>
+        <wire identifier="submit" source="n7" target="n8">
+            <bendpoints>
+                <bendpoint weight="0.5">
+                    <dimension height="-1" width="147"/>
+                    <dimension height="132" width="575"/>
+                </bendpoint>
+                <bendpoint weight="0.5">
+                    <dimension height="-143" width="143"/>
+                    <dimension height="-10" width="571"/>
+                </bendpoint>
+            </bendpoints>
+        </wire>
+        <wire identifier="Web Page Link" source="n1" target="n6"/>
+        <wire identifier="success" source="n16" target="n17"/>
+        <wire identifier="add_MCCG_Controls" source="n7" target="n10"/>
+        <wire amFbConn="true" identifier="Bean Data Flow" source="n3" target="n4"/>
+        <wire amFbConn="true" identifier="Bean Data Flow" source="n14" target="n19"/>
+        <wire identifier="success" source="n14" target="n15"/>
+        <wire identifier="success" source="n8" target="n1"/>
+        <wire identifier="Bean Data Flow" source="n17" target="n22"/>
+        <wire identifier="Bean Data Flow" source="n0" target="n5"/>
+        <wire identifier="finish" source="n6" target="n14"/>
+    </wires>
+</web-diagram>

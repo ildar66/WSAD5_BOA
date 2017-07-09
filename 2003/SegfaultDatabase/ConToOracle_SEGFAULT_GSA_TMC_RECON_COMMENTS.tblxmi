@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049406" name="TMC_RECON_COMMENTS" primaryKey="SQLReference_1060697049406">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049406" name="TMC_TRANSACTION_ID" allowNull="false" constraints="SQLConstraint_1060697049406 SQLConstraint_1060697049407">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049406" precision="15" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049407" name="COMMENT_NBR" allowNull="false" constraints="SQLConstraint_1060697049408 SQLConstraint_1060697049409">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049407" precision="2" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049408" name="COMMENT_DATE" allowNull="true">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697049406" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049409" name="USERID" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049406" characterSet="800" length="12">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049410" name="COMMENTS" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049407" characterSet="800" length="200">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697049406" name="XPKTMC_RECON_COMMENTS" members="RDBColumn_1060697049406 RDBColumn_1060697049407" constraint="SQLConstraint_1060697049410"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697049391" name="SYS_C003462" members="RDBColumn_1060697049406" constraint="SQLConstraint_1060697049411">
+    <target href="ConToOracle_SEGFAULT_GSA_TMC_TRANSACTION.tblxmi#SQLReference_1060697049391"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697049410" name="XPKTMC_RECON_COMMENTS" type="PRIMARYKEY" primaryKey="SQLReference_1060697049406"/>
+  <constraints xmi:id="SQLConstraint_1060697049408" name="SYS_C002955" type="CHECK" members="RDBColumn_1060697049407">
+    <body>"COMMENT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049406" name="SYS_C006900" type="CHECK" members="RDBColumn_1060697049406">
+    <body>"TMC_TRANSACTION_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049409" name="SYS_C006901" type="CHECK" members="RDBColumn_1060697049407">
+    <body>"COMMENT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049407" name="SYS_C002954" type="CHECK" members="RDBColumn_1060697049406">
+    <body>"TMC_TRANSACTION_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049411" name="SYS_C003462" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697049391"/>
+</RDBSchema:RDBTable>

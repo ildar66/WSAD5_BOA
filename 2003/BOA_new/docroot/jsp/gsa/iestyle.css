@@ -1,0 +1,48 @@
+.basic      {
+               font-family:Arial,serif, Courier New,;
+               text-decoration:none;
+               color:#000000;
+                }
+
+
+.basicBlue   {
+               font-family:Arial, Helvetecia;
+               text-decoration:none;
+               color:#0000FF;
+               font-weight:bold;
+
+}
+
+.bigText   {
+               font-family:Arial,Helvetica;
+               text-decoration:none;
+               color:black;
+               font-weight:bold;
+               font-size:14pt;
+
+}
+
+
+
+H2.titleText  {
+               font-family:Arial, serif, Courier New;
+               color:#0000FF;
+               }
+.titleBg {
+background-color: #C1ADE8;
+}
+
+H6.copyright {
+        font-size:9pt;
+        color:#000000;
+}
+
+
+Body.topMargin0  {
+        margin-top:0;
+}
+#dynamicP {position:absolute; left:0px; top:-5px; font-family:Arial,Helvetica,sans-serif; font-size:medium; text-align:left; }
+.acctCodeDesc {position:relative; left:0px; top:5px; height:10px; visibility:show; z-index:1;}
+.hLDisplay {position:relative; left:0px; top:1px; height:10px; visibility:show; z-index:1; text-align:center;}
+#hLx {position:relative; left:0px; top:-2 px; text-align:center}
+#hLeft  {position:absolute; left:0px; top:-5px; font-family:Arial,Helvetica,sans-serif; font-size:10pt; text-align:left}

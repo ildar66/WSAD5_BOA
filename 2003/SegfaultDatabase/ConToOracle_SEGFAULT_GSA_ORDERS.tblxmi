@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697048641" name="ORDERS" primaryKey="SQLReference_1060697048641">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048641" name="ID_ORDER" allowNull="false" constraints="SQLConstraint_1060697048641">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048641" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048642" name="ID_FLIGHT" allowNull="false" constraints="SQLConstraint_1060697048642">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048642" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048643" name="CLASS" allowNull="false" constraints="SQLConstraint_1060697048643">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048643" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048644" name="COUNT" allowNull="false" constraints="SQLConstraint_1060697048644">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048644" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048645" name="CREDIT_CARD" allowNull="false" constraints="SQLConstraint_1060697048656">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697048656" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697048641" name="SYS_C007309" members="RDBColumn_1060697048641" constraint="SQLConstraint_1060697048657"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697048141" name="SYS_C007310" onDelete="CASCADE" members="RDBColumn_1060697048642" constraint="SQLConstraint_1060697048658">
+    <target href="ConToOracle_SEGFAULT_GSA_FLIGHTS.tblxmi#SQLReference_1060697048141"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697048657" name="SYS_C007309" type="PRIMARYKEY" primaryKey="SQLReference_1060697048641"/>
+  <constraints xmi:id="SQLConstraint_1060697048641" name="SYS_C007304" type="CHECK" members="RDBColumn_1060697048641">
+    <body>"ID_ORDER" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048642" name="SYS_C007305" type="CHECK" members="RDBColumn_1060697048642">
+    <body>"ID_FLIGHT" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048643" name="SYS_C007306" type="CHECK" members="RDBColumn_1060697048643">
+    <body>"CLASS" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048644" name="SYS_C007307" type="CHECK" members="RDBColumn_1060697048644">
+    <body>"COUNT" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048656" name="SYS_C007308" type="CHECK" members="RDBColumn_1060697048645">
+    <body>"CREDIT_CARD" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048658" name="SYS_C007310" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697048141"/>
+</RDBSchema:RDBTable>

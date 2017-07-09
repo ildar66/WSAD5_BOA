@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697047484" name="CARD_DESIGN" primaryKey="SQLReference_1060697046453">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047484" name="CMID" allowNull="false" constraints="SQLConstraint_1060697047484 SQLConstraint_1060697047485">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047484" characterSet="800" length="8">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047485" name="OFFICE_ID" allowNull="false" constraints="SQLConstraint_1060697047486 SQLConstraint_1060697047487">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047484" precision="12" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047486" name="DESCRIPTION" allowNull="true">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047485" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047487" name="HIERARCHY_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047485" precision="8" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047488" name="AGENCY_ID" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047486" precision="7" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697046453" name="XPKCARD_DESIGN" members="RDBColumn_1060697047484 RDBColumn_1060697047485" constraint="SQLConstraint_1060697047488">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_ACCOUNT.tblxmi#RDBReferenceByKey_1060697046456"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047484" name="R_171" members="RDBColumn_1060697047485" constraint="SQLConstraint_1060697047489">
+    <target href="ConToOracle_SEGFAULT_GSA_CENTRAL_OFFICE.tblxmi#SQLReference_1060697047484"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697047488" name="XPKCARD_DESIGN" type="PRIMARYKEY" primaryKey="SQLReference_1060697046453"/>
+  <constraints xmi:id="SQLConstraint_1060697047484" name="SYS_C006434" type="CHECK" members="RDBColumn_1060697047484">
+    <body>"CMID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047486" name="SYS_C006435" type="CHECK" members="RDBColumn_1060697047485">
+    <body>"OFFICE_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047485" name="SYS_C002742" type="CHECK" members="RDBColumn_1060697047484">
+    <body>"CMID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047487" name="SYS_C002743" type="CHECK" members="RDBColumn_1060697047485">
+    <body>"OFFICE_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047489" name="R_171" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047484"/>
+</RDBSchema:RDBTable>

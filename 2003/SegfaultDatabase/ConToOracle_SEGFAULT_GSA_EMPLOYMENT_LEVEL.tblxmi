@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697047922" name="EMPLOYMENT_LEVEL" primaryKey="SQLReference_1060697047922">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047922" name="GRADE_RANK" allowNull="false" constraints="SQLConstraint_1060697047922 SQLConstraint_1060697047923">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047922" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047923" name="AGENCY_BILL_NBR" allowNull="false" constraints="SQLConstraint_1060697047924 SQLConstraint_1060697047925">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047923" characterSet="800" length="7">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_1"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047922" name="XPKEMPLOYMENT_LEVEL" members="RDBColumn_1060697047922 RDBColumn_1060697047923" constraint="SQLConstraint_1060697047926"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047391" name="MAY_HAVE" members="RDBColumn_1060697047923" constraint="SQLConstraint_1060697047927">
+    <target href="ConToOracle_SEGFAULT_GSA_BILLING_AGENCY.tblxmi#SQLReference_1060697046453"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697047926" name="XPKEMPLOYMENT_LEVEL" type="PRIMARYKEY" primaryKey="SQLReference_1060697047922"/>
+  <constraints xmi:id="SQLConstraint_1060697047922" name="SYS_C006549" type="CHECK" members="RDBColumn_1060697047922">
+    <body>"GRADE_RANK" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047924" name="SYS_C006550" type="CHECK" members="RDBColumn_1060697047923">
+    <body>"AGENCY_BILL_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047923" name="SYS_C002792" type="CHECK" members="RDBColumn_1060697047922">
+    <body>"GRADE_RANK" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047925" name="SYS_C002793" type="CHECK" members="RDBColumn_1060697047923">
+    <body>"AGENCY_BILL_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047927" name="MAY_HAVE" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047391"/>
+</RDBSchema:RDBTable>

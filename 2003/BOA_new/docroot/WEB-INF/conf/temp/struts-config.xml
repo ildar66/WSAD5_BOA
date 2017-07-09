@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+                               "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+ <data-sources/>
+ <!-- ========== Form Bean Definitions =================================== -->
+ <form-beans>
+  <form-bean name="viewAccountForm" type="com.boa.eagls.government.controller.formbean.account.ViewAccountForm">
+   <form-property name="centralAcctID" type="int"/>
+   <form-property name="centralAccountName" type="java.lang.String"/>
+   <form-property name="centralAccountNumber" type="java.lang.String"/>
+   <form-property name="hdn_programNumber" type="java.lang.String"/>
+   <form-property name="hdn_centralAccountID" type="int"/>
+   <form-property name="hdn_centralAccountName" type="java.lang.String"/>
+   <form-property name="hdn_programType" type="java.lang.String"/>
+   <form-property name="hdn_centralAccountNumber" type="java.lang.String"/>
+   <form-property name="hdn_travelersCheckFlag" type="java.lang.String"/>
+   <form-property name="hdn_billingType" type="java.lang.String"/>
+   <form-property name="accountingCenterID" type="java.lang.String"/>
+   <form-property name="txt_lastName" type="java.lang.String"/>
+   <form-property name="txt_firstName" type="java.lang.String"/>
+   <form-property name="txt_socialSecurityNumber" type="java.lang.String"/>
+   <form-property name="txt_addressLine1" type="java.lang.String"/>
+   <form-property name="txt_addressLine2" type="java.lang.String"/>
+   <form-property name="txt_addressLine3" type="java.lang.String"/>
+   <form-property name="txt_addressLine4" type="java.lang.String"/>
+   <form-property name="txt_city" type="java.lang.String"/>
+   <form-property name="txt_state" type="java.lang.String"/>
+   <form-property name="txt_country" type="java.lang.String"/>
+   <form-property name="txt_zipCode" type="java.lang.String"/>
+   <form-property name="txt_businessPhone" type="java.lang.String"/>
+   <form-property name="txt_emailAddress" type="java.lang.String"/>
+  </form-bean>
+  <form-bean name="formBean" type="org.apache.struts.action.DynaActionForm">
+   <form-property name="but_submitButton" type="java.lang.String"/>
+  </form-bean>
+  <form-bean name="LogonForm" type="org.apache.struts.action.DynaActionForm">
+   <form-property name="txt_username" type="java.lang.String"/>
+   <form-property name="txt_password" type="java.lang.String"/>
+  </form-bean>
+  <form-bean name="LogoffForm" type="org.apache.struts.action.DynaActionForm">
+   <form-property name="hdn_confirmLogoff" type="java.lang.String"/>
+  </form-bean>
+  <form-bean name="UserProfileForm" type="org.apache.struts.action.DynaActionForm">
+   <form-property name="txt_firstName" type="java.lang.String"/>
+   <form-property name="txt_lastName" type="java.lang.String"/>
+   <form-property name="txt_userId" type="java.lang.String"/>
+   <form-property name="status" type="java.lang.String"/>
+   <form-property name="txt_reportsAccess" type="java.lang.String"/>
+   <form-property name="currentRole" type="java.lang.String"/>
+   <form-property name="prevRoles" type="java.lang.String"/>
+   <form-property name="txt_role" type="java.lang.String"/>
+   <form-property name="baseRole" type="java.lang.String"/>
+   <form-property name="but_submitButton" type="java.lang.String"/>
+  </form-bean>
+  <form-bean name="HierarchyForm" type="com.boa.eagls.government.controller.formbean.user.HierarchyForm"/>
+  <form-bean name="MyHierarchyForm" type="org.apache.struts.action.DynaActionForm">
+   <form-property name="txt_hl0" type="java.lang.String"/>
+   <form-property name="txt_hl1" type="java.lang.String"/>
+   <form-property name="txt_hl2" type="java.lang.String"/>
+   <form-property name="txt_hl3" type="java.lang.String"/>
+   <form-property name="txt_hl4" type="java.lang.String"/>
+   <form-property name="txt_hl5" type="java.lang.String"/>
+   <form-property name="txt_hl6" type="java.lang.String"/>
+   <form-property name="txt_hl7" type="java.lang.String"/>
+   <form-property name="txt_hl8" type="java.lang.String"/>
+   <form-property name="txt_hl0Desc" type="java.lang.String"/>
+   <form-property name="txt_hl1Desc" type="java.lang.String"/>
+   <form-property name="txt_hl2Desc" type="java.lang.String"/>
+   <form-property name="txt_hl3Desc" type="java.lang.String"/>
+   <form-property name="txt_hl4Desc" type="java.lang.String"/>
+   <form-property name="txt_hl5Desc" type="java.lang.String"/>
+   <form-property name="txt_hl6Desc" type="java.lang.String"/>
+   <form-property name="txt_hl7Desc" type="java.lang.String"/>
+   <form-property name="txt_hl8Desc" type="java.lang.String"/>
+   <form-property name="txt_accountNo" type="java.lang.String"/>
+   <form-property name="programNumber" type="java.lang.String"/>
+   <form-property name="programTypes" type="java.lang.String"/>
+   <form-property name="but_submitButton" type="java.lang.String"/>
+  </form-bean>
+  <!-- Added to accomodate the dyanamic search (Solo) -->
+  <form-bean name="theForm" type="org.apache.struts.action.DynaActionForm">
+   <form-property initial="currentTransactions" name="rag_invoiceSearch" type="java.lang.String"/>
+   <form-property name="txt_invoiceDate" type="java.lang.String"/>
+   <form-property name="rag_statementSearch" type="java.lang.String"/>
+   <form-property name="txt_statementDate" type="java.lang.String"/>
+   <form-property name="sel_indTransSort" type="java.lang.String"/>
+   <form-property initial="0" name="rag_acctMaintSearchFor" type="java.lang.String"/>
+   <form-property initial="false" name="rag_costAllocNotAllocated" type="boolean"/>
+   <form-property initial="false" name="rag_costAllocAllocated" type="boolean"/>
+   <form-property initial="false" name="rag_costAllocNotCertified" type="boolean"/>
+   <form-property initial="false" name="rag_costAllocCertified" type="boolean"/>
+   <form-property initial="false" name="rag_costAllocAll" type="boolean"/>
+   <form-property name="cmb_sortBy" type="java.lang.String"/>
+   <form-property initial="1" name="rag_SortOrder" type="java.lang.String"/>
+   <form-property initial="false" name="chk_newGCSU" type="boolean"/>
+   <form-property initial="false" name="chk_pendGCSU" type="boolean"/>
+   <form-property initial="false" name="chk_processedGCSU" type="boolean"/>
+   <form-property initial="pendDate" name="sel_sortBy" type="java.lang.String"/>
+   <form-property initial="asc" name="rag_sortOrder" type="java.lang.String"/>
+   <form-property initial="false" name="chk_newStatus" type="boolean"/>
+   <form-property initial="false" name="chk_pendStat" type="boolean"/>
+   <form-property initial="false" name="chk_Approved" type="boolean"/>
+   <form-property initial="false" name="chk_declinedStat" type="boolean"/>
+   <form-property initial="false" name="chk_pendingUntil" type="boolean"/>
+   <form-property name="txt_pendingUntilFrom" type="java.lang.String"/>
+   <form-property name="txt_pendingUntilTo" type="java.lang.String"/>
+   <form-property initial="false" name="chk_effectiveDate" type="boolean"/>
+   <form-property name="txt_effectiveDateFrom" type="java.lang.String"/>
+   <form-property name="txt_effectiveDateTo" type="java.lang.String"/>
+   <form-property initial="false" name="chk_dateRange" type="boolean"/>
+   <form-property name="txt_begdate" type="java.lang.String"/>
+   <form-property name="txt_endDate" type="java.lang.String"/>
+   <form-property initial="false" name="chk_transDate" type="boolean"/>
+   <form-property name="txt_begTransDate" type="java.lang.String"/>
+   <form-property name="txt_endTransDate" type="java.lang.String"/>
+   <form-property initial="false" name="chk_accountNumber" type="boolean"/>
+   <form-property name="txt_accountNumber" type="java.lang.String"/>
+   <form-property initial="false" name="chk_userID" type="boolean"/>
+   <form-property name="txt_userID" type="java.lang.String"/>
+   <form-property initial="false" name="chk_equipmentID" type="boolean"/>
+   <form-property name="txt_equipmentID" type="java.lang.String"/>
+   <form-property initial="false" name="chk_voyagerNumber" type="boolean"/>
+   <form-property name="txt_voyagerNumber" type="java.lang.String"/>
+   <form-property initial="false" name="chk_Name" type="boolean"/>
+   <form-property name="txt_lastName" type="java.lang.String"/>
+   <form-property name="txt_firstName" type="java.lang.String"/>
+   <form-property name="txt_zipCode" type="java.lang.String"/>
+   <form-property initial="false" name="chk_busPhone" type="boolean"/>
+   <form-property name="txt_businessPhone1" type="java.lang.String"/>
+   <form-property name="txt_businessPhone2" type="java.lang.String"/>
+   <form-property name="txt_businessPhone3" type="java.lang.String"/>
+   <form-property name="txt_businessPhoneIntl" type="java.lang.String"/>
+   <form-property initial="false" name="chk_SSN" type="boolean"/>
+   <form-property name="txt_SS1" type="java.lang.String"/>
+   <form-property name="txt_SS2" type="java.lang.String"/>
+   <form-property name="txt_SS3" type="java.lang.String"/>
+   <form-property initial="false" name="chk_centralAccountID" type="boolean"/>
+   <form-property name="txt_centralAccountID" type="java.lang.String"/>
+   <form-property initial="false" name="chk_centralAccountNumber" type="boolean"/>
+   <form-property name="txt_centralAccountNumber" type="java.lang.String"/>
+   <form-property initial="false" name="chk_centralAccountName" type="boolean"/>
+   <form-property name="txt_centralAccountName" type="java.lang.String"/>
+   <form-property initial="false" name="chk_accountingCenterId" type="boolean"/>
+   <form-property name="txt_accountingCenterId" type="java.lang.String"/>
+   <form-property initial="false" name="chk_accountingCenterName" type="boolean"/>
+   <form-property name="txt_accountingCenterName" type="java.lang.String"/>
+   <form-property initial="false" name="chk_agencyName" type="boolean"/>
+   <form-property name="txt_agencyName" type="java.lang.String"/>
+   <form-property initial="accountNumber"
+    name="rag_accountInquirySearch" type="java.lang.String"/>
+   <form-property initial="0" name="txt_hierarchyDepth" type="java.lang.String"/>
+   <form-property initial="false" name="chk_hierLevel" type="boolean"/>
+   <form-property initial="1" name="hdn_noneChecked" type="java.lang.String"/>
+   <form-property name="txt_programNumber" type="java.lang.String"/>
+   <form-property name="txt_businessPhone" type="java.lang.String"/>
+   <form-property name="txt_socialSecurityNumber" type="java.lang.String"/>
+   <form-property name="hdn_search_by" type="java.lang.String"/>
+   <form-property initial="1" name="hdn_noneChecked2" type="java.lang.String"/>
+   <form-property name="hierParmsPassed" type="java.lang.String"/>
+   <form-property initial="trnacct" name="hdn_user" type="java.lang.String"/>
+   <form-property name="txt_hl0" type="java.lang.String"/>
+   <form-property name="txt_hl1" type="java.lang.String"/>
+   <form-property name="txt_hl2" type="java.lang.String"/>
+   <form-property name="txt_hl3" type="java.lang.String"/>
+   <form-property name="txt_hl4" type="java.lang.String"/>
+   <form-property name="txt_hl5" type="java.lang.String"/>
+   <form-property name="txt_hl6" type="java.lang.String"/>
+   <form-property name="txt_hl7" type="java.lang.String"/>
+   <form-property name="txt_hl8" type="java.lang.String"/>
+   <form-property name="txt_hl0Desc" type="java.lang.String"/>
+   <form-property name="txt_hl1Desc" type="java.lang.String"/>
+   <form-property name="txt_hl2Desc" type="java.lang.String"/>
+   <form-property name="txt_hl3Desc" type="java.lang.String"/>
+   <form-property name="txt_hl4Desc" type="java.lang.String"/>
+   <form-property name="txt_hl5Desc" type="java.lang.String"/>
+   <form-property name="txt_hl6Desc" type="java.lang.String"/>
+   <form-property name="txt_hl7Desc" type="java.lang.String"/>
+   <form-property name="txt_hl8Desc" type="java.lang.String"/>
+   <form-property name="hdn_delimitiedHierarchy" type="java.lang.String"/>
+   <form-property name="countFlag" type="java.lang.String"/>
+  </form-bean>
+  <form-bean name="searchAccountForm" type="com.boa.eagls.government.controller.formbean.account.SearchAccountForm">
+   <form-property name="txtCentralAccountID" type="java.lang.String"/>
+  </form-bean>
+  <form-bean name="searchCentralAccountForm" type="com.boa.eagls.government.controller.formbean.maintenance.centralaccount.SearchCentralAccountForm">
+   <form-property initial="centralAccountID" name="rag_centralAccount" type="java.lang.String"/>
+   <form-property name="txt_centralAccountID" type="java.lang.String"/>
+   <form-property name="txt_centralAccountNumber" type="java.lang.String"/>
+   <form-property name="txt_centralAccountName" type="java.lang.String"/>
+   <form-property initial="0" name="sel_hierDepth" type="java.lang.String"/>
+  </form-bean>
+  <form-bean name="TransactionData/IndividualStatementForm" type="com.boa.eagls.government.controller.formbean.transactiondata.IndividualStatementForm">
+   <form-property name="centralAccountID" type="java.lang.String"/>
+   <form-property name="txt_hl1" type="java.lang.String"/>
+   <form-property name="txt_hl2" type="java.lang.String"/>
+   <form-property name="txt_hl3" type="java.lang.String"/>
+   <form-property name="txt_hl4" type="java.lang.String"/>
+   <form-property name="txt_hl5" type="java.lang.String"/>
+   <form-property name="txt_hl6" type="java.lang.String"/>
+   <form-property name="txt_hl7" type="java.lang.String"/>
+   <form-property name="txt_hl8" type="java.lang.String"/>
+   <form-property name="txt_hl0" type="java.lang.String"/>
+   <form-property name="sel_hierarchyDepth" type="java.lang.String"/>
+   <form-property name="txt_individualAccountNumber" type="java.lang.String"/>
+   <form-property name="txt_statementDate" type="java.lang.String"/>
+   <form-property name="rag_accountInquirySearch" type="jva.lang.String"/>
+   <form-property name="sel_indTransSort" type="jva.lang.String"/>
+   <form-property name="rag_statementSearch" type="jva.lang.String"/>
+   <form-property name="chk_accountNumber" type="boolean"/>
+   <form-property name="chk_hierLevel" type="boolean"/>
+  </form-bean>
+  <form-bean name="pointOfContactForm" type="com.boa.eagls.government.controller.formbean.inquiry.PointOfContactForm">
+   <form-property name="tdo" type="java.lang.Boolean"/>
+   <form-property name="dbo" type="java.lang.Boolean"/>
+   <form-property name="ecedi" type="java.lang.Boolean"/>
+   <form-property name="paymentOffice" type="java.lang.Boolean"/>
+   <form-property name="aopc" type="java.lang.Boolean"/>
+   <form-property name="priTDO" type="java.lang.Boolean"/>
+   <form-property name="priDBO" type="java.lang.Boolean"/>
+   <form-property name="priECEDI" type="java.lang.Boolean"/>
+   <form-property name="priPaymentOffice" type="java.lang.Boolean"/>
+   <form-property name="priAOPC" type="java.lang.Boolean"/>
+   <form-property name="firstName" size="36" type="java.lang.String"/>
+   <form-property name="lastName" size="36" type="java.lang.String"/>
+   <form-property name="address1" size="40" type="java.lang.String"/>
+   <form-property name="address2" size="40" type="java.lang.String"/>
+   <form-property name="address3" size="40" type="java.lang.String"/>
+   <form-property name="address4" size="40" type="java.lang.String"/>
+   <form-property name="city" size="20" type="java.lang.String"/>
+   <form-property name="state" size="3" type="java.lang.String"/>
+   <form-property name="country" size="3" type="java.lang.String"/>
+   <form-property name="zip" size="13" type="java.lang.String"/>
+   <form-property name="workPhone" size="17" type="java.lang.String"/>
+   <form-property name="homePhone" size="17" type="java.lang.String"/>
+   <form-property name="fax" size="17" type="java.lang.String"/>
+   <form-property name="eMail" size="60" type="java.lang.String"/>
+   <form-property name="newsletterMedium" size="1" type="java.lang.String"/>
+   <form-property name="taskOrderNo" size="12" type="java.lang.String"/>
+   <form-property name="centralAccountNbr" size="7" type="java.lang.String"/>
+  </form-bean>
+  <form-bean name="frm_setupAccountControls" type="com.boa.eagls.government.controller.formbean.authorizationcontrols.Frm_setupAccountControls">
+  <form-property name="temp" size="7" type="java.lang.String []"/>
+  </form-bean>
+  <form-bean name="frm_authControls" type="com.boa.eagls.government.controller.formbean.authorizationcontrols.Frm_authControls">
+  </form-bean>
+  <form-bean name="frm_setupMccgControls" type="com.boa.eagls.government.controller.formbean.authorizationcontrols.Frm_setupMccgControls">
+  </form-bean>
+  <form-bean name="frm_verifAcctControls" type="com.boa.eagls.government.controller.formbean.authorizationcontrols.Frm_verifAcctControls">
+  </form-bean>
+ </form-beans>
+ <global-exceptions/>
+ <!-- ========== Global Forward Definitions ============================== -->
+ <global-forwards>
+  <forward name="AddUserProfile" path="/jsp/gsa/setup/user_profile/setup_userProfile.jsp"/>
+  <forward name="AddUserProfileEnd" path="/jsp/gsa/setup/user_profile/confirm_userProfile.jsp"/>
+  <forward name="error" path="/jsp/gsa/eaglserror.jsp"/>
+  <forward name="sessionExpired" path="/jsp/gsa/common/warning_sessionUnavailable.jsp"/>
+  <forward name="systemWarning" path="/jsp/gsa/common/warning_systemDefault.jsp"/>
+  <forward name="AccountSetupSearch"
+   path="/jsp/gsa/setup/account/search_account.jsp" redirect="false"/>
+  <forward name="foundPointsOfContacts"
+   path="/jsp/gsa/inquiry/point_of_contact/current_points_of_contacts.jsp" redirect="false"/>
+  <forward name="CentralAccountMaintenanceSearch"
+   path="/jsp/gsa/maintenance/centralaccount/search.jsp" redirect="false"/>
+  <forward name="pointOfContact"
+   path="/jsp/gsa/inquiry/point_of_contact/point_of_contact.jsp" redirect="false"/>
+  <forward contextRelative="true" name="logon/prompt"
+   path="/jsp/gsa/systemLogon.jsp" redirect="false"/>
+  <forward name="individualAccount/accountDetails" path="/setup/individualAccount/accountDetails.do"/>
+  <forward name="setup/individualAccount/found_new" path="/jsp/gsa/setup/account/new_account.jsp"/>
+ </global-forwards>
+ <!-- ========== Action Mapping Definitions ============================== -->
+ <action-mappings>
+  <action name="searchAccountForm"
+   path="/setup/individualAccount/searchAccount" scope="request"
+   type="com.boa.eagls.government.controller.action.account.SearchAccountAction" validate="true">
+   <forward name="setup/individualAccount/not_found"
+    path="/jsp/gsa/setup/account/not_found.jsp" redirect="false"/>
+   <forward name="setup/individualAccount/found_existing"
+    path="/jsp/gsa/setup/account/found_existing.jsp" redirect="false"/>
+   <forward name="setup/individualAccount/found_new" path="/jsp/gsa/setup/account/new_account.jsp"/>
+  </action>
+  <action name="viewAccountForm"
+   path="/setup/individualAccount/accountDetails" scope="request"
+   type="com.boa.eagls.government.controller.action.account.ViewAccountAction" validate="false"/>
+  <action forward="/jsp/gsa/setup/account/search_account.jsp" path="/setup/individualAccount/search"/>
+  <action forward="/jsp/gsa/authorization_controls/setup_authControl.jsp" path="/setup_authControl" name="frm_authControls" scope="session"/>
+  <!-- Action Add User Profile -->
+  <action input="/setup_userProfile.jsp" name="UserProfileForm"
+   path="/addUserProfile" scope="request" type="com.boa.eagls.government.controller.action.user.UserProfileAction">
+   <forward name="UserProfileAddHierarchy" path="/jsp/gsa/setup/user_profile/setup_addHierarchy.jsp"/>
+   <forward name="UserProfileAddAccountNumber" path="/jsp/gsa/setup/user_profile/setup_addAccountNumber.jsp"/>
+   <forward name="UserProfileAddHierarchyPT" path="/jsp/gsa/setup/user_profile/setup_addHierarchyNPT.jsp"/>
+   <forward name="UserProfileAddRole" path="/jsp/gsa/setup/user_profile/setup_addRole.jsp"/>
+   <forward name="UserProfileConfirmation" path="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"/>
+  </action>
+  <!-- Action Add User Profile - Hierarchy/PT -->
+  <action name="MyHierarchyForm" path="/addHierarchyPT" scope="request"
+   type="com.boa.eagls.government.controller.action.user.AddOptionsAction" validate="false">
+   <forward name="addRoleInfo" path="/addRoleInfo.do"/>
+   <forward name="addHierarchy" path="/userProfileRolesAction.do"/>
+   <forward name="success" path="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"/>
+  </action>
+  <!-- Action Add User Profile - Hierarchy -->
+  <action input="/jsp/gsa/setup/user_profile/setup_addHierarchy.jsp"
+   name="MyHierarchyForm" path="/hierarchy" scope="request"
+   type="com.boa.eagls.government.controller.action.user.AddOptionsAction" validate="false">
+   <forward name="addRoleInfo" path="/addRoleInfo.do"/>
+   <forward name="success" path="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"/>
+   <forward name="AddRoleInfoAction" path="/addRoleInfoAction.do"/>
+   <forward name="addHierarchy" path="/userProfileRolesAction.do"/>
+  </action>
+  <action input="/jsp/gsa/setup/user_profile/setup_addHierarchy.jsp"
+   name="MyHierarchyForm" path="/addRoleInfoAction" scope="request"
+   type="com.boa.eagls.government.controller.action.user.AddRoleInfoAction" validate="false">
+   <forward name="success" path="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"/>
+  </action>
+  <!-- Action Add User Profile - Browse Hierarchy-->
+  <action name="LogonForm" path="/browseHierarchy" scope="request"
+   type="com.boa.eagls.government.controller.action.common.BrowseHierarchy" validate="false">
+   <forward name="browse_hierarchy_max_level_reached" path="/jsp/gsa/setup/user_profile/browse_hierarchy_max_level_reached.jsp"/>
+   <forward name="this" path="/jsp/gsa/setup/user_profile/browse_hierarchyLevels.jsp"/>
+   <forward name="browse_hierarchyLevels" path="/jsp/gsa/setup/user_profile/browse_hierarchyLevels.jsp"/>
+  </action>
+  <!-- Action Add User Profile - Browse Roles -->
+  <action name="LogonForm" path="/browseRoles" scope="request"
+   type="com.boa.eagls.government.controller.action.common.BrowseRoles" validate="false">
+   <forward name="browse_roles" path="/jsp/gsa/setup/user_profile/browse_userRoles.jsp"/>
+  </action>
+  <action input="/systemLogon.jsp" name="LogonForm" path="/logon"
+   scope="request"
+   type="com.boa.eagls.government.controller.action.user.LogonAction" validate="false">
+   <forward name="success" path="/jsp/gsa/frames.jsp"/>
+   <forward name="failure" path="/jsp/gsa/LogonAccessDenied.jsp"/>
+   <forward name="changePasswordWarning" path="/jsp/gsa/frames.jsp"/>
+   <forward name="changePassword" path="/jsp/gsa/frames.jsp"/>
+   <forward name="maxPasswordFailedCount" path="/jsp/gsa/passwordAttempt_failed.jsp"/>
+  </action>
+  <action name="LogoffForm" path="/Logoff" scope="request" type="com.boa.eagls.government.controller.action.user.LogoffAction">
+   <forward name="VerifyLogoff" path="/jsp/gsa/verif_logoff.jsp"/>
+   <forward name="ConfirmLogoff" path="/jsp/gsa/confirm_logoff.jsp"/>
+   <forward name="SessionNotAvailable" path="/jsp/gsa/session_unavailable.jsp"/>
+  </action>
+  <action name="formBean" path="/confirm" scope="request"
+   type="com.boa.eagls.government.controller.action.user.SetupUserProfileSubmitAction" validate="false">
+   <forward name="success" path="/jsp/gsa/setup/user_profile/confirm_userProfile.jsp"/>
+   <forward name="backToSearch" path="/jsp/gsa/setup/user_profile/profile_search.jsp"/>
+  </action>
+  <action name="formBean" path="/finalPage" scope="request"
+   type="com.boa.eagls.government.controller.action.user.SetupUserProfileRoleInfoOptionsAction" validate="false">
+   <forward name="addRole" path="/jsp/gsa/setup/user_profile/setup_addRole.jsp"/>
+   <forward name="finished" path="/confirm.do"/>
+   <forward name="backToSearch" path="/jsp/gsa/setup/user_profile/profile_search.jsp"/>
+  </action>
+  <action name="ProfileSearchForm" path="/profileSearch" scope="request"
+   type="com.boa.eagls.government.controller.action.common.ProfileSearchAction" validate="false">
+   <forward name="success" path="/jsp/gsa/setup/user_profile/show_search_result.jsp"/>
+  </action>
+  <action name="MyHierarchyForm" path="/addAccount" scope="request"
+   type="com.boa.eagls.government.controller.action.user.AddOptionsAction" validate="false">
+   <forward name="success" path="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"/>
+   <forward name="addRoleInfo" path="/addRoleInfo.do"/>
+   <forward name="addHierarchy" path="/userProfileRolesAction.do"/>
+  </action>
+  <action name="MyHierarchyForm" path="/addRoleInfo" scope="request"
+   type="com.boa.eagls.government.controller.action.user.AddRoleInfoAction" validate="false">
+   <forward name="success" path="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"/>
+  </action>
+  <action name="MyHierarchyForm" path="/userProfileRolesAction"
+   scope="request"
+   type="com.boa.eagls.government.controller.action.user.UserProfileRolesAction" validate="false">
+   <forward name="addHierarchyPT" path="/jsp/gsa/setup/user_profile/setup_addHierarchyNPT.jsp"/>
+   <forward name="addAccountNumber" path="/jsp/gsa/setup/user_profile/setup_addAccountNumber.jsp"/>
+   <forward name="addHierarchy" path="/jsp/gsa/setup/user_profile/setup_addHierarchy.jsp"/>
+   <forward name="addRoleInfoAction" path="/addRoleInfo.do"/>
+   <forward name="success" path="/jsp/gsa/setup/user_profile/verif_userProfile.jsp"/>
+  </action>
+  <!-- Added to make the dynamic menu working (Solo) -->
+  <action path="/DynMenuSelect" scope="session" type="com.boa.eagls.government.controller.action.common.DynMenuSelectAction">
+   <forward name="success" path="/jsp/gsa/menu.jsp"/>
+   <forward name="failure" path="/jsp/gsa/eaglserror.jsp"/>
+  </action>
+  <!-- Added to make the dynamic menu working (Solo) -->
+  <action path="/Search" type="com.boa.eagls.government.controller.action.common.SearchAction">
+   <forward name="success" path="/jsp/gsa/common/dynSearch.jsp"/>
+   <forward name="createUser" path="/jsp/gsa/setup/user_profile/profile_search.jsp"/>
+   <forward name="notAvailable" path="/jsp/gsa/notAvailable.jsp"/>
+   <forward name="foundPointsOfContacts" path="/jsp/gsa/inquiry/centralaccount/inquiry_central_account_search.jsp"/>
+   <forward name="TransactionData/SearchIndividualStatement" path="/jsp/gsa/transactiondata/searchindividualstatement.jsp"/>
+  </action>
+  <action path="/error" scope="request"
+   type="com.boa.eagls.government.controller.action.common.ErrorAction" validate="false">
+   <forward name="error" path="/jsp/gsa/eaglserror.jsp"/>
+  </action>
+  <!--- ****************************************************************************
+ Change the names of the class and form with the acctual class and form used for this request
+              and add the forwards and whatever else is needed for request to go through but DO NOY change
+              the action without changing the request in the ValidFunctions class - these requests
+              were needed for testing the dynamic search pages with Tomcat (Solo) -->
+  <action name="theForm" path="/createUserProfile" scope="request"
+   type="com.boa.eagls.government.controller.action.common.ProfileSearchAction" validate="false">
+   <forward name="noResult" path="/jsp/gsa/common/results_noResultsFound.jsp"/>
+   <forward name="newUser" path="/jsp/gsa/setup/user_profile/setup_userProfile.jsp"/>
+   <forward name="largeResult" path="/jsp/gsa/common/warning_largeResultsSet.jsp"/>
+   <forward name="success" path="/jsp/gsa/setup/user_profile/show_search_result.jsp"/>
+  </action>
+  <action name="theForm" path="/acctMaint" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/costAllocationAll" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/vehicleMaintenance" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/accountStatus" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/bulkActivation" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/agencyMaintenance" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/centralAccountMaintenance" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/travelersChecks" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/requestCard" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/accountRenewal" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/modifyUserProfile" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/centralAcctInquiry" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/queuedRequest" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/accountingcentermaintenance" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/creditLimitMaintenance" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/individualStatement" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/convenienceChecks" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/centralAccountSetup" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/agencySetup" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/agencyInquiry" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/agencyInvoice" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/newsletters" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/accountInquiry" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/invoiceStatus" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/vehicleAccountInquiry" type="org.apache.struts.Action"/>
+  <action name="theForm" path="/transferAcctSearch" type="org.apache.struts.Action"/>
+  <!--- **************************************************************************** -->
+  <action path="/searchPointsOfContact" type="com.boa.eagls.government.controller.action.account.SearchAccountAction"/>
+  <action name="searchCentralAccountForm" path="/searchCentralAccount"
+   scope="request"
+   type="com.boa.eagls.government.controller.action.maintenance.centralaccount.SearchCentralAccountAction" validate="false"/>
+  <action name="pointOfContactForm" path="/updatePointOfContact" type="com.boa.eagls.government.controller.action.inquiry.UpdatePointOfContactAction"/>
+  <action name="pointOfContactForm" path="/viewPointOfContact" type="com.boa.eagls.government.controller.action.inquiry.ViewPointOfContactAction"/>
+  <action name="TransactionData/IndividualStatementForm"
+    path="/TransactionData/IndividualStatement/SearchIndividualStatementAction"
+    scope="request"
+    type="com.boa.eagls.government.controller.action.transactiondata.individualstatement.SearchIndividualStatementAction" validate="false"/>
+
+   <action name="TransactionData/IndividualStatementForm"
+      path="/TransactionData/IndividualStatement/EnterToSearchIndividualStatementAction"
+      scope="request"
+      type="com.boa.eagls.government.controller.action.transactiondata.individualstatement.EnterToSearchPageAction" validate="false"/>
+   <action path="/decideAuthorizeControlSetup" type="com.boa.eagls.government.controller.action.authorizationcontrol.DecideAuthorizeControlSetupAction">
+   	<forward name="add_Account_Controls" path="/authAccountControlsSetup.do">
+   	</forward>
+   	<forward name="add_MCCG_Controls" path="/authControlMCCControlSetup.do">
+   	</forward>
+   	<forward name="finish" path="/authControlVerifyAssignedAccountLimits.do">
+   	</forward>
+   </action>
+   <action name="frm_setupAccountControls" path="/authAccountControlsSetup" type="com.boa.eagls.government.controller.action.authorizationcontrol.AuthAccountControlsSetupAction" scope="session">
+   	<forward name="success" path="/jsp/gsa/authorization_controls/setup_accountControls.jsp">
+   	</forward>
+   </action>
+   <action path="/decideAccountControlsSetup" type="com.boa.eagls.government.controller.action.authorizationcontrol.DecideAccountControlsSetupAction" name="frm_setupAccountControls" scope="session">
+   	<forward name="submit" path="/authorizationControlSetup.do">
+   	</forward>
+   	<forward name="add_MCCG_Controls" path="/authControlMCCControlSetup.do">
+   	</forward>
+   </action>
+   <action name="frm_setupAccountControls" path="/authorizationControlSetup" type="com.boa.eagls.government.controller.action.authorizationcontrol.AuthorizationControlSetupAction" scope="session">
+   	<forward name="success" path="/jsp/gsa/authorization_controls/setup_authControl.jsp">
+   	</forward>
+   </action>
+   <action name="frm_setupMccgControls" path="/authControlMCCControlSetup" type="com.boa.eagls.government.controller.action.authorizationcontrol.AuthControlMCCControlSetupAction" scope="session">
+   	<forward name="success" path="/jsp/gsa/authorization_controls/setup_mccgControl.jsp">
+   	</forward>
+   </action>
+   <action path="/authControlVerifyAssignedAccountLimits" type="com.boa.eagls.government.controller.action.authorizationcontrol.AuthControlVerifyAssignedAccountLimitsAction" name="frm_verifAcctControls">
+   	<forward name="success" path="/jsp/gsa/authorization_controls/verif_authControlsAcct.jsp">
+   	</forward>
+   </action>
+   <action path="/authControlSendConfirmationForAssignedAccountLimits" type="com.boa.eagls.government.controller.action.authorizationcontrol.AuthControlSendConfirmationForAssignedAccountLimitsAction">
+   	<forward name="success" path="/jsp/gsa/authorization_controls/confirm_authControl.jsp">
+   	</forward>
+   </action>
+   <action path="/decideMCCControlsSetup" type="com.boa.eagls.government.controller.action.authorizationcontrol.DecideMCCControlsSetupAction" name="frm_setupMccgControls" scope="session">
+   	<forward name="add_MCCG_Controls" path="/authControlMCCControlSetup.do">
+   	</forward>
+   	<forward name="submit" path="/authorizationControlSetup.do">
+   	</forward>
+   </action>
+
+
+ </action-mappings>
+ <controller/>
+</struts-config>

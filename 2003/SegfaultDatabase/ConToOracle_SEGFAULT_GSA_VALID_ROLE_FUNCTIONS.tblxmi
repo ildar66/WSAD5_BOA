@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697050078" name="VALID_ROLE_FUNCTIONS">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050078" name="USER_ROLE" allowNull="true" constraints="SQLConstraint_1060697050078 SQLConstraint_1060697050079">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697050078" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050079" name="USER_ROLE_FUNCT" allowNull="true" constraints="SQLConstraint_1060697050080 SQLConstraint_1060697050081">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697050079" characterSet="800" length="40">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697049969" name="R_173" members="RDBColumn_1060697050079" constraint="SQLConstraint_1060697050082">
+    <target href="ConToOracle_SEGFAULT_GSA_VALID_FUNCTIONS.tblxmi#SQLReference_1060697049969"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697049984" name="R_116" members="RDBColumn_1060697050078" constraint="SQLConstraint_1060697050083">
+    <target href="ConToOracle_SEGFAULT_GSA_VALID_ROLES.tblxmi#SQLReference_1060697047094"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697050078" name="SYS_C007118" type="CHECK" members="RDBColumn_1060697050078">
+    <body>"USER_ROLE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050080" name="SYS_C007119" type="CHECK" members="RDBColumn_1060697050079">
+    <body>"USER_ROLE_FUNCT" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050079" name="SYS_C003055" type="CHECK" members="RDBColumn_1060697050078">
+    <body>"USER_ROLE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050081" name="SYS_C003056" type="CHECK" members="RDBColumn_1060697050079">
+    <body>"USER_ROLE_FUNCT" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050082" name="R_173" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697049969"/>
+  <constraints xmi:id="SQLConstraint_1060697050083" name="R_116" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697049984"/>
+</RDBSchema:RDBTable>

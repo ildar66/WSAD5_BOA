@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049359" name="TMC_TRANSACTION_TEMP" primaryKey="SQLReference_1060697049359">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049359" name="TMC_TRANSACTION_ID" allowNull="false" constraints="SQLConstraint_1060697049359 SQLConstraint_1060697049360">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049359" precision="15" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049360" name="PURPOSE_TRAVEL" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049360" precision="2" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697049359" name="XPKTMC_TRANSACTION_TEMP" members="RDBColumn_1060697049359" constraint="SQLConstraint_1060697049361"/>
+  <constraints xmi:id="SQLConstraint_1060697049361" name="XPKTMC_TRANSACTION_TEMP" type="PRIMARYKEY" primaryKey="SQLReference_1060697049359"/>
+  <constraints xmi:id="SQLConstraint_1060697049359" name="SYS_C006914" type="CHECK" members="RDBColumn_1060697049359">
+    <body>"TMC_TRANSACTION_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049360" name="SYS_C003749" type="CHECK" members="RDBColumn_1060697049359">
+    <body>TMC_TRANSACTION_ID IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

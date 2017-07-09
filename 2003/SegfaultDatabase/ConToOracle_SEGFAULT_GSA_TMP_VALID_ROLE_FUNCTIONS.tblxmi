@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049609" name="TMP_VALID_ROLE_FUNCTIONS">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049609" name="USER_ROLE" allowNull="true" constraints="SQLConstraint_1060697049609 SQLConstraint_1060697049610">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049609" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049610" name="USER_ROLE_FUNCT" allowNull="true" constraints="SQLConstraint_1060697049611 SQLConstraint_1060697049612">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049610" characterSet="800" length="40">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <constraints xmi:id="SQLConstraint_1060697049609" name="SYS_C006931" type="CHECK" members="RDBColumn_1060697049609">
+    <body>"USER_ROLE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049611" name="SYS_C006932" type="CHECK" members="RDBColumn_1060697049610">
+    <body>"USER_ROLE_FUNCT" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049610" name="SYS_C002968" type="CHECK" members="RDBColumn_1060697049609">
+    <body>"USER_ROLE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049612" name="SYS_C002969" type="CHECK" members="RDBColumn_1060697049610">
+    <body>"USER_ROLE_FUNCT" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

@@ -1,0 +1,18 @@
+/ServiceBase.java/1.1/Thu Jun 26 09:31:40 2003//
+D/centralaccount////
+D/common////
+D/individualaccount////
+D/userprofile////
+D/transactiondata////
+D/pointOfContact////
+/MCVehicleBaseParam.java/1.1/Tue Jul 29 13:47:27 2003//
+/MCVehicleSetupSubmitParam.java/1.1/Wed Jul 30 08:05:58 2003//
+/MCVehicleSetupVerifyParam.java/1.2/Tue Jul 29 13:47:54 2003//
+/MastercardVehicleSetupService.java/1.4/Thu Jul 31 06:39:36 2003//
+/AccountingService.java/1.23/Fri Aug  1 12:24:33 2003//
+/HierarchyBase.java/1.2/Fri Aug  1 12:24:33 2003//
+/IndividualAccountService.java/1.7/Fri Aug  1 12:24:33 2003//
+/MCVehicleSetupSubmitService.java/1.6/Fri Aug  1 12:24:33 2003//
+/MCVehicleSetupVerifyService.java/1.7/Fri Aug  1 12:24:33 2003//
+/Service.java/1.21/Result of merge//
+/AccountService.java/1.22/Mon Aug  4 08:14:07 2003//

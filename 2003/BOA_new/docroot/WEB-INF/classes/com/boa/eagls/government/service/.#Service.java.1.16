@@ -1,0 +1,118 @@
+package com.boa.eagls.government.service;
+
+import com.boa.eagls.government.dto.HierarchyDTO;
+import org.apache.log4j.Logger;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.net.URLEncoder;
+import java.util.Map;
+import java.util.Set;
+import java.util.Iterator;
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: OlegK
+ * Date: 25.06.2003
+ * Time: 17:38:59
+ */
+public abstract class Service {
+    private static final Logger logger = Logger.getLogger(Service.class);
+
+    //private static final String JNDI_NAME = "java:comp/env/jdbc/boa";
+    private static final String JNDI_NAME = "jdbc/boa";
+
+    private static DataSource source = null;
+    private static final Object LOCK = new Object();
+
+    public static final int[] getCurrentShortHierarchy(HierarchyDTO[] hierarchy) {
+        int[] intArray;
+        if (hierarchy != null) {
+            intArray = new int[hierarchy.length];
+            for (int i = 0; i < intArray.length; i++) {
+                if (hierarchy[i] != null) {
+                    intArray[i] = hierarchy[i].getNumber();
+                } else {
+                    intArray[i] = 0;
+                }
+            }
+        } else {
+            //todo check how to fill
+            intArray = new int[9];
+            for (int i = 0; i < 9; i++) {
+                intArray[i] = 0;
+            }
+        }
+        return intArray;
+    }
+
+    protected static final Connection getPooledConnection() throws SQLException {
+        if (source == null) {
+            InitialContext ic = null;
+            synchronized (LOCK) {
+                if (source == null)
+                    try {
+                        ic = new InitialContext();
+                        source = (DataSource) ic.lookup(JNDI_NAME);
+                    } catch (NamingException e) {
+                            logger.fatal(JNDI_NAME + " DataSource not found", e);
+                            throw new SQLException(e.getMessage());
+                    }
+            }
+        }
+        return source.getConnection();
+    }
+
+    protected static final void closeConnection(Connection conn) {
+        try {
+            if (conn != null)
+                conn.close();
+        } catch (SQLException e) {
+            logger.error("Connection can't be closed", e);
+        }
+    }
+
+    /**
+     * createHyperlink creates the string necessary to call an applogic
+     * from an HTML hyperlink.
+     *
+     * @param		url guid of applogic to call, params=IValList of parameters
+     * @param		params Map
+     * @return		String for hyperlink
+     **/
+
+    public static final String createHyperlink(String url, Map params) {
+        StringBuffer hl = new StringBuffer("");
+        hl.append(url);
+
+        Set keySet = params.keySet();
+        Iterator it = keySet.iterator();
+        if (it.hasNext()) {
+            hl.append("?");
+        }
+        int count = params.size();
+        int i = 0;
+        while (it.hasNext()) {
+            String key = (String) it.next();
+            String val = (String) params.get(key);
+            String URLString = URLEncoder.encode(val);
+            hl.append(key);
+            hl.append("=");
+            hl.append(URLString);
+            hl.append(i < (count - 1) ? "&" : "");
+            i++;
+        }
+        String retVal = hl.toString();
+        int lbIndex = 0;
+        while ((lbIndex = retVal.indexOf("#")) !=
+                -1 && lbIndex < retVal.length()) {
+            retVal = retVal.substring(0, lbIndex) +
+                    "%23" + retVal.substring(lbIndex + 1);
+        }
+        return retVal;
+    }
+
+}

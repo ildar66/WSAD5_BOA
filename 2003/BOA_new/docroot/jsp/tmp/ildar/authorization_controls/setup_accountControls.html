@@ -1,0 +1,392 @@
+
+<HTML>
+<HEAD>
+
+<TITLE>Account Controls Setup</TITLE>
+
+<META NAME="Name" CONTENT="Account/Authorization Controls Setup">
+<META NAME="Description" CONTENT="Setup for Account Controls from Auth Controls Setup">
+<META NAME="Author" CONTENT="Todd Bernard">
+<META NAME="Created" CONTENT="07/22/1998">
+<META NAME="Revised" CONTENT="09/24/1998 Edited -BB">
+<SCRIPT LANGUAGE="JavaScript" SRC="/gsa/scripts/setstyle.js"></SCRIPT>
+
+</HEAD>
+
+<SCRIPT LANGUAGE="Javascript">
+<!-- Start hiding from other browsers
+
+function initialize(theForm)
+    {
+     parent.logo.setFocus(theForm,theForm.acct_singleLimit,(parent.logo.Status_Text_SinglePurchaseLimit));
+    }
+
+function formTest(theForm)
+
+    {
+     var errormessage = parent.logo.ErrMsg_Header;
+
+     if ((theForm.acct_singleLimit.value != "") &&
+         (parent.logo.checkCurrency(theForm.acct_singleLimit.value) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_SinglePurchaseLimit;
+         }
+
+     if ((theForm.acct_dailyTransLimit != "") &&
+         (parent.logo.checkNumeric(theForm,theForm.acct_dailyTransLimit) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_DailyTransactionLimit;
+         }
+
+     if ((theForm.acct_dailyAmountLimit.value != "") &&
+         (parent.logo.checkCurrency(theForm.acct_dailyAmountLimit.value) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_DailyAmountLimit;
+         }
+
+     if ((theForm.acct_cycleTransLimit != "") &&
+         (parent.logo.checkNumeric(theForm,theForm.acct_cycleTransLimit) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_CycleTransactionLimit;
+         }
+
+     if ((theForm.acct_cycleAmountLimit.value != "") &&
+         (parent.logo.checkCurrency(theForm.acct_cycleAmountLimit.value) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_CycleAmountLimit;
+         }
+
+     if ((theForm.acct_monthTransLimit != "") &&
+         (parent.logo.checkNumeric(theForm,theForm.acct_monthTransLimit) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_MonthTransactionLimit;
+         }
+
+     if ((theForm.acct_monthAmountLimit.value != "") &&
+         (parent.logo.checkCurrency(theForm.acct_monthAmountLimit.value) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_MonthAmountLimit;
+         }
+
+     if ((theForm.acct_otherTransLimit != "") &&
+         (parent.logo.checkNumeric(theForm,theForm.acct_otherTransLimit) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_OtherTransactionLimit;
+         }
+
+     if ((theForm.acct_otherAmountLimit.value != "") &&
+         (parent.logo.checkCurrency(theForm.acct_otherAmountLimit.value) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_OtherAmountLimit;
+         }
+
+     if ((theForm.acct_otherTotalNumberDays != "") &&
+         (parent.logo.checkNumeric(theForm,theForm.acct_otherTotalNumberDays) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_OtherTotalNumberDays;
+         }
+
+     if ((theForm.acct_otherRefreshDate.value != "") &&
+         (parent.logo.checkDate(theForm,theForm.acct_otherRefreshDate) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_Date;
+         }
+
+     if (errormessage != parent.logo.ErrMsg_Header)
+         {
+          alert(errormessage);
+          return false;
+         }
+     else
+     return true;
+    }
+
+// Stop hiding -->
+</SCRIPT>
+
+<!---------------------------------------------------------------------------------->
+
+<BODY onLoad="initialize(document.frm_setupAccountControls);">
+
+<FORM NAME="frm_setupAccountControls"
+      ACTION="/cgi-bin/gx.cgi/GUIDGX-{95F59754-2237-11D2-92CE-0000F6AACD5A}"
+      METHOD="POST"
+      TARGET="content"
+      onSubmit="return formTest(document.frm_setupAccountControls);">
+
+<GX type=include id="/gsa/common/header_systemDefault.html">Insert System Default Header Here</GX><BR>
+
+<!---------------------------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Account Information</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TH WIDTH="213" ALIGN="left" >
+        Account Name
+      </TH>
+      <TD WIDTH="352">
+        <GX type=cell id=accountInfo.accountName></GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >Account Number</TH>
+      <TD>
+        <GX type=cell id=accountInfo.accountNumber></GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >Agency Name</TH>
+      <TD>
+        <GX type=cell id=accountInfo.agencyName></GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >
+        Central Account ID
+      </TH>
+      <TD>
+        <GX type=cell id=accountInfo.centralId></GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >Credit Limit</TD>
+      <TD>
+        <GX type=cell id="accountInfo.creditLimit, format($#,###.00)"></GX>&nbsp;
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!---------------------------------------------------------------------------------->
+
+<IMG SRC="/gsa/images/line.gif" WIDTH="575"><BR><BR>
+
+<!---------------------------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Account Transaction Limit</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TD WIDTH="213">Single Purchase Limit</TD>
+      <TD WIDTH="352" ALIGN="Right">
+        <INPUT TYPE="text" NAME="acct_singleLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_SinglePurchaseLimit);">
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!--- For code below...set up in table frmt broken by 4 segments as.. DAILY     CYCLK -->
+<!--- Each section contains row data spread across columns.           MONTHLY   OTHER -->
+
+<TABLE BORDER="1">
+    <TR>
+      <TH COLSPAN="2" ALIGN="left" >Daily</TH>
+      <TH COLSPAN="2" ALIGN="left" >Cycle</TH>
+    </TR>
+    <TR>
+      <TD WIDTH="141">Transaction Limit</TD>
+      <TD WIDTH="140">
+        <INPUT TYPE="text" NAME="acct_dailyTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_DailyTransLimit);">
+      </TD>
+      <TD WIDTH="140">Transaction Limit</TD>
+      <TD WIDTH="140">
+        <INPUT TYPE="text" NAME="acct_cycleTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_CycleTransLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_dailyAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_DailyAmountLimit);">
+      </TD>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_cycleAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_CycleAmountLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TH COLSPAN="2" ALIGN="left" >
+        Monthly
+      </TH>
+      <TH COLSPAN="2" ALIGN="left" >
+        Other
+      </TH>
+    </TR>
+    <TR>
+      <TD>Transaction Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_monthTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_MonthTransLimit);">
+      </TD>
+      <TD>Transaction Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_otherTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherTransLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_monthAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_MonthAmountLimit);">
+      </TD>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_otherAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherAmountLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TD><BR></TD>
+      <TD><BR></TD>
+      <TD>Total No. of Days</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_otherTotalNumberDays" SIZE="4" MAXLENGTH="3"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherTotalNumberDays);">
+      </TD>
+    </TR>
+    <TR>
+      <TD><BR></TD>
+      <TD><BR></TD>
+      <TD>Refresh Date</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="acct_otherRefreshDate" SIZE="11" MAXLENGTH="10"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherRefreshDate);"><BR>(MM/DD/YYYY)
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!---------------------------------------------------------------------------------->
+
+<IMG SRC="/gsa/images/line.gif" WIDTH="575"><BR><BR>
+
+<!---------------------------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Foreign Currency Information</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TD WIDTH="213">Foreign Currency Restriction Set</TD>
+      <TD WIDTH="352">
+        <SELECT NAME="acct_foreignCurrRestrictSet" SIZE="1">
+          <OPTION value="Yes">Yes</OPTION>
+          <OPTION value="No">No</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Foreign Type</TD>
+      <TD>
+        <SELECT NAME="acct_foreignType" SIZE="1">
+          <OPTION value="Include">Include</OPTION>
+          <OPTION value="Exclude">Exclude</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Foreign Action</TD>
+      <TD>
+        <SELECT NAME="acct_foreignAction" SIZE="1">
+          <OPTION value="Accept">Accept</OPTION>
+          <OPTION value="Refer">Refer</OPTION>
+          <OPTION value="Decline">Decline</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!---------------------------------------------------------------------------------->
+
+<IMG SRC="/gsa/images/line.gif" WIDTH="575"><BR><BR>
+
+<!---------------------------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Vendor Information</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TD WIDTH="213">Vendor Check</TD>
+      <TD WIDTH="352">
+        <SELECT NAME="acct_vendorCheck" SIZE="1">
+          <OPTION value="Yes">Yes</OPTION>
+          <OPTION value="No">No</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Vendor Type</TD>
+      <TD>
+        <SELECT NAME="acct_vendorType" SIZE="1">
+          <OPTION value="Include">Include</OPTION>
+          <OPTION value="Exclude">Exclude</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Vendor Action</TD>
+      <TD>
+        <SELECT NAME="acct_vendorAction" SIZE="1">
+          <OPTION value="Accept">Accept</OPTION>
+          <OPTION value="Refer">Refer</OPTION>
+          <OPTION SELECTED value="Decline">Decline</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Valid Preferred Tables</TD>
+      <TD>
+        <SELECT NAME="acct_validPreferredTables" SIZE="1">
+          <GX type=tile id=acct_validPreferredTables>
+          <GX type=replace id=acct_validPreferredTables.optionValue value=theOptionValue>
+            <GX type=replace id=acct_validPreferredTables.optionText value=theOptionDescr>
+              <GX type=replace id=acct_validPreferredTables.selection value=selected>
+                <OPTION VALUE="theOptionValue" selected>theOptionDescr</OPTION>
+              </GX>
+            </GX>
+          </GX>
+        </GX>
+        </SELECT>
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!------------------------------------------------------------------------------------>
+<INPUT TYPE="Hidden" NAME="mccgControl" value="<GX type=cell id=mccgControl></GX>">
+<INPUT TYPE="Hidden" NAME="auth_accountNumber" value="<GX type=cell id=accountInfo.accountNumber></GX>">
+<INPUT TYPE="Hidden" NAME="auth_accountName" value="<GX type=cell id=accountInfo.accountName></GX>">
+<INPUT TYPE="Hidden" NAME="auth_agencyName" value="<GX type=cell id=accountInfo.agencyName></GX>">
+<INPUT TYPE="Hidden" NAME="auth_centralId" value="<GX type=cell id=accountInfo.centralId></GX>">
+<INPUT TYPE="Hidden" NAME="auth_creditLimit" value="<GX type=cell id=accountInfo.creditLimit></GX>">
+<INPUT TYPE="Hidden" NAME="auth_guid" value="<GX type=cell id=accountInfo.guid></GX>">
+
+
+<TABLE>
+    <TR>
+      <TD WIDTH="575" ALIGN="Center">
+        <INPUT TYPE="Submit" NAME="but_submitButton" VALUE="Submit">&nbsp;&nbsp;
+
+        <INPUT TYPE="Submit" NAME="but_submitButton" VALUE="Add MCCG Controls">&nbsp;&nbsp;
+
+        <INPUT TYPE="Reset" NAME="but_resetButton" VALUE="Clear">&nbsp;&nbsp;
+
+        <INPUT TYPE="Button" NAME="but_cancelButton" VALUE="Cancel"
+               onClick="history.go(-1)">
+      </TD>
+    </TR>
+</TABLE>
+
+<!------------------------------------------------------------------------------------>
+
+<GX type=include id="/gsa/common/footer_systemDefault.html">Insert Footer Here</GX>
+
+</FORM>
+</BODY>
+</HTML>

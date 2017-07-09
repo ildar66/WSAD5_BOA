@@ -1,0 +1,102 @@
+
+<HTML>
+<HEAD>
+
+<TITLE>Authorization Controls Setup</TITLE>
+
+<META NAME="Name" CONTENT="Authorization Controls Navigation Setup Screen">
+<META NAME="Description" CONTENT="Auth Control Navigation Setup Screen">
+<META NAME="Author" CONTENT="Todd Bernard">
+<META NAME="Created" CONTENT="07/21/1998">
+<META NAME="Revised" CONTENT="09/24/1998 Edited -BB">
+<SCRIPT LANGUAGE="JavaScript" SRC="/gsa/scripts/setstyle.js"></SCRIPT>
+
+</HEAD>
+
+<!---------------------------------------------------------------------------------->
+
+<BODY>
+
+<FORM NAME="frm_authControls"
+      ACTION="/cgi-bin/gx.cgi/GUIDGX-{95F59750-2237-11D2-92CE-0000F6AACD5A}"
+      METHOD="POST"
+      TARGET="content">
+
+<GX type=include id="/gsa/common/header_systemDefault.html">Insert System Default Header Here</GX><BR>
+
+<!---------------------------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Account Information</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TH WIDTH="213" ALIGN="Left" >
+        Account Name
+      </TH>
+      <TD WIDTH="352">
+        <GX type=cell id=accountInfo.accountName></GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="Left" >Account Number</TH>
+      <TD>
+        <GX type=cell id=accountInfo.accountNumber></GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="Left" >Agency Name</TH>
+      <TD>
+        <GX type=cell id=accountInfo.agencyName></GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="Left" >
+        Central Account ID
+      </TH>
+      <TD>
+        <GX type=cell id=accountInfo.centralId></GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="Left" >Credit Limit</TD>
+      <TD>
+        <GX type=cell id="accountInfo.creditLimit, format($#,###.00)"></GX>&nbsp;
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!---------------------------------------------------------------------------------->
+<INPUT TYPE="Hidden" NAME="acctControl" value="<GX type=cell id=acctControl></GX>">
+<INPUT TYPE="Hidden" NAME="mccgControl" value="<GX type=cell id=mccgControl></GX>">
+<INPUT TYPE="Hidden" NAME="auth_accountNumber" value="<GX type=cell id=accountInfo.accountNumber></GX>">
+<INPUT TYPE="Hidden" NAME="auth_accountName" value="<GX type=cell id=accountInfo.accountName></GX>">
+<INPUT TYPE="Hidden" NAME="auth_agencyName" value="<GX type=cell id=accountInfo.agencyName></GX>">
+<INPUT TYPE="Hidden" NAME="auth_centralId" value="<GX type=cell id=accountInfo.centralId></GX>">
+<INPUT TYPE="Hidden" NAME="auth_creditLimit" value="<GX type=cell id=accountInfo.creditLimit></GX>">
+<INPUT TYPE="Hidden" NAME="auth_guid" value="<GX type=cell id=accountInfo.guid></GX>">
+
+
+<TABLE>
+    <TR>
+      <TD WIDTH="575" ALIGN="Center">
+        <INPUT TYPE="Submit" NAME="but_submitButton"
+               VALUE="Add Account Controls">&nbsp;&nbsp;
+
+        <INPUT TYPE="Submit" NAME="but_submitButton" VALUE="Add MCCG Controls">&nbsp;&nbsp;
+
+        <INPUT TYPE="Submit" NAME="but_submitButton" VALUE="Finish">&nbsp;&nbsp;
+
+        <INPUT TYPE="Button" NAME="but_cancelButton" VALUE="Cancel"
+               onclick="history.go(-1)">
+      </TD>
+    </TR>
+</TABLE>
+
+<!---------------------------------------------------------------------------------->
+
+<GX type=include id="/gsa/common/footer_systemDefault.html">Insert Footer Here</GX>
+
+</FORM>
+</BODY>
+</HTML>

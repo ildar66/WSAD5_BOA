@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697049078" name="RANK_GRADE" primaryKey="SQLReference_1060697049078">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049078" name="OFFICE_ID" allowNull="false" constraints="SQLConstraint_1060697049078 SQLConstraint_1060697049079">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049078" precision="12" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049079" name="RANK_GRADE" allowNull="false" constraints="SQLConstraint_1060697049080 SQLConstraint_1060697049081">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697049078" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049094" name="HIERARCHY_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049094" precision="8" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697049095" name="AGENCY_ID" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697049095" precision="7" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697049078" name="XPKRANK_GRADE" members="RDBColumn_1060697049078 RDBColumn_1060697049079" constraint="SQLConstraint_1060697049094"/>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047641" name="SYS_C003494" members="RDBColumn_1060697049078" constraint="SQLConstraint_1060697049095">
+    <target href="ConToOracle_SEGFAULT_GSA_CENTRAL_OFFICE.tblxmi#SQLReference_1060697047484"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697049094" name="XPKRANK_GRADE" type="PRIMARYKEY" primaryKey="SQLReference_1060697049078"/>
+  <constraints xmi:id="SQLConstraint_1060697049078" name="SYS_C006822" type="CHECK" members="RDBColumn_1060697049078">
+    <body>"OFFICE_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049080" name="SYS_C006823" type="CHECK" members="RDBColumn_1060697049079">
+    <body>"RANK_GRADE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049079" name="SYS_C002917" type="CHECK" members="RDBColumn_1060697049078">
+    <body>"OFFICE_ID" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049081" name="SYS_C002918" type="CHECK" members="RDBColumn_1060697049079">
+    <body>"RANK_GRADE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697049095" name="SYS_C003494" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047641"/>
+</RDBSchema:RDBTable>

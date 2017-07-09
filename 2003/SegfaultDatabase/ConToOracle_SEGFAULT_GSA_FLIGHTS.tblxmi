@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697048141" name="FLIGHTS" primaryKey="SQLReference_1060697048141">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048141" name="ID_FLIGHT" allowNull="false" constraints="SQLConstraint_1060697048141">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048141" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048142" name="DATE_DEPARTURE" allowNull="false" constraints="SQLConstraint_1060697048142">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697048141" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048143" name="DATE_ARRIVAL" allowNull="false" constraints="SQLConstraint_1060697048143">
+    <type xmi:type="RDBSchema:SQLTimestamp" xmi:id="SQLTimestamp_1060697048142" precision="7" timezone="false">
+      <originatingType xmi:type="RDBSchema:SQLTimestamp" href="ORACLE_V9_Primitives.xmi#SQLTimestamp_3"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048144" name="ID_DEPARTURE_CITY" allowNull="false" constraints="SQLConstraint_1060697048144">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048142" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048145" name="ID_ARRIVAL_CITY" allowNull="false" constraints="SQLConstraint_1060697048145">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048143" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048146" name="ID_AIRCRAFT" allowNull="false" constraints="SQLConstraint_1060697048146">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048144" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048147" name="PRICE_1_CLASS" allowNull="false" constraints="SQLConstraint_1060697048147">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048145" precision="10" scale="2">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697048148" name="PRICE_2_CLASS" allowNull="false" constraints="SQLConstraint_1060697048148">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697048146" precision="10" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697048141" name="SYS_C007300" members="RDBColumn_1060697048141" constraint="SQLConstraint_1060697048149">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_ORDERS.tblxmi#RDBReferenceByKey_1060697048141"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047078" name="SYS_C007303" onDelete="CASCADE" members="RDBColumn_1060697048146" constraint="SQLConstraint_1060697048150">
+    <target href="ConToOracle_SEGFAULT_GSA_AIRCRAFTS.tblxmi#SQLReference_1060697047062"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047594" name="SYS_C007301" onDelete="CASCADE" members="RDBColumn_1060697048144" constraint="SQLConstraint_1060697048151">
+    <target href="ConToOracle_SEGFAULT_GSA_CITIES.tblxmi#SQLReference_1060697047594"/>
+  </namedGroup>
+  <namedGroup xmi:type="RDBSchema:RDBReferenceByKey" xmi:id="RDBReferenceByKey_1060697047595" name="SYS_C007302" onDelete="CASCADE" members="RDBColumn_1060697048145" constraint="SQLConstraint_1060697048152">
+    <target href="ConToOracle_SEGFAULT_GSA_CITIES.tblxmi#SQLReference_1060697047594"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697048149" name="SYS_C007300" type="PRIMARYKEY" primaryKey="SQLReference_1060697048141"/>
+  <constraints xmi:id="SQLConstraint_1060697048141" name="SYS_C007292" type="CHECK" members="RDBColumn_1060697048141">
+    <body>"ID_FLIGHT" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048142" name="SYS_C007293" type="CHECK" members="RDBColumn_1060697048142">
+    <body>"DATE_DEPARTURE" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048143" name="SYS_C007294" type="CHECK" members="RDBColumn_1060697048143">
+    <body>"DATE_ARRIVAL" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048144" name="SYS_C007295" type="CHECK" members="RDBColumn_1060697048144">
+    <body>"ID_DEPARTURE_CITY" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048145" name="SYS_C007296" type="CHECK" members="RDBColumn_1060697048145">
+    <body>"ID_ARRIVAL_CITY" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048146" name="SYS_C007297" type="CHECK" members="RDBColumn_1060697048146">
+    <body>"ID_AIRCRAFT" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048147" name="SYS_C007298" type="CHECK" members="RDBColumn_1060697048147">
+    <body>"PRICE_1_CLASS" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048148" name="SYS_C007299" type="CHECK" members="RDBColumn_1060697048148">
+    <body>"PRICE_2_CLASS" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697048150" name="SYS_C007303" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047078"/>
+  <constraints xmi:id="SQLConstraint_1060697048151" name="SYS_C007301" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047594"/>
+  <constraints xmi:id="SQLConstraint_1060697048152" name="SYS_C007302" type="FOREIGNKEY" referenceByKey="RDBReferenceByKey_1060697047595"/>
+</RDBSchema:RDBTable>

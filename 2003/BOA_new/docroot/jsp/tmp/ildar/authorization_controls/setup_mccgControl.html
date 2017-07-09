@@ -1,0 +1,328 @@
+
+<HTML>
+<HEAD>
+
+<TITLE>MCCG Controls Setup</TITLE>
+
+<META NAME="Name" CONTENT="MCCG Controls Setup">
+<META NAME="Description" CONTENT="User setup for MCCG Controls from Auth Controls Setup">
+<META NAME="Author" CONTENT="Todd Bernard">
+<META NAME="Created" CONTENT="07/22/1998">
+<META NAME="Revised" CONTENT="09/24/1998 Edited -BB">
+<SCRIPT LANGUAGE="JavaScript" SRC="/gsa/scripts/setstyle.js"></SCRIPT>
+
+</HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Start hiding from other browsers
+
+// FUNCTIONS
+
+function initialize(theForm)
+    {
+     parent.logo.setFocus(theForm,theForm.mccg_singleLimit,(parent.logo.Status_Text_SinglePurchaseLimit));
+    }
+
+function formTest(theForm)
+    {
+     var errormessage=parent.logo.ErrMsg_Header;
+
+     if (parent.logo.checkNumeric(theForm,theForm.mccg_otherTotalNumberDays) == "error")
+         {
+          errormessage += parent.logo.ErrMsg_OtherTotalNumberDays;
+         }
+
+     if ((theForm.mccg_otherRefreshDate.value != "")&&
+         (parent.logo.checkDate(theForm,theForm.mccg_otherRefreshDate) == "error"))
+         {
+          errormessage += parent.logo.ErrMsg_Date;
+         }
+
+     if (errormessage != parent.logo.ErrMsg_Header)
+         {
+          alert(errormessage);
+          return false;
+         }
+     else
+     return true;
+    }
+
+// Stop hiding -->
+</SCRIPT>
+
+<!---------------------------------------------------------------------------------->
+
+<BODY onLoad="initialize(document.frm_setupMccgControls)">
+
+<FORM NAME="frm_setupMccgControls"
+      ACTION="/cgi-bin/gx.cgi/GUIDGX-{95F59755-2237-11D2-92CE-0000F6AACD5A}"
+      METHOD="POST"
+      TARGET="content"
+      onsubmit="return formTest(document.frm_setupMccgControls);">
+
+<GX type=include id="/gsa/common/header_systemDefault.html">Insert System Default Header Here</GX><BR>
+
+<!---------------------------------------------------------------------------------->
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Account Information</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TH WIDTH="213" ALIGN="left" >
+        Account Name
+      </TH>
+      <TD WIDTH="352">
+        <GX type=cell id=accountInfo.accountName></GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >
+        Account Number
+      </TH>
+      <TD>
+        <GX type=cell id=accountInfo.accountNumber></GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >
+        Agency Name
+      </TH>
+      <TD>
+        <GX type=cell id=accountInfo.agencyName></GX>&nbsp;
+      </TD>
+    </TR>
+    <TR>
+      <TH ALIGN="left" >
+        Central Account ID
+      </TH>
+      <TD>
+        <GX type=cell id=accountInfo.centralId></GX>&nbsp;
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<TABLE BORDER="1">
+    <TR>
+      <TD WIDTH="213" ALIGN="left">MCCG Table Name</TD>
+      <TD WIDTH="352">
+        <SELECT NAME="mccg_mccgTableName" SIZE="1">
+    	  <GX type=tile id=MCCGTableList>
+            <GX type=replace id=MCCGTableList.mccgOptionName value=mccgOptionName>
+              <GX type=replace id=MCCGTableList.mccgOptionDisplay value=mccgOptionDisplay>
+                <OPTION value="mccgOptionName">mccgOptionDisplay</OPTION>
+              </GX>
+            </GX>
+          </GX>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD ALIGN="left">MCCG Action</TD>
+      <TD>
+        <SELECT NAME="mccg_mccgAction" SIZE="1">
+          <OPTION value="Include">Include</OPTION>
+          <OPTION value="Exclude">Exclude</OPTION>
+          <OPTION value="Refer">Refer</OPTION>
+          <OPTION value="Divert">Divert</OPTION>
+          <OPTION value="Bypass">Bypass</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!------------------------------------------------------------------------------>
+
+<IMG SRC="/gsa/images/line.gif" WIDTH="575"><BR>
+
+<!------------------------------------------------------------------------------>
+
+<BR><B><FONT COLOR="#0000FF" FACE="Arial, helvetica">MCCG Transaction Limit</FONT></B>
+
+<TABLE BORDER="1">
+    <TR>
+      <TD WIDTH="213">Single Purchase Limit</TD>
+      <TD WIDTH="352">
+        <INPUT TYPE="text" NAME="mccg_singleLimit" SIZE="15" MAXLENGTH="14" value=""
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_SinglePurchaseLimit);">
+      </TD>
+  </TR>
+</TABLE>
+<BR>
+
+<!--- For code below...set up in table frmt broken by 4 segments as.. DAILY     CYCLK -->
+<!--- Each section contains row data spread across columns.           MONTHLY   OTHER -->
+
+<TABLE BORDER="1">
+    <TR>
+      <TH COLSPAN="2" ALIGN="Left" >Daily</TH>
+      <TH COLSPAN="2" ALIGN="Left" >Cycle</TH>
+    </TR>
+    <TR>
+      <TD WIDTH="141">Transaction Limit</TD>
+      <TD WIDTH="140">
+        <INPUT TYPE="Text" NAME="mccg_dailyTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_DailyTransLimit);">
+        </TD>
+      <TD WIDTH="140">Transaction Limit</TD>
+      <TD WIDTH="140">
+        <INPUT TYPE="Text" NAME="mccg_cycleTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_CycleTransLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="mccg_dailyAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_DailyAmountLimit);">
+      </TD>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="mccg_cycleAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_CycleAmountLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TH COLSPAN="2" ALIGN="left" >Monthly</TH>
+      <TH COLSPAN="2" ALIGN="left" >Other</TH>
+    </TR>
+    <TR>
+      <TD>Transaction Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="mccg_monthTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_MonthTransLimit);">
+      </TD>
+      <TD>Transaction Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="mccg_otherTransLimit" SIZE="10" MAXLENGTH="9"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherTransLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="mccg_monthAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_MonthAmountLimit);">
+      </TD>
+      <TD>Amount Limit</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="mccg_otherAmountLimit" SIZE="15" MAXLENGTH="14"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherAmountLimit);">
+      </TD>
+    </TR>
+    <TR>
+      <TD><BR></TD>
+      <TD><BR></TD>
+      <TD>Total No. of Days</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="mccg_otherTotalNumberDays" SIZE="4" MAXLENGTH="3"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherTotalNumberDays);">
+      </TD>
+    </TR>
+    <TR>
+      <TD><BR></TD>
+      <TD><BR></TD>
+      <TD>Refresh Date</TD>
+      <TD>
+        <INPUT TYPE="text" NAME="mccg_otherRefreshDate" SIZE="11" MAXLENGTH="10"
+               onFocus="parent.logo.Display_Message(parent.logo.Status_Text_OtherRefreshDate)"><BR>(MM/DD/YYYY)
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!------------------------------------------------------------------------------>
+
+<IMG SRC="/gsa/images/line.gif" WIDTH="575"><BR><BR>
+
+<!------------------------------------------------------------------------------>
+
+<B><FONT COLOR="#0000FF" FACE="Arial, helvetica">Vendor Information</FONT></B><BR>
+
+<TABLE BORDER="1">
+    <TR>
+      <TD WIDTH="213">Vendor Check</TD>
+      <TD WIDTH="352">
+        <SELECT NAME="mccg_vendorCheck" SIZE="1">
+          <OPTION value="Yes">Yes</OPTION>
+          <OPTION value="No">No</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Vendor Type</TD>
+      <TD>
+        <SELECT NAME="mccg_vendorType" SIZE="1">
+          <OPTION value="Include">Include</OPTION>
+          <OPTION value="Exclude">Exclude</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Vendor Action</TD>
+      <TD>
+        <SELECT NAME="mccg_vendorAction" SIZE="1">
+          <OPTION value="Accept">Accept</OPTION>
+          <OPTION value="Refer">Refer</OPTION>
+          <OPTION SELECTED value="Decline">Decline</OPTION>
+        </SELECT>
+      </TD>
+    </TR>
+    <TR>
+      <TD>Valid Preferred Tables</TD>
+      <TD>
+        <SELECT NAME="mccg_validPreferredTables" SIZE="1">
+         <GX type=tile id=validPreferred>
+          <GX type=replace id=validPreferred.preferredOptionName value=preferredOptionName>
+            <GX type=replace id=validPreferred.preferredOptionDisplay value=preferredOptionDisplay>
+             
+				  <OPTION VALUE="preferredOptionName" >
+					preferredOptionDisplay
+				  </OPTION>
+             
+            </GX>
+          </GX>
+        </GX>
+        </SELECT>
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!------------------------------------------------------------------------------>
+
+<INPUT TYPE="Hidden" NAME="acctControl" value="<GX type=cell id=acctControl></GX>">
+<INPUT TYPE="Hidden" NAME="mccgControl" value="<GX type=cell id=mccgControl></GX>">
+<INPUT TYPE="Hidden" NAME="auth_accountNumber" value="<GX type=cell id=accountInfo.accountNumber></GX>">
+<INPUT TYPE="Hidden" NAME="auth_accountName" value="<GX type=cell id=accountInfo.accountName></GX>">
+<INPUT TYPE="Hidden" NAME="auth_agencyName" value="<GX type=cell id=accountInfo.agencyName></GX>">
+<INPUT TYPE="Hidden" NAME="auth_centralId" value="<GX type=cell id=accountInfo.centralId></GX>">
+<INPUT TYPE="Hidden" NAME="auth_creditLimit" value="<GX type=cell id=accountInfo.creditLimit></GX>">
+<INPUT TYPE="Hidden" NAME="auth_guid" value="<GX type=cell id=accountInfo.guid></GX>">
+
+<!------------------------------------------------------------------------------>
+
+<TABLE>
+    <TR>
+      <TD WIDTH="575" ALIGN="Center">
+        <INPUT TYPE="Submit" NAME="but_submitButton" VALUE="Submit">&nbsp;&nbsp;
+<GX type=cell id=showAddMCCG>
+        <INPUT TYPE="Submit" NAME="but_submitButton" VALUE="Add MCCG Controls">&nbsp;&nbsp;
+</GX>
+        <INPUT TYPE="Reset" NAME="but_resetButton" VALUE="Clear">&nbsp;&nbsp;
+
+        <INPUT TYPE="Button" NAME="but_cancelButton" VALUE="Cancel"
+               onclick="history.go(-1)">
+      </TD>
+    </TR>
+</TABLE>
+<BR>
+
+<!------------------------------------------------------------------------------>
+
+<GX type=include id="/gsa/common/footer_systemDefault.html">Insert Footer Here</GX>
+
+</FORM>
+</BODY>
+</HTML>

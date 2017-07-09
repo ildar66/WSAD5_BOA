@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697050016" name="VOYAGER_ACCOUNT" primaryKey="SQLReference_1060697050016">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050016" name="ACCOUNT_NBR" allowNull="false" constraints="SQLConstraint_1060697050016 SQLConstraint_1060697050017">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697050016" precision="19" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050017" name="VOYAGER_ACCT_NBR" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697050017" precision="16" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697050018" name="VOYAGER_VEHICLE_ID" allowNull="true">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697050018" precision="6" scale="0">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697050016" name="XPKVOYAGER_ACCOUNT" members="RDBColumn_1060697050016" constraint="SQLConstraint_1060697050018"/>
+  <constraints xmi:id="SQLConstraint_1060697050018" name="XPKVOYAGER_ACCOUNT" type="PRIMARYKEY" primaryKey="SQLReference_1060697050016"/>
+  <constraints xmi:id="SQLConstraint_1060697050016" name="SYS_C007145" type="CHECK" members="RDBColumn_1060697050016">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697050017" name="SYS_C003071" type="CHECK" members="RDBColumn_1060697050016">
+    <body>"ACCOUNT_NBR" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>

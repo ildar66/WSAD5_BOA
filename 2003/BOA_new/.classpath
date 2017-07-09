@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+    <classpathentry kind="src" path="src"/>
+    <classpathentry exported="true" kind="lib" path="docroot/WEB-INF/lib/commons-beanutils.jar"/>
+    <classpathentry exported="true" kind="lib" path="docroot/WEB-INF/lib/commons-collections.jar"/>
+    <classpathentry exported="true" kind="lib" path="docroot/WEB-INF/lib/commons-dbcp.jar"/>
+    <classpathentry exported="true" kind="lib" path="docroot/WEB-INF/lib/commons-digester.jar"/>
+    <classpathentry exported="true" kind="lib" path="docroot/WEB-INF/lib/commons-fileupload.jar"/>
+    <classpathentry exported="true" kind="lib" path="docroot/WEB-INF/lib/commons-lang.jar"/>
+    <classpathentry exported="true" kind="lib" path="docroot/WEB-INF/lib/commons-logging.jar"/>
+    <classpathentry exported="true" kind="lib" path="docroot/WEB-INF/lib/commons-pool.jar"/>
+    <classpathentry exported="true" kind="lib" path="docroot/WEB-INF/lib/commons-resources.jar"/>
+    <classpathentry exported="true" kind="lib" path="docroot/WEB-INF/lib/commons-validator.jar"/>
+    <classpathentry kind="lib" path="docroot/WEB-INF/lib/jdbc2_0-stdext.jar"/>
+    <classpathentry kind="var" path="WAS_50_PLUGINDIR/lib/j2ee.jar"/>
+    <classpathentry kind="var" path="WAS_50_PLUGINDIR/lib/servletevent.jar"/>
+    <classpathentry kind="var" path="WAS_50_PLUGINDIR/lib/ivjejb35.jar"/>
+    <classpathentry kind="var" path="WAS_50_PLUGINDIR/lib/runtime.jar"/>
+    <classpathentry kind="var"
+        path="SERVERJDK_50_PLUGINDIR/jre/lib/rt.jar"
+        rootpath="SERVERJDK_SRCROOT" sourcepath="SERVERJDK_50_PLUGINDIR/src.jar"/>
+    <classpathentry exported="true" kind="lib" path="C:/WSAD5_workspaces/WSAD5_BOA_new/BOA_new/lib/log4j-1.2.8.jar"/>
+    <classpathentry kind="lib" path="C:/WSAD5_workspaces/WSAD5_BOA_new/BOA_new/lib/classes12.jar"/>
+    <classpathentry kind="lib" path="C:/WSAD5_workspaces/WSAD5_BOA_new/BOA_new/lib/struts.jar"/>
+    <classpathentry kind="lib" path="docroot/WEB-INF/lib/struts.jar"/>
+    <classpathentry kind="output" path="docroot\WEB-INF\classes"/>
+</classpath>

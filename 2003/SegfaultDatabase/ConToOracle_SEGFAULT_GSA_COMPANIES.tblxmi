@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDBSchema:RDBTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RDBSchema="RDBSchema.xmi" xmi:id="RDBTable_1060697047609" name="COMPANIES" primaryKey="SQLReference_1060697047078">
+  <database href="ConToOracle_SEGFAULT.dbxmi#RDBDatabase_1060697044453"/>
+  <schema href="ConToOracle_SEGFAULT_GSA.schxmi#RDBSchema_1060697044453"/>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047609" name="ID_COMPANY" allowNull="false" constraints="SQLConstraint_1060697047609">
+    <type xmi:type="RDBSchema:SQLNumeric" xmi:id="SQLNumeric_1060697047609" precision="22">
+      <originatingType xmi:type="RDBSchema:SQLNumeric" href="ORACLE_V9_Primitives.xmi#SQLNumeric_6"/>
+    </type>
+  </columns>
+  <columns xmi:type="RDBSchema:RDBColumn" xmi:id="RDBColumn_1060697047610" name="NAME_COMPANY" allowNull="false" constraints="SQLConstraint_1060697047610">
+    <type xmi:type="RDBSchema:OracleCharacterStringType" xmi:id="OracleCharacterStringType_1060697047609" characterSet="800" length="20">
+      <originatingType xmi:type="RDBSchema:OracleCharacterStringType" href="ORACLE_V9_Primitives.xmi#SQLCharacterStringType_2"/>
+    </type>
+  </columns>
+  <namedGroup xmi:type="RDBSchema:SQLReference" xmi:id="SQLReference_1060697047078" name="SYS_C007284" members="RDBColumn_1060697047609" constraint="SQLConstraint_1060697047611">
+    <referenceByKey href="ConToOracle_SEGFAULT_GSA_AIRCRAFTS.tblxmi#RDBReferenceByKey_1060697047078"/>
+  </namedGroup>
+  <constraints xmi:id="SQLConstraint_1060697047611" name="SYS_C007284" type="PRIMARYKEY" primaryKey="SQLReference_1060697047078"/>
+  <constraints xmi:id="SQLConstraint_1060697047609" name="SYS_C007282" type="CHECK" members="RDBColumn_1060697047609">
+    <body>"ID_COMPANY" IS NOT NULL</body>
+  </constraints>
+  <constraints xmi:id="SQLConstraint_1060697047610" name="SYS_C007283" type="CHECK" members="RDBColumn_1060697047610">
+    <body>"NAME_COMPANY" IS NOT NULL</body>
+  </constraints>
+</RDBSchema:RDBTable>
